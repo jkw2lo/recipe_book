@@ -1,0 +1,1783 @@
+{
+  "recipes": [
+    {
+      "name": "Banana Bread",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 201,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        },
+        {
+          "id": "banana",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "baking_soda",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "cinnamon",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "brown_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "yogurt",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
+          "id": "walnuts",
+          "optional": true
+        },
+        {
+          "id": "dark_chocolate",
+          "optional": true,
+          "substitutes": [
+            "milk_chocolate",
+            "white_chocolate"
+          ]
+        }
+      ],
+      "instructions": [
+        "Rack to the lower third; heat oven to 350°F / 177°C. Grease a 9×5 in loaf pan.",
+        "Whisk flour, baking soda, salt and cinnamon.",
+        "Mash the bananas — the mixer does this well.",
+        "Cream butter and brown sugar 3 min until light.",
+        "Add eggs one at a time, beating well between.",
+        "Beat in bananas, yogurt and vanilla.",
+        "Add the dry to the wet on low, just until combined. Fold in add-ins.",
+        "Spread into the pan; bake 60–65 min, foiling loosely halfway.",
+        "Cool 1 hr in the pan on a rack.",
+        "Turn out and cool completely before slicing."
+      ]
+    },
+    {
+      "name": "Chewy Chocolate Chip Cookies",
+      "mealType": "dessert",
+      "difficulty": "easy",
+      "time": 68,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "brown_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "baking_soda",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "dark_chocolate",
+          "mandatory": true,
+          "substitutes": [
+            "milk_chocolate",
+            "white_chocolate"
+          ]
+        }
+      ],
+      "instructions": [
+        "Mix the cooled melted butter with both sugars.",
+        "Beat in the egg and vanilla until smooth.",
+        "Add flour, baking soda and salt; mix by hand just until combined. Fold in chocolate.",
+        "Scoop into balls, about 1½ Tbsp each.",
+        "Chill at least 20 min — longer is better.",
+        "Heat oven to 350°F / 175°C; line a sheet.",
+        "Bake 10–11 min until the edges are golden.",
+        "Sprinkle with flaky salt; cool 5 min on the sheet."
+      ]
+    },
+    {
+      "name": "Four-Flavour Sablés",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 260,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "powdered_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "matcha",
+          "mandatory": true
+        },
+        {
+          "id": "cocoa_powder",
+          "mandatory": true
+        },
+        {
+          "id": "milk_chocolate",
+          "mandatory": true,
+          "substitutes": [
+            "white_chocolate"
+          ]
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
+          "id": "black_tea",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Beat salt and powdered sugar into the softened butter with a spatula.",
+        "Mix in the egg yolks, then the flour.",
+        "Bring together and divide into 4 pieces, about 187 g each.",
+        "Work matcha and powdered sugar into one quarter.",
+        "Work cocoa and chocolate chips into one quarter.",
+        "Work vanilla into one quarter, with a little flour to compensate.",
+        "Work the black tea leaves into the last quarter.",
+        "Wrap each log and chill at least 3 hr.",
+        "Roll each log in granulated sugar.",
+        "Cut each log into 12; bake at 165°C / 330°F for 20 min.",
+        "Cool on the tray before moving them."
+      ]
+    },
+    {
+      "name": "Green Grape Cheong (포도청)",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 1490,
+      "perishables": [
+        {
+          "id": "grapes",
+          "mandatory": true
+        },
+        {
+          "id": "lemon",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "baking_soda",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Scrub the grapes and lemons with baking soda.",
+        "Rinse well, several times over.",
+        "Dry completely — no residual moisture.",
+        "Slice one lemon thinly; pick out the seeds.",
+        "Juice the second lemon; strain out seeds.",
+        "Halve the grapes: slice one half, mince or blend the other.",
+        "Combine everything with the sugar and mix well.",
+        "Pack into a sterilised jar.",
+        "Leave at room temperature until the sugar fully dissolves.",
+        "Move to the refrigerator once dissolved."
+      ]
+    },
+    {
+      "name": "Japanese Cake Roll",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 156,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "milk",
+          "mandatory": true
+        },
+        {
+          "id": "cake_flour",
+          "mandatory": true,
+          "substitutes": [
+            "flour"
+          ]
+        },
+        {
+          "id": "baking_powder",
+          "mandatory": true
+        },
+        {
+          "id": "cream_of_tartar",
+          "mandatory": true
+        },
+        {
+          "id": "heavy_cream",
+          "mandatory": true
+        },
+        {
+          "id": "powdered_sugar",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Line a 9×13 in pan; heat oven to 350°F / 176°C.",
+        "Whisk yolks, sugar, salt, vanilla, oil and milk.",
+        "Sift in cake flour and baking powder; whisk smooth.",
+        "Wipe the bowl with vinegar or lemon; beat whites to frothy.",
+        "Add cream of tartar, then sugar in three additions; beat to stiff peaks.",
+        "Fold meringue into the batter in thirds, gently.",
+        "Spread in the pan, tap out big bubbles, bake 15–17 min.",
+        "Flip onto a damp towel, peel the parchment, roll from the short side.",
+        "Leave rolled in the towel until completely cool.",
+        "Whip cream, powdered sugar and vanilla to medium-stiff peaks.",
+        "Unroll, trim edges, spread cream leaving a ½ in / 1 cm border.",
+        "Roll back up without the towel, wrap tightly, chill 1 hr."
+      ]
+    },
+    {
+      "name": "Karaage (Japanese Fried Chicken)",
+      "mealType": "meal",
+      "difficulty": "medium",
+      "time": 70,
+      "perishables": [
+        {
+          "id": "chicken_thigh",
+          "mandatory": true,
+          "substitutes": [
+            "chicken_breast"
+          ]
+        },
+        {
+          "id": "ginger",
+          "mandatory": true
+        },
+        {
+          "id": "lemon",
+          "optional": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "black_pepper",
+          "mandatory": true
+        },
+        {
+          "id": "garlic",
+          "mandatory": true
+        },
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "sake",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_oil",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "potato_starch",
+          "mandatory": true,
+          "substitutes": [
+            "cornstarch"
+          ]
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "kewpie_mayo",
+          "optional": true
+        },
+        {
+          "id": "togarashi",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Cut thighs into 2 in / 5 cm pieces; season with salt and pepper.",
+        "Whisk ginger, garlic, soy, sake and sesame oil; mix into the chicken by hand.",
+        "Cover; marinate in the fridge 30 min.",
+        "Heat 2.5–3.8 cm of oil to 325°F / 160°C over medium-low.",
+        "Dredge flour first, then potato starch, shaking off excess each time.",
+        "First fry: 3–5 pieces at a time, 90 sec, to light golden. Rest on a rack.",
+        "Skim crumbs from the oil between batches.",
+        "Second fry at 350°F / 180°C, 45 sec, until golden and crisp.",
+        "Serve hot with lemon, Kewpie mayo and shichimi."
+      ]
+    },
+    {
+      "name": "Kitsune Udon",
+      "mealType": "meal",
+      "difficulty": "easy",
+      "time": 70,
+      "perishables": [
+        {
+          "id": "inari_age",
+          "mandatory": true,
+          "substitutes": [
+            "tofu_puff"
+          ]
+        },
+        {
+          "id": "scallion",
+          "mandatory": true
+        },
+        {
+          "id": "narutomaki",
+          "optional": true,
+          "substitutes": [
+            "fish_balls"
+          ]
+        }
+      ],
+      "pantry": [
+        {
+          "id": "kombu",
+          "mandatory": true
+        },
+        {
+          "id": "katsuobushi",
+          "mandatory": true
+        },
+        {
+          "id": "dashi",
+          "mandatory": true
+        },
+        {
+          "id": "mirin",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "usukuchi_soy_sauce",
+          "mandatory": true,
+          "substitutes": [
+            "soy_sauce"
+          ]
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "udon_noodles",
+          "mandatory": true
+        },
+        {
+          "id": "togarashi",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Soak kombu in the water at least 30 min (up to half a day).",
+        "Heat slowly to just below boiling; pull the kombu out before it boils.",
+        "Add katsuobushi, return to a boil, simmer 15 sec, turn off.",
+        "Let the flakes sink 10–15 min, then strain.",
+        "Combine dashi, mirin, sugar, usukuchi soy and salt; boil, then hold at a low simmer.",
+        "Squeeze the inari age; slice scallion and narutomaki thin.",
+        "Boil udon 1 min from frozen (or per package).",
+        "Drain, shaking off every bit of water.",
+        "Divide noodles into bowls, pour over hot broth, add toppings."
+      ]
+    },
+    {
+      "name": "Korean Macaroni Salad",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 63,
+      "perishables": [
+        {
+          "id": "cucumber",
+          "mandatory": true
+        },
+        {
+          "id": "corn",
+          "mandatory": true
+        },
+        {
+          "id": "bell_pepper",
+          "mandatory": true
+        },
+        {
+          "id": "lemon",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "dried_pasta",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "mayonnaise",
+          "mandatory": true,
+          "substitutes": [
+            "kewpie_mayo"
+          ]
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "honey",
+          "mandatory": true
+        },
+        {
+          "id": "black_pepper",
+          "mandatory": true
+        },
+        {
+          "id": "dijon_mustard",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Boil the macaroni per the package, salting the water. Drain, cool 2 min.",
+        "Toss the cucumber with ½ tsp salt; leave it to draw while you prep.",
+        "Cube the bell pepper; drain the tinned corn.",
+        "Whisk mayo, sugar, honey, lemon juice, salt, pepper and dijon.",
+        "Gently squeeze the water out of the cucumber.",
+        "Combine everything in a large bowl.",
+        "Chill at least 30 min before serving."
+      ]
+    },
+    {
+      "name": "Korokke (Potato & Meat Croquettes)",
+      "mealType": "meal",
+      "difficulty": "medium",
+      "time": 90,
+      "perishables": [
+        {
+          "id": "potato",
+          "mandatory": true
+        },
+        {
+          "id": "carrot",
+          "mandatory": true
+        },
+        {
+          "id": "shiitake",
+          "mandatory": true
+        },
+        {
+          "id": "ground_beef",
+          "mandatory": true
+        },
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "onion",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "white_pepper",
+          "mandatory": true,
+          "substitutes": [
+            "black_pepper"
+          ]
+        },
+        {
+          "id": "black_pepper",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "panko",
+          "mandatory": true
+        },
+        {
+          "id": "tonkatsu_sauce",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Peel and quarter the potatoes; boil 15–20 min until a skewer slides in. Drain fully.",
+        "Back on low heat, shake the pot until every trace of moisture is gone.",
+        "Mash, leaving some chunks for texture.",
+        "Finely chop onion, carrot and shiitake caps.",
+        "Sauté onion in oil until soft, then add carrot and shiitake and cook until soft.",
+        "Add beef, break up, cook through; season with salt and both peppers.",
+        "Drain the meat and stir into the potatoes — leave the liquid behind.",
+        "Mix in the egg until well combined.",
+        "While still warm (not hot), form into ovals.",
+        "Chill 15–30 min. Do not skip.",
+        "Set out flour, beaten egg and panko; coat in that order.",
+        "Heat 5 cm of oil to 340–350°F / 170–180°C.",
+        "Fry in batches to golden brown — the inside is already cooked. Drain on a rack.",
+        "Serve immediately with tonkatsu sauce."
+      ]
+    },
+    {
+      "name": "Matcha Cookies",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 172,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "matcha",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "powdered_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "white_chocolate",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Sift flour and matcha together.",
+        "Beat butter smooth, blend in the salt.",
+        "Add confectioners' sugar; beat until soft and light.",
+        "Mix in the egg yolks.",
+        "Add the flour-matcha gradually; mix until just combined.",
+        "Fold in white chocolate chips.",
+        "Halve the dough; roll each into a log 1½ in / 4 cm across, 7 in / 18 cm long.",
+        "Wrap and chill until firm, at least 2 hr.",
+        "Heat oven to 350°F / 175°C; line a sheet.",
+        "Slice ⅓ in / 7 mm rounds, space 1 in / 2.5 cm apart.",
+        "Bake ~15 min, until the edges just turn golden.",
+        "Cool 5 min on the sheet, then finish on a rack."
+      ]
+    },
+    {
+      "name": "Nian Gao (New Year Cake)",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 695,
+      "perishables": [
+        {
+          "id": "eggs",
+          "optional": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "glutinous_rice_flour",
+          "mandatory": true
+        },
+        {
+          "id": "ground_ginger",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "brown_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "coconut_milk",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "kansui",
+          "optional": true
+        },
+        {
+          "id": "jujube",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Whisk glutinous rice flour, ground ginger and salt.",
+        "Snap the sugar slabs into a pan with the water; boil covered until fully dissolved.",
+        "Off heat, stir in coconut milk, oil and kansui; cool 5–10 min.",
+        "Add the hot liquid to the flour in thirds, stirring until only small lumps remain.",
+        "Pass the batter through a fine mesh strainer.",
+        "Grease a 9 in / 23 cm round pan; pour in and tap out air bubbles.",
+        "Cover with foil; set on a rack in a wok with water ½ in / 1 cm below the rack.",
+        "Steam on medium 50–60 min (45–50 for a thin pan). Top up water halfway.",
+        "Test with a chopstick: the cake should be brown and slightly translucent.",
+        "Cool on the counter overnight before slicing.",
+        "Slice ¼–½ in / 6–12 mm and pan-fry 3–4 min, flipping once, until blistered."
+      ]
+    },
+    {
+      "name": "Petite Vanilla Bean Scones",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 188,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "baking_powder",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "heavy_cream",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_bean",
+          "mandatory": true,
+          "substitutes": [
+            "vanilla_extract"
+          ]
+        },
+        {
+          "id": "powdered_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "milk",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Split 2 vanilla beans, scrape the seeds into the cream.",
+        "Let the vanilla cream stand 15 min.",
+        "Heat oven to 350°F / 175°C.",
+        "Sift flour, sugar, baking powder and salt together.",
+        "Cut chilled butter into the flour until it looks like crumbs.",
+        "Whisk egg into the vanilla cream; stir into the flour with a fork just until it comes together.",
+        "Press into a rectangle and roll ½–¾ in / 1.5–2 cm thick.",
+        "Trim square, cut 12 rectangles, then halve each diagonally into triangles.",
+        "Bake 18 min, pulling them just before they colour.",
+        "Cool 15 min on the sheet, then completely on a rack.",
+        "Scrape 1 vanilla bean into the milk; let it sit.",
+        "Whisk powdered sugar and a dash of salt into the vanilla milk until smooth.",
+        "Dunk each cooled scone, turning to coat; set on parchment or a rack.",
+        "Let the glaze set completely, about 1 hr."
+      ]
+    },
+    {
+      "name": "Ridiculously Good Oxtail Stew",
+      "mealType": "meal",
+      "difficulty": "medium",
+      "time": 392,
+      "perishables": [
+        {
+          "id": "ox_tail",
+          "mandatory": true
+        },
+        {
+          "id": "leek",
+          "mandatory": true
+        },
+        {
+          "id": "celery",
+          "mandatory": true
+        },
+        {
+          "id": "carrot",
+          "mandatory": true
+        },
+        {
+          "id": "thyme",
+          "mandatory": true
+        },
+        {
+          "id": "rosemary",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "olive_oil",
+          "mandatory": true
+        },
+        {
+          "id": "bay_leaves",
+          "mandatory": true
+        },
+        {
+          "id": "cloves",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "canned_tomatoes",
+          "mandatory": true
+        },
+        {
+          "id": "porter",
+          "mandatory": true,
+          "substitutes": [
+            "red_wine"
+          ]
+        },
+        {
+          "id": "beef_stock",
+          "optional": true
+        },
+        {
+          "id": "worcestershire",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Preheat oven to 425°F / 220°C with a large roasting tray inside.",
+        "Season and oil the oxtail in the hot tray; roast ~20 min until golden and caramelised.",
+        "Chop leeks, celery and carrots into 2 cm pieces.",
+        "Sweat with picked thyme, rosemary and bay in oil, ~20 min, until soft and sweet.",
+        "Drop the oven to 325°F / 170°C. Stir cloves and flour into the veg.",
+        "Pour in tomatoes and porter, add the oxtail and its juices, cover with stock.",
+        "Bring to the boil, lid on, then oven ~5 hr until the meat falls off the bone.",
+        "Rest 10 min out of the oven.",
+        "Strip the meat from the bones with gloved hands; discard the bones.",
+        "Add Worcestershire sauce, season, serve with mash and greens."
+      ]
+    },
+    {
+      "name": "Shokupan (Chopstick Chronicles — yudane)",
+      "mealType": "side",
+      "difficulty": "hard",
+      "time": 680,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "bread_flour",
+          "mandatory": true
+        },
+        {
+          "id": "milk",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "yeast",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Mix bread flour with boiling water to a paste.",
+        "Wrap and refrigerate overnight, 8–12 hr.",
+        "Room-temperature milk into the mixer bowl.",
+        "Add sugar, butter and yeast, then tear the yudane in in small pieces.",
+        "Add bread flour and salt.",
+        "Combine on speed 1, then knead on speed 5–6 for 20 min.",
+        "Round the dough, into a greased bowl, covered; rise 45–60 min at 86°F / 30°C until doubled.",
+        "Finger test: floured finger poke — the hole should stay.",
+        "Punch down, cut into 2 equal pieces, roll each.",
+        "Cover with a wet cloth; bench rest 20 min.",
+        "Roll each to 5.9×7.8 in / 15×20 cm; fold left and right to the centre, no trapped air.",
+        "Rotate 90°, roll up from one end; both into a greased tin, ends facing the centre.",
+        "Cover with a wet cloth; rise ~30 min until level with the tin.",
+        "Preheat to 365°F / 185°C.",
+        "Optional: brush the risen dough with beaten egg.",
+        "Bake 25–30 min.",
+        "Turn out onto a rack. Slice the next day."
+      ]
+    },
+    {
+      "name": "Shokupan (JOC — straight dough)",
+      "mealType": "side",
+      "difficulty": "hard",
+      "time": 390,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "honey",
+          "mandatory": true
+        },
+        {
+          "id": "yeast",
+          "mandatory": true
+        },
+        {
+          "id": "bread_flour",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "milk_powder",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Pick your water temperature from your kitchen temperature; target 79–82°F / 26–28°C final dough.",
+        "Combine water, sugar and honey; whisk in the yeast.",
+        "Mix flour, salt and milk powder in the mixer bowl; well in the centre; pour in the yeast liquid.",
+        "Speed 2, 2–3 min to a shaggy dough with no dry patches.",
+        "Speed 4, 4 min — smoothing but still bumpy.",
+        "Speed 6, 3 min until it clears the bowl.",
+        "Check dough is below 79°F / 26°C, then add cubed butter.",
+        "Speed 2, 2 min until no butter streaks remain.",
+        "Speed 6, 2–3 min until the dough clings to the hook and the bowl is clean.",
+        "Windowpane test: stretch thin — translucent, no tearing.",
+        "Speed 4, 1–2 min to relax. Dough should read 79–82°F / 26–28°C.",
+        "Slam and fold 5 times, then tension-pull into a taut ball.",
+        "Into an oiled bowl, covered; rise 45–60 min until doubled.",
+        "Finger test: the poke should stay, or spring back very slowly.",
+        "Deflate, weigh, divide into 3 equal pieces.",
+        "Shape each into a boule; drag 6 times on an unfloured surface for tension.",
+        "Cover with a damp towel; bench rest 15 min.",
+        "Grease the pan and lid with butter, corners included.",
+        "Roll each to 7×9 in / 18×23 cm, fold in thirds, roll to a taut log, pinch the seam.",
+        "Three logs seam-down in the pan, swirls facing inward, sides touching the walls.",
+        "Cover and proof ~1 hr. Flat top: 75–80% of pan height. Round top: 85–90%.",
+        "Preheat 425°F / 220°C, rack 6–7 in / 15–18 cm below the top element.",
+        "Flat top: lid on, 410°F / 210°C, 25–30 min. Round top: spritz, 385°F / 195°C, 25–30 min.",
+        "Slam the pan on the counter 1–2 times, then turn the loaf out onto a rack.",
+        "Cool completely, 2–3 hours, before slicing."
+      ]
+    },
+    {
+      "name": "Shortbread Cookies",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 120,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "powdered_sugar",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Cream the butter with the vanilla.",
+        "Add confectioners' sugar and salt; mix to combine.",
+        "Scrape down, add flour on low, scrape and mix until combined.",
+        "Shape into a rectangular brick and wrap.",
+        "Chill until firm, at least 1 hr.",
+        "Heat oven to 350°F / 177°C.",
+        "Slice ½ in / 1 cm thick; space 1 in / 2.5 cm apart on a lined sheet.",
+        "Prick a pattern on top with a fork or skewer.",
+        "Bake ~10 min, rotating the sheet halfway.",
+        "Cool on a wire rack."
+      ]
+    },
+    {
+      "name": "Steamed Buns (Mantou)",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 96,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "milk",
+          "mandatory": true
+        },
+        {
+          "id": "yeast",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "rice_vinegar",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Stir milk, yeast and sugar together in the mixer bowl.",
+        "Add flour, knead on speed 1 for 6 min to a smooth dough.",
+        "Cover and rest 5 min.",
+        "Roll out to a 14×10 in / 35×25 cm rectangle.",
+        "Roll up tightly into a log, left to right.",
+        "Roll the log smooth, to 12 in / 30 cm.",
+        "Cut into 8 pieces; set each on parchment.",
+        "Rise in the covered steamer, 60 min, until visibly puffed.",
+        "Fill the steamer base with water (+ vinegar), seal the lid.",
+        "Steam on high 10–12 min. Serve warm."
+      ]
+    },
+    {
+      "name": "Taiwanese Popcorn Chicken",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 69,
+      "perishables": [
+        {
+          "id": "chicken_thigh",
+          "mandatory": true,
+          "substitutes": [
+            "chicken_breast"
+          ]
+        },
+        {
+          "id": "ginger",
+          "mandatory": true
+        },
+        {
+          "id": "eggs",
+          "mandatory": true
+        },
+        {
+          "id": "basil",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "garlic",
+          "mandatory": true
+        },
+        {
+          "id": "white_pepper",
+          "mandatory": true,
+          "substitutes": [
+            "black_pepper"
+          ]
+        },
+        {
+          "id": "shaoxing_wine",
+          "mandatory": true
+        },
+        {
+          "id": "five_spice",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "sweet_potato_flour",
+          "mandatory": true,
+          "substitutes": [
+            "cornstarch"
+          ]
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Cut chicken thigh into even 2 in / 5 cm pieces.",
+        "Mix with soy, grated ginger and garlic, white pepper, Shaoxing and egg white.",
+        "Cover and refrigerate at least 30 min.",
+        "Stir five spice, white pepper, salt and sugar together; set aside.",
+        "Dredge in sweet potato flour, packing it on — no bald spots.",
+        "Heat oil to 350°F / 175°C.",
+        "Fry 3–4 min; add basil for the last 30 sec and cover immediately.",
+        "Sprinkle the seasoning on straight out of the oil."
+      ]
+    },
+    {
+      "name": "Tonkatsu (Pork Katsu)",
+      "mealType": "meal",
+      "difficulty": "medium",
+      "time": 68,
+      "perishables": [
+        {
+          "id": "cabbage",
+          "mandatory": true
+        },
+        {
+          "id": "cucumber",
+          "mandatory": true
+        },
+        {
+          "id": "eggs",
+          "mandatory": true
+        },
+        {
+          "id": "pork_chop",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "sesame_dressing",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "mandatory": true
+        },
+        {
+          "id": "black_sesame_seeds",
+          "mandatory": true
+        },
+        {
+          "id": "tonkatsu_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "panko",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "black_pepper",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Shred cabbage fine, slice cucumber into thin strips, toss. Chill.",
+        "Grind the sesame seeds, leaving some whole. Divide into dishes with the sauce.",
+        "Mist dried panko with water; leave 15 min to soften.",
+        "Whisk egg with oil in one tray; flour in another.",
+        "Trim fat, slit the connective tissue both sides, pound, reshape, season.",
+        "Dredge flour → egg → panko. Press panko on, rest 5–10 min.",
+        "Rest the breaded cutlets 5–10 min.",
+        "Heat oil to 340°F / 170°C, 5 cm deep.",
+        "First fry: one cutlet, 1 min per side. Rest 4 min on a rack.",
+        "Fry the second cutlet the same way while the first rests. Skim the oil between.",
+        "Second fry: raise to 355°F / 180°C, 30 sec per side each. Drain 2 min.",
+        "Slice crosswise into ¾ in / 2 cm strips. Serve with salad and dipping sauce."
+      ]
+    },
+    {
+      "name": "Turnip Cake (Lo Bak Go)",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 260,
+      "perishables": [
+        {
+          "id": "chinese_sausage",
+          "mandatory": true
+        },
+        {
+          "id": "scallion",
+          "mandatory": true
+        },
+        {
+          "id": "daikon",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "dried_shrimp",
+          "mandatory": true
+        },
+        {
+          "id": "dried_shiitake",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "rice_flour",
+          "mandatory": true
+        },
+        {
+          "id": "cornstarch",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "white_pepper",
+          "mandatory": true,
+          "substitutes": [
+            "black_pepper"
+          ]
+        },
+        {
+          "id": "oyster_sauce",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Soak the dried shrimp and mushrooms in hot water, ~2 hr.",
+        "Stir-fry shrimp, mushrooms and sausage in oil 5 min; stir in scallion; remove.",
+        "Grate the daikon on the large holes of a box grater.",
+        "Simmer grated radish with 1 cup water, ~10 min, until ~1 cup liquid remains.",
+        "Whisk rice flour and cornstarch with ½ cup water.",
+        "Stir the slurry into the radish with salt, sugar and white pepper, then the filling.",
+        "Oil the pan generously; spread the batter evenly.",
+        "Steam over medium-high — 50 min loaf pan, 40 min round.",
+        "Cool and set 30 min, then turn out.",
+        "Slice ½ in / 1 cm thick with a wet knife.",
+        "Pan-fry both sides until golden and crisp. Serve with oyster sauce."
+      ]
+    },
+    {
+      "name": "Yuzu Cheesecake",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 692,
+      "perishables": [
+        {
+          "id": "cream_cheese",
+          "mandatory": true
+        },
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "graham_crackers",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "yogurt",
+          "mandatory": true
+        },
+        {
+          "id": "heavy_cream",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "yuzu_juice",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Line a 15 cm / 6 in pan; foil the base if it's springform.",
+        "Crush the biscuits, mix with melted butter, press into the pan.",
+        "Refrigerate the crust to set.",
+        "Heat oven to 340°F / 170°C with a deep tray inside.",
+        "Beat cream cheese, then add sugar, eggs, yogurt, flour, cream and yuzu one at a time.",
+        "Pass the batter through a sieve, then pour over the chilled crust.",
+        "Add 2 cm of 140°F / 60°C water to the hot tray; drop oven to 320°F / 160°C.",
+        "Bake 40 min at 320°F / 160°C, then foil the top and bake 15 min at 285°F / 140°C.",
+        "Turn the oven off and leave the cake inside 20 min.",
+        "Cool to room temperature, still in the pan.",
+        "Refrigerate overnight — do not unmould yet.",
+        "Unmould and slice with a knife warmed in hot water."
+      ]
+    },
+    {
+      "name": "Zaru Soba (Cold Soba)",
+      "mealType": "meal",
+      "difficulty": "easy",
+      "time": 55,
+      "perishables": [
+        {
+          "id": "scallion",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "sake",
+          "mandatory": true
+        },
+        {
+          "id": "mirin",
+          "mandatory": true
+        },
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "kombu",
+          "mandatory": true
+        },
+        {
+          "id": "katsuobushi",
+          "mandatory": true
+        },
+        {
+          "id": "soba_noodles",
+          "mandatory": true
+        },
+        {
+          "id": "mentsuyu",
+          "mandatory": true
+        },
+        {
+          "id": "nori",
+          "mandatory": true
+        },
+        {
+          "id": "wasabi",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Boil sake and mirin to burn off the alcohol, then add soy sauce.",
+        "Add kombu and katsuobushi; boil, then simmer 5 min.",
+        "Off the heat, steep until cool to room temperature. Strain.",
+        "Boil unsalted water; fan the noodles in, cook 4–5 min per package.",
+        "Rinse under cold water, rubbing off the starch.",
+        "Shock in iced water 30 sec, then drain well.",
+        "Plate on bamboo mats; garnish with nori.",
+        "Dilute the concentrate with iced water; taste; divide into cups.",
+        "Chop green onions, add wasabi, serve alongside."
+      ]
+    }
+  ],
+  "newIngredients": [
+    {
+      "id": "banana",
+      "name": "Banana",
+      "category": "Produce",
+      "subcategory": "Fruit",
+      "list": "fresh"
+    },
+    {
+      "id": "beef_stock",
+      "name": "Beef Stock",
+      "category": "Essentials",
+      "subcategory": "Broths",
+      "list": "pantry"
+    },
+    {
+      "id": "black_sesame_seeds",
+      "name": "Black Sesame Seeds",
+      "category": "General Asian",
+      "subcategory": "Oils & Seeds",
+      "list": "pantry"
+    },
+    {
+      "id": "black_tea",
+      "name": "Black Tea Leaves",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry"
+    },
+    {
+      "id": "cake_flour",
+      "name": "Cake Flour",
+      "category": "Baking",
+      "subcategory": "Flours & Starches",
+      "list": "pantry",
+      "substitutes": [
+        "flour"
+      ]
+    },
+    {
+      "id": "chicken_thigh",
+      "name": "Chicken Thigh",
+      "category": "Protein",
+      "subcategory": "Chicken",
+      "list": "fresh",
+      "substitutes": [
+        "chicken_breast"
+      ]
+    },
+    {
+      "id": "cinnamon",
+      "name": "Ground Cinnamon",
+      "category": "Essentials",
+      "subcategory": "Seasonings",
+      "list": "pantry"
+    },
+    {
+      "id": "cloves",
+      "name": "Cloves",
+      "category": "Essentials",
+      "subcategory": "Seasonings",
+      "list": "pantry"
+    },
+    {
+      "id": "cream_cheese",
+      "name": "Cream Cheese",
+      "category": "Dairy & Eggs",
+      "subcategory": "Cheese",
+      "list": "fresh"
+    },
+    {
+      "id": "cream_of_tartar",
+      "name": "Cream of Tartar",
+      "category": "Baking",
+      "subcategory": "Leaveners",
+      "list": "pantry"
+    },
+    {
+      "id": "dark_chocolate",
+      "name": "Dark Chocolate",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry",
+      "substitutes": [
+        "milk_chocolate",
+        "white_chocolate"
+      ]
+    },
+    {
+      "id": "dijon_mustard",
+      "name": "Dijon Mustard",
+      "category": "Essentials",
+      "subcategory": "Spreads",
+      "list": "pantry"
+    },
+    {
+      "id": "dried_shrimp",
+      "name": "Dried Shrimp",
+      "category": "Chinese",
+      "subcategory": "Dried Goods",
+      "list": "pantry"
+    },
+    {
+      "id": "glutinous_rice_flour",
+      "name": "Glutinous Rice Flour",
+      "category": "Baking",
+      "subcategory": "Flours & Starches",
+      "list": "pantry"
+    },
+    {
+      "id": "graham_crackers",
+      "name": "Graham Crackers / Biscuits",
+      "category": "Baking",
+      "subcategory": "Bakery",
+      "list": "pantry"
+    },
+    {
+      "id": "grapes",
+      "name": "Grapes",
+      "category": "Produce",
+      "subcategory": "Fruit",
+      "list": "fresh"
+    },
+    {
+      "id": "ground_ginger",
+      "name": "Ground Ginger",
+      "category": "Essentials",
+      "subcategory": "Seasonings",
+      "list": "pantry"
+    },
+    {
+      "id": "inari_age",
+      "name": "Inari Age (Seasoned Fried Tofu Pouch)",
+      "category": "Protein",
+      "subcategory": "Tofu & Prepared",
+      "list": "fresh",
+      "substitutes": [
+        "tofu_puff"
+      ]
+    },
+    {
+      "id": "jujube",
+      "name": "Jujube (Dried Red Date)",
+      "category": "Chinese",
+      "subcategory": "Dried Goods",
+      "list": "pantry"
+    },
+    {
+      "id": "kansui",
+      "name": "Kansui (Alkaline Water)",
+      "category": "Chinese",
+      "subcategory": "Sauces & Condiments",
+      "list": "pantry"
+    },
+    {
+      "id": "kewpie_mayo",
+      "name": "Kewpie Mayonnaise",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    },
+    {
+      "id": "leek",
+      "name": "Leek",
+      "category": "Produce",
+      "subcategory": "Peppers & Aromatics",
+      "list": "fresh"
+    },
+    {
+      "id": "matcha",
+      "name": "Matcha Powder",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Mayonnaise",
+      "category": "Essentials",
+      "subcategory": "Spreads",
+      "list": "pantry",
+      "substitutes": [
+        "kewpie_mayo"
+      ]
+    },
+    {
+      "id": "mentsuyu",
+      "name": "Mentsuyu (Noodle Soup Base)",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    },
+    {
+      "id": "milk_chocolate",
+      "name": "Milk Chocolate Chips",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry",
+      "substitutes": [
+        "white_chocolate"
+      ]
+    },
+    {
+      "id": "milk_powder",
+      "name": "Skim Milk Powder",
+      "category": "Dairy & Fats",
+      "subcategory": "Milk & Cream",
+      "list": "pantry"
+    },
+    {
+      "id": "narutomaki",
+      "name": "Narutomaki (Fish Cake)",
+      "category": "Protein",
+      "subcategory": "Seafood",
+      "list": "fresh",
+      "substitutes": [
+        "fish_balls"
+      ]
+    },
+    {
+      "id": "nori",
+      "name": "Nori (Shredded Seaweed)",
+      "category": "Japanese",
+      "subcategory": "Broths & Seaweed",
+      "list": "pantry"
+    },
+    {
+      "id": "porter",
+      "name": "Porter (Dark Beer)",
+      "category": "Italian & Mediterranean",
+      "subcategory": "Canned & Jarred",
+      "list": "pantry",
+      "substitutes": [
+        "red_wine"
+      ]
+    },
+    {
+      "id": "potato_starch",
+      "name": "Potato Starch",
+      "category": "Baking",
+      "subcategory": "Flours & Starches",
+      "list": "pantry",
+      "substitutes": [
+        "cornstarch"
+      ]
+    },
+    {
+      "id": "powdered_sugar",
+      "name": "Powdered Sugar",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry"
+    },
+    {
+      "id": "sesame_dressing",
+      "name": "Japanese Sesame Dressing",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    },
+    {
+      "id": "sweet_potato_flour",
+      "name": "Coarse Sweet Potato Flour",
+      "category": "General Asian",
+      "subcategory": "Rice, Noodles & Cans",
+      "list": "pantry",
+      "substitutes": [
+        "cornstarch"
+      ]
+    },
+    {
+      "id": "tonkatsu_sauce",
+      "name": "Tonkatsu Sauce",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    },
+    {
+      "id": "usukuchi_soy_sauce",
+      "name": "Usukuchi (Light-Colored) Soy Sauce",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry",
+      "substitutes": [
+        "soy_sauce"
+      ]
+    },
+    {
+      "id": "vanilla_bean",
+      "name": "Vanilla Bean",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry",
+      "substitutes": [
+        "vanilla_extract"
+      ]
+    },
+    {
+      "id": "walnuts",
+      "name": "Walnuts or Pecans",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry"
+    },
+    {
+      "id": "wasabi",
+      "name": "Wasabi",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    },
+    {
+      "id": "white_chocolate",
+      "name": "White Chocolate Chips",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry"
+    },
+    {
+      "id": "white_pepper",
+      "name": "White Pepper",
+      "category": "Essentials",
+      "subcategory": "Seasonings",
+      "list": "pantry",
+      "substitutes": [
+        "black_pepper"
+      ]
+    },
+    {
+      "id": "worcestershire",
+      "name": "Worcestershire Sauce",
+      "category": "Essentials",
+      "subcategory": "Seasonings",
+      "list": "pantry"
+    },
+    {
+      "id": "yuzu_juice",
+      "name": "Yuzu Juice",
+      "category": "Japanese",
+      "subcategory": "Sauces & Seasoning",
+      "list": "pantry"
+    }
+  ]
+}
