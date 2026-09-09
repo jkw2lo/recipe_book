@@ -39,9 +39,15 @@ turn out to be accurate. The ones reporting a single "Total" are where the time 
 - **US / metric**, one system at a time.
 - **Step timers.** The time badge on any step starts a countdown in a floating dock. Several run at
   once, they survive a reload, and they chime when done.
+- **Cook mode.** A *Keep screen awake* toggle on each recipe holds the screen on while your hands are
+  covered in flour. It re-acquires the lock when you come back from another app (browsers drop it when
+  the tab is hidden), releases when you leave the recipe, and hides itself where the API doesn't exist.
 - **Add recipes with any AI.** Generate a prompt, paste the JSON back, import.
 - **Exports.** PDF (per recipe or whole book), a full JSON catalogue, and a fridge-oriented
   meal-picker format with canonical ingredient ids.
+- **Backup and restore.** Favourites, your notes, servings, crossed-off steps, removals and imported
+  recipes exist only in your browser's `localStorage`. *Back up my data* writes all of it to a JSON
+  file; restoring **merges** rather than overwrites, and is safe to run twice.
 
 ## Structure
 
@@ -50,7 +56,7 @@ src/shell.html       markup, styles and all behaviour; contains the /*__RECIPE_D
 src/recipe-data.js   the recipes — the only file you edit to add one by hand
 build.mjs            inlines the data into the shell
 index.html           built output, committed so GitHub Pages can serve it directly
-test/                jsdom tests: render + export, timers, import
+test/                jsdom tests: render + export, timers, import, backup + wake lock
 ```
 
 ## Build and test
@@ -58,7 +64,7 @@ test/                jsdom tests: render + export, timers, import
 ```bash
 npm install     # jsdom, for tests only
 npm run build   # src/ -> index.html
-npm test        # three suites
+npm test        # four suites
 npm run check   # build then test
 ```
 
@@ -118,6 +124,10 @@ otherwise the grouped view will tell you to dredge a cutlet you haven't seasoned
 `test/render.js` also validates the meal-picker export against a fixed ingredient vocabulary: every id
 must be known, and nothing may cross the fresh/pantry line. That check has caught real bugs — an
 ingredient silently renamed by a normaliser, and a substitute pointing at the wrong side.
+
+`test/backup.js` runs the wake lock twice: once under plain jsdom, which has no `navigator.wakeLock`
+and so stands in for a browser without the API, and once with a stub injected, to prove the lock is
+requested on press and released on leaving the recipe.
 
 ## Licence
 

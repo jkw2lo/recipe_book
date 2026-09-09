@@ -77,12 +77,20 @@ h1 { font-size:22px; margin:0; letter-spacing:-.01em; font-weight:650; }
 .stepbox .hint { margin:0 0 10px; font-size:12.5px; color:var(--ink-3); line-height:1.5; }
 .stepbox .search { width:100%; margin-bottom:8px; }
 .stepbox textarea { margin-top:8px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; }
+.stepbox .tally { font-weight:400; color:var(--ink-3); font-size:12px; }
 .ok { color:#3f7d4e; }
 .err { color:#a33f22; }
 
 .danger { border:1px solid #e3cac1; background:var(--card); color:#a33f22; border-radius:8px;
   padding:8px 14px; font:inherit; font-size:13px; cursor:pointer; }
 .danger:hover { background:#fdf3ef; border-color:#c98a72; }
+
+/* Cook mode. Hidden entirely where the Wake Lock API is missing — a toggle that
+   silently does nothing is worse than no toggle. */
+.wake { border:1px solid #d5cec3; background:var(--card); color:var(--ink-2); border-radius:8px;
+  padding:6px 12px; font:inherit; font-size:12.5px; cursor:pointer; white-space:nowrap; }
+.wake:hover { border-color:var(--accent); color:var(--accent); }
+.wake[aria-pressed="true"] { background:#fff6e6; border-color:#e0a94b; color:#8a5a12; font-weight:550; }
 
 .empty { border:1px dashed var(--line-2); border-radius:var(--radius); padding:26px;
   text-align:center; color:var(--ink-2); background:#fff; }
@@ -202,7 +210,8 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
   body { background:#fff; }
   .wrap { max-width:none; padding:0; }
   .toolbar, .top .sub, .controls, .back, .foot, .acts, .star, .rm, .dl, .dl-row,
-  .danger, textarea, .saved, #toast-slot, .claimnote, #d-star, #timers, #export-panel { display:none !important; }
+  .danger, .wake, textarea, .saved, #toast-slot, .claimnote, #d-star, #timers,
+  #export-panel, #backup-panel { display:none !important; }
   /* the timer trigger prints as plain text */
   button.tbtn { border:0; background:none; padding:0; color:inherit; }
   h4 { margin:14px 0 6px; }
@@ -263,6 +272,7 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
       <button class="dl" id="dl-book">⤓ Download whole book (PDF)</button>
       <button class="dl" id="dl-json">⤓ Export recipes (JSON)</button>
       <button class="dl" id="dl-picker">⤓ Export for meal picker (JSON)</button>
+      <button class="dl" id="backup-toggle">⛨ Back up my data</button>
     </div>
 
     <section id="add-panel" class="hidden">
@@ -299,6 +309,33 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
       <textarea id="export-text" readonly rows="8"></textarea>
       <div class="dl-row"><button class="dl" id="export-copy">Copy</button><span class="saved" id="export-msg"></span></div>
     </div>
+
+    <section id="backup-panel" class="hidden">
+      <div class="stepbox">
+        <h5>Your data <span class="tally" id="backup-tally"></span></h5>
+        <p class="hint">Favourites, your notes, servings, crossed-off steps, removed recipes and
+          anything you've imported live only in this browser. Clear its site data and they're gone.
+          This is the only copy — keep it somewhere safe.</p>
+        <div class="dl-row">
+          <button class="dl" id="backup-save">⤓ Save backup file</button>
+          <button class="dl" id="backup-copy">Copy instead</button>
+          <span class="saved" id="backup-msg"></span>
+        </div>
+        <textarea id="backup-text" readonly rows="6"></textarea>
+      </div>
+
+      <div class="stepbox">
+        <h5>Restore</h5>
+        <p class="hint">Paste a backup to merge it in. Nothing is deleted — favourites and removals
+          are added to what's already here, and notes for the same recipe are overwritten by the
+          backup's version.</p>
+        <textarea id="restore-text" rows="5" placeholder='{ "kind": "recipebook-backup", … }'></textarea>
+        <div class="dl-row">
+          <button class="dl" id="restore-go">Restore</button>
+          <span class="saved" id="restore-msg"></span>
+        </div>
+      </div>
+    </section>
   </section>
 
   <section id="detail" class="hidden">
@@ -324,6 +361,8 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
         <button data-m="full" aria-pressed="true">Full</button>
         <button data-m="eff" aria-pressed="false">Efficient</button>
       </div>
+      <button class="wake hidden" id="wake" aria-pressed="false"
+              title="Stop the screen dimming while you cook">☼ Keep screen awake</button>
     </div>
 
     <div id="view-full">
@@ -615,7 +654,9 @@ function openRecipe(id) {
   renderDetail(); window.scrollTo(0,0);
 }
 function closeRecipe() {
-  current = null; $("detail").classList.add("hidden"); $("library").classList.remove("hidden"); renderLibrary();
+  current = null; $("detail").classList.add("hidden"); $("library").classList.remove("hidden");
+  setWake(false);   // you've stopped cooking this — let the screen sleep again
+  renderLibrary();
 }
 
 /* ---------------- add a recipe via any AI ----------------
@@ -1020,7 +1061,11 @@ const CANON = {
   'oyster sauce':'oyster_sauce','tonkatsu sauce':'tonkatsu_sauce','worcestershire sauce':'worcestershire',
   'mentsuyu concentrate':'mentsuyu','mirin':'mirin','sake':'sake','honey':'honey','cornstarch':'cornstarch',
   'potato starch':'potato_starch','wheat starch':'wheat_starch','baking powder':'baking_powder',
-  'instant yeast':'yeast','instant dry yeast':'yeast','active dry yeast':'yeast','panko':'panko',
+  'instant yeast':'yeast','instant dry yeast':'yeast','active dry yeast':'yeast',
+  'instant or active dry yeast':'yeast','panko':'panko',
+  // Barley malt syrup is its own thing, not honey — honey is the substitute, not the id.
+  'barley malt syrup':'barley_malt_syrup','barley malt syrup or honey':'barley_malt_syrup',
+  'sesame':'sesame_seeds','warm water':'water',
   'coconut milk':'coconut_milk','skim milk powder':'milk_powder','chinese white vinegar':'rice_vinegar',
   'kansui':'kansui','red date':'jujube','jujube':'jujube','plum tomatoes':'tinned_tomatoes',
   'tinned plum tomatoes':'tinned_tomatoes','porter or red wine':'porter','beef stock':'beef_stock',
@@ -1114,6 +1159,7 @@ const NEW_INGREDIENTS = {
   sweet_potato_flour:{ name:"Coarse Sweet Potato Flour", category:"General Asian", subcategory:"Rice, Noodles & Cans", side:"pantry", substitutes:["cornstarch"] },
   cake_flour:     { name:"Cake Flour", category:"Baking", subcategory:"Flours & Starches", side:"pantry", substitutes:["flour"] },
   powdered_sugar: { name:"Powdered Sugar", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry" },
+  barley_malt_syrup: { name:"Barley Malt Syrup", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry", substitutes:["honey","brown_sugar"] },
   matcha:         { name:"Matcha Powder", category:"Japanese", subcategory:"Sauces & Seasoning", side:"pantry" },
   white_chocolate:{ name:"White Chocolate Chips", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry" },
   cream_of_tartar:{ name:"Cream of Tartar", category:"Baking", subcategory:"Leaveners", side:"pantry" },
@@ -1157,7 +1203,8 @@ const MEAL_TYPE = {
   "popcornchicken-cjeats":"side",    // street-food snack / appetizer
   "grapecheong-personal":"dessert",  // a sweet preserve; no better slot in the enum
   "macaronisalad-mykoreankitchen":"side",
-  "bananabread-sallysbaking":"side"   // sweet quick bread; no breakfast slot in the enum
+  "bananabread-sallysbaking":"side", // sweet quick bread; no breakfast slot in the enum
+  "bagels-sallysbaking":"side"       // bread; the enum has no breakfast slot either
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")
@@ -1258,6 +1305,142 @@ $("export-copy").addEventListener("click", async () => {
   $("export-msg").textContent = ok ? "Copied" : "Press Ctrl/Cmd+C — the text is selected";
 });
 
+/* ---- backup & restore -------------------------------------------------------
+   The two exports above carry *recipes*. This one carries YOU: favourites, your
+   own notes, servings, crossed-off steps, removals, and recipes you imported —
+   the layer that exists nowhere but this browser's localStorage.
+   Timers are deliberately left out. A countdown restored next week would come
+   back already expired; it's session state, not data worth keeping.            */
+const BACKUP_KIND = "recipebook-backup";
+const BACKUP_FIELDS = ["units","mode","sort","favs","hidden","servings","mynotes","done","custom"];
+
+function backupPayload() {
+  const data = {};
+  BACKUP_FIELDS.forEach(k => { data[k] = store[k]; });
+  return { kind: BACKUP_KIND, version: 2, exportedAt: new Date().toISOString(), store: data };
+}
+const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
+function backupTally() {
+  const len = o => Object.keys(o || {}).length;
+  const bits = [
+    [ (store.favs||[]).length,   plural((store.favs||[]).length, "favourite", "favourites") ],
+    [ len(store.mynotes),        plural(len(store.mynotes), "note", "notes") ],
+    [ (store.hidden||[]).length, (store.hidden||[]).length + " removed" ],
+    [ (store.custom||[]).length, plural((store.custom||[]).length, "imported recipe", "imported recipes") ],
+    [ len(store.servings),       len(store.servings) + " resized" ]
+  ].filter(([c]) => c > 0).map(([, label]) => label);
+  return bits.length ? "— " + bits.join(", ") : "— nothing saved yet";
+}
+function refreshBackup() {
+  $("backup-tally").textContent = backupTally();
+  $("backup-text").value = JSON.stringify(backupPayload(), null, 2);
+  $("backup-msg").textContent = "";
+}
+function backupFilename() {
+  return "recipe-book-backup-" + new Date().toISOString().slice(0,10) + ".json";
+}
+
+/* Merge, never clobber. A restore is usually "I lost my phone", not "wipe this
+   device" — so favourites and removals union, per-recipe entries take the
+   backup's value, and imported recipes are added only when the id is new. */
+function restoreFrom(text) {
+  let data;
+  try { data = JSON.parse(text); }
+  catch (e) { return { ok:false, why:"That isn't valid JSON." }; }
+  if (!data || typeof data !== "object") return { ok:false, why:"That isn't a backup." };
+  if (data.kind !== BACKUP_KIND) return { ok:false, why:"That's not a Recipe Book backup — it needs a \"kind\" of \""+BACKUP_KIND+"\"." };
+  const src = data.store;
+  if (!src || typeof src !== "object") return { ok:false, why:"The backup has no data in it." };
+
+  const changed = { favs:0, hidden:0, notes:0, servings:0, done:0, recipes:0 };
+
+  ["favs","hidden"].forEach(k => {
+    if (!Array.isArray(src[k])) return;
+    src[k].forEach(id => {
+      if (typeof id === "string" && !store[k].includes(id)) { store[k].push(id); changed[k]++; }
+    });
+  });
+  const mergeMap = (k, tally) => {
+    if (!src[k] || typeof src[k] !== "object") return;
+    Object.keys(src[k]).forEach(id => {
+      if (JSON.stringify(store[k][id]) === JSON.stringify(src[k][id])) return;
+      store[k][id] = src[k][id]; changed[tally]++;
+    });
+  };
+  mergeMap("mynotes","notes"); mergeMap("servings","servings"); mergeMap("done","done");
+
+  if (Array.isArray(src.custom)) {
+    src.custom.forEach(raw => {
+      // Check the id BEFORE normalising: normaliseImported resolves collisions by
+      // renaming (foo -> foo-2), so a recipe we already have would come back with a
+      // fresh id and sail past a duplicate check made afterwards.
+      if (!raw || !raw.id) return;
+      if (RECIPES.some(r => r.id === raw.id) || store.custom.some(c => c.id === raw.id)) return;
+      const res = normaliseImported(raw);
+      if (!res.ok) return;                                   // skip junk, keep the rest
+      store.custom.push(res.recipe);
+      RECIPES.push(res.recipe);
+      changed.recipes++;
+    });
+  }
+  if (typeof src.units === "string") store.units = src.units;
+  if (typeof src.mode  === "string") store.mode  = src.mode;
+  if (typeof src.sort  === "string" && SORTS[src.sort]) { store.sort = src.sort; $("sort").value = src.sort; }
+
+  save(); renderLibrary(); refreshBackup();
+
+  const parts = [];
+  if (changed.recipes)  parts.push(plural(changed.recipes,  "recipe", "recipes"));
+  if (changed.favs)     parts.push(plural(changed.favs,     "favourite", "favourites"));
+  if (changed.notes)    parts.push(plural(changed.notes,    "note", "notes"));
+  if (changed.hidden)   parts.push(plural(changed.hidden,   "removal", "removals"));
+  if (changed.servings) parts.push(plural(changed.servings, "serving size", "serving sizes"));
+  if (changed.done)     parts.push(plural(changed.done,     "progress mark", "progress marks"));
+  return { ok:true, msg: parts.length ? "Restored " + parts.join(", ") + "."
+                                      : "Already up to date — nothing new in that backup." };
+}
+
+$("backup-toggle").addEventListener("click", () => {
+  const p = $("backup-panel");
+  p.classList.toggle("hidden");
+  if (!p.classList.contains("hidden")) {
+    refreshBackup();
+    if (p.scrollIntoView) p.scrollIntoView({ block:"nearest" });
+  }
+});
+$("backup-save").addEventListener("click", () => {
+  // Downloads can be blocked in a sandboxed frame, and a blocked one fails
+  // silently — so always say where the fallback is.
+  try {
+    const url = URL.createObjectURL(new Blob([$("backup-text").value], { type:"application/json" }));
+    const a = document.createElement("a");
+    a.href = url; a.download = backupFilename();
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+    $("backup-msg").textContent = "Saved as " + backupFilename() + " — if no file appeared, use Copy instead.";
+  } catch (e) {
+    console.warn("backup download failed", e);
+    $("backup-msg").textContent = "This browser blocked the download — use Copy instead.";
+  }
+});
+$("backup-copy").addEventListener("click", async () => {
+  const ta = $("backup-text");
+  ta.select();
+  let ok = false;
+  try { await navigator.clipboard.writeText(ta.value); ok = true; }
+  catch (e) { try { ok = document.execCommand("copy"); } catch (e2) { console.warn("copy failed", e2); } }
+  $("backup-msg").textContent = ok ? "Copied — paste it into a note or a file"
+                                   : "Press Ctrl/Cmd+C — the text is selected";
+});
+$("restore-go").addEventListener("click", () => {
+  const msg = $("restore-msg"), text = $("restore-text").value.trim();
+  if (!text) { msg.className = "saved err"; msg.textContent = "Paste a backup first."; return; }
+  const res = restoreFrom(text);
+  msg.className = "saved " + (res.ok ? "ok" : "err");
+  msg.textContent = res.ok ? res.msg : res.why;
+  if (res.ok) $("restore-text").value = "";
+});
+
 /* ---- add-a-recipe wiring ---- */
 $("add-toggle").addEventListener("click", () => {
   const p = $("add-panel");
@@ -1321,6 +1504,55 @@ $("minus").addEventListener("click", ()=>bump(-1));
 $("plus").addEventListener("click", ()=>bump(1));
 $("units").addEventListener("click", e => { const b=e.target.closest("button"); if(!b)return; store.units=b.dataset.u; save(); renderDetail(); });
 $("mode").addEventListener("click",  e => { const b=e.target.closest("button"); if(!b)return; store.mode =b.dataset.m; save(); renderDetail(); });
+
+/* ---- cook mode: keep the screen awake --------------------------------------
+   Deliberately NOT persisted in `store`. A wake lock is a property of this
+   cooking session, not a preference — coming back next week and finding your
+   screen pinned on is a bug, not a feature. It is also per-recipe: leaving the
+   detail view releases it.
+   The lock is dropped by the browser whenever the tab is hidden, so it has to be
+   re-taken on visibilitychange or it silently dies the first time you switch
+   apps to answer a message.                                                   */
+const WAKE_OK = typeof navigator !== "undefined" && !!navigator.wakeLock;
+let wantWake = false, wakeSentinel = null;
+
+async function acquireWake() {
+  if (!WAKE_OK || wakeSentinel || document.visibilityState !== "visible") return;
+  try {
+    wakeSentinel = await navigator.wakeLock.request("screen");
+    // Fires when the browser takes it back (tab hidden, battery saver, OS policy).
+    wakeSentinel.addEventListener("release", () => { wakeSentinel = null; syncWake(); });
+  } catch (e) {
+    // Refused — usually battery saver or a non-secure context. Don't keep pretending.
+    wantWake = false;
+    toast("Your browser wouldn't keep the screen awake.");
+    console.warn("wake lock refused", e);
+  }
+  syncWake();
+}
+function releaseWake() {
+  const s = wakeSentinel;
+  wakeSentinel = null;
+  if (s) { try { s.release(); } catch (e) { console.warn("wake release failed", e); } }
+}
+function syncWake() {
+  const b = $("wake");
+  b.setAttribute("aria-pressed", String(wantWake));
+  b.textContent = wantWake ? "☀ Screen staying awake" : "☼ Keep screen awake";
+}
+function setWake(on) {
+  wantWake = on;
+  syncWake();          // reflect the press immediately; acquireWake corrects it if refused
+  if (on) acquireWake(); else releaseWake();
+}
+if (WAKE_OK) {
+  $("wake").classList.remove("hidden");
+  $("wake").addEventListener("click", () => setWake(!wantWake));
+  document.addEventListener("visibilitychange", () => {
+    if (wantWake && document.visibilityState === "visible") acquireWake();
+  });
+  syncWake();
+}
 
 function toggleStep(e) {
   const tb = e.target.closest(".tbtn");

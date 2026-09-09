@@ -243,6 +243,65 @@
       ]
     },
     {
+      "name": "Homemade Bagels",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 197,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "yeast",
+          "mandatory": true
+        },
+        {
+          "id": "barley_malt_syrup",
+          "mandatory": true,
+          "substitutes": [
+            "honey",
+            "brown_sugar"
+          ]
+        },
+        {
+          "id": "bread_flour",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "optional": true
+        }
+      ],
+      "instructions": [
+        "Whisk warm water, malt syrup and yeast. Cover, rest 5 min.",
+        "Add flour and salt; beat 2 min to a stiff, dryish dough.",
+        "Knead 6–7 min until smooth, supple and elastic.",
+        "Oil a large bowl, turn the dough to coat, cover.",
+        "Rise at room temperature 1½–2 hrs, until doubled.",
+        "Line two large baking sheets with parchment.",
+        "Punch down; divide into 8 pieces (≈113 g each) and roll into balls.",
+        "Push a hole through each; widen to 1½–2 in.",
+        "Cover loosely and rest 5–10 min while the water heats.",
+        "Heat the oven to 425°F / 218°C.",
+        "Boil 2 qt water with the malt syrup or honey; reduce to medium-high.",
+        "Boil 2–3 at a time: 1 min, flip, 1 min more. Drain, return to the sheets.",
+        "Brush with egg wash; dip in toppings straight away.",
+        "Bake 20–25 min at 425°F, rotating halfway, to dark golden.",
+        "Cool on the sheets 20 min, then move to a rack."
+      ]
+    },
+    {
       "name": "Japanese Cake Roll",
       "mealType": "dessert",
       "difficulty": "medium",
@@ -1444,6 +1503,17 @@
       "category": "Produce",
       "subcategory": "Fruit",
       "list": "fresh"
+    },
+    {
+      "id": "barley_malt_syrup",
+      "name": "Barley Malt Syrup",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry",
+      "substitutes": [
+        "honey",
+        "brown_sugar"
+      ]
     },
     {
       "id": "beef_stock",

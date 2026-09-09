@@ -77,12 +77,20 @@ h1 { font-size:22px; margin:0; letter-spacing:-.01em; font-weight:650; }
 .stepbox .hint { margin:0 0 10px; font-size:12.5px; color:var(--ink-3); line-height:1.5; }
 .stepbox .search { width:100%; margin-bottom:8px; }
 .stepbox textarea { margin-top:8px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; }
+.stepbox .tally { font-weight:400; color:var(--ink-3); font-size:12px; }
 .ok { color:#3f7d4e; }
 .err { color:#a33f22; }
 
 .danger { border:1px solid #e3cac1; background:var(--card); color:#a33f22; border-radius:8px;
   padding:8px 14px; font:inherit; font-size:13px; cursor:pointer; }
 .danger:hover { background:#fdf3ef; border-color:#c98a72; }
+
+/* Cook mode. Hidden entirely where the Wake Lock API is missing — a toggle that
+   silently does nothing is worse than no toggle. */
+.wake { border:1px solid #d5cec3; background:var(--card); color:var(--ink-2); border-radius:8px;
+  padding:6px 12px; font:inherit; font-size:12.5px; cursor:pointer; white-space:nowrap; }
+.wake:hover { border-color:var(--accent); color:var(--accent); }
+.wake[aria-pressed="true"] { background:#fff6e6; border-color:#e0a94b; color:#8a5a12; font-weight:550; }
 
 .empty { border:1px dashed var(--line-2); border-radius:var(--radius); padding:26px;
   text-align:center; color:var(--ink-2); background:#fff; }
@@ -202,7 +210,8 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
   body { background:#fff; }
   .wrap { max-width:none; padding:0; }
   .toolbar, .top .sub, .controls, .back, .foot, .acts, .star, .rm, .dl, .dl-row,
-  .danger, textarea, .saved, #toast-slot, .claimnote, #d-star, #timers, #export-panel { display:none !important; }
+  .danger, .wake, textarea, .saved, #toast-slot, .claimnote, #d-star, #timers,
+  #export-panel, #backup-panel { display:none !important; }
   /* the timer trigger prints as plain text */
   button.tbtn { border:0; background:none; padding:0; color:inherit; }
   h4 { margin:14px 0 6px; }
@@ -263,6 +272,7 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
       <button class="dl" id="dl-book">⤓ Download whole book (PDF)</button>
       <button class="dl" id="dl-json">⤓ Export recipes (JSON)</button>
       <button class="dl" id="dl-picker">⤓ Export for meal picker (JSON)</button>
+      <button class="dl" id="backup-toggle">⛨ Back up my data</button>
     </div>
 
     <section id="add-panel" class="hidden">
@@ -299,6 +309,33 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
       <textarea id="export-text" readonly rows="8"></textarea>
       <div class="dl-row"><button class="dl" id="export-copy">Copy</button><span class="saved" id="export-msg"></span></div>
     </div>
+
+    <section id="backup-panel" class="hidden">
+      <div class="stepbox">
+        <h5>Your data <span class="tally" id="backup-tally"></span></h5>
+        <p class="hint">Favourites, your notes, servings, crossed-off steps, removed recipes and
+          anything you've imported live only in this browser. Clear its site data and they're gone.
+          This is the only copy — keep it somewhere safe.</p>
+        <div class="dl-row">
+          <button class="dl" id="backup-save">⤓ Save backup file</button>
+          <button class="dl" id="backup-copy">Copy instead</button>
+          <span class="saved" id="backup-msg"></span>
+        </div>
+        <textarea id="backup-text" readonly rows="6"></textarea>
+      </div>
+
+      <div class="stepbox">
+        <h5>Restore</h5>
+        <p class="hint">Paste a backup to merge it in. Nothing is deleted — favourites and removals
+          are added to what's already here, and notes for the same recipe are overwritten by the
+          backup's version.</p>
+        <textarea id="restore-text" rows="5" placeholder='{ "kind": "recipebook-backup", … }'></textarea>
+        <div class="dl-row">
+          <button class="dl" id="restore-go">Restore</button>
+          <span class="saved" id="restore-msg"></span>
+        </div>
+      </div>
+    </section>
   </section>
 
   <section id="detail" class="hidden">
@@ -324,6 +361,8 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
         <button data-m="full" aria-pressed="true">Full</button>
         <button data-m="eff" aria-pressed="false">Efficient</button>
       </div>
+      <button class="wake hidden" id="wake" aria-pressed="false"
+              title="Stop the screen dimming while you cook">☼ Keep screen awake</button>
     </div>
 
     <div id="view-full">
@@ -2170,6 +2209,104 @@ const RECIPES = [
     "Tastes best on day two. Room temperature 3 days, fridge a week, or freeze 3–4 months (slices thaw much faster than a whole loaf)."
   ]
 }
+,
+{
+  id: "bagels-sallysbaking",
+  title: "Homemade Bagels",
+  source: { site: "Sally's Baking Addiction", url: "https://sallysbakingaddiction.com/homemade-bagels/", author: "Sally McKenney" },
+  cuisine: "American", tags: ["bread", "yeast", "breakfast", "lean dough"],
+  servings: { base: 8, unit: "bagels", min: 4, max: 8 },
+  time: { active: 25, passive: 140, cook: 32 },
+  claimed: 180,
+  components: [
+    { id: "dough",  label: "Dough" },
+    { id: "shape",  label: "Shaping & rest" },
+    { id: "bath",   label: "Water bath" },
+    { id: "finish", label: "Egg wash & bake" }
+  ],
+  ingredients: [
+    { key: "water",   comp: "dough", name: "Warm water",        us: { qty: 1.5, unit: "cups" },  metric: { qty: 360, unit: "ml" }, note: "100–110°F / 38–43°C" },
+    { key: "yeast",   comp: "dough", name: "Instant or active dry yeast", us: { qty: 2.75, unit: "tsp" }, metric: { qty: 8, unit: "g" }, note: "a little over one standard packet" },
+    { key: "malt",    comp: "dough", name: "Barley malt syrup, granulated sugar or brown sugar", us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" }, note: "≈21 g as syrup, ≈12 g as sugar — malt is the traditional flavour" },
+    { key: "flour",   comp: "dough", name: "Bread flour",       us: { qty: 4, unit: "cups" },    metric: { qty: 520, unit: "g" }, note: "spooned and levelled, plus more as needed — not all-purpose" },
+    { key: "salt",    comp: "dough", name: "Salt",              us: { qty: 2, unit: "tsp" },     metric: { qty: 12, unit: "g" }, note: "fine salt; about 14 g if using kosher" },
+    { key: "oil",     comp: "dough", name: "Oil, butter or nonstick spray", scalable: false, us: { qty: 0, unit: "" }, metric: { qty: 0, unit: "" }, note: "for coating the rising bowl" },
+
+    { key: "bwater",  comp: "bath", name: "Water for boiling",  scalable: false, us: { qty: 2, unit: "quarts" }, metric: { qty: 1.9, unit: "L" }, note: "fixed — do not scale this with the dough" },
+    { key: "bmalt",   comp: "bath", name: "Barley malt syrup or honey", scalable: false, us: { qty: 0.25, unit: "cup" }, metric: { qty: 85, unit: "g" }, note: "fixed — sweetens the bath, not the dough" },
+
+    { key: "eggwhite",comp: "finish", name: "Egg white",        scalable: false, us: { qty: 1, unit: "" },        metric: { qty: 1, unit: "" }, note: "beaten; milk works if you avoid eggs" },
+    { key: "ewater",  comp: "finish", name: "Water for the egg wash", scalable: false, us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" } },
+    { key: "topping", comp: "finish", name: "Sesame, poppy, coarse salt or shredded cheese", optional: true, us: { qty: 0.33, unit: "cup" }, metric: { qty: 45, unit: "g" }, note: "dip while the egg wash is still wet" }
+  ],
+  steps: [
+    { comp: "dough", text: "Whisk warm water, malt syrup and yeast. Cover, rest 5 min.",
+      detail: "In the bowl of a stand mixer fitted with the dough hook, whisk the warm water, barley malt syrup or sugar, and yeast together. Cover and let sit for 5 minutes. No stand mixer? Use a large bowl and a wooden spoon or spatula for the next step.",
+      uses: ["water","malt","yeast"], mins: 5, passive: true },
+    { comp: "dough", text: "Add flour and salt; beat 2 min to a stiff, dryish dough.",
+      detail: "Add the flour and salt and beat on medium for 2 minutes, until the dough comes together and pulls away from the sides of the bowl. It should be stiff and somewhat dry.",
+      tip: "Too sticky? Add flour 1 Tbsp at a time. Crumbly and breaking apart? Add water 1 tsp at a time. Aim for firm — slack dough is the main cause of flat bagels.",
+      uses: ["flour","salt"], mins: 2 },
+    { comp: "dough", text: "Knead 6–7 min until smooth, supple and elastic.",
+      detail: "Beat on low with the dough hook for a further 6–7 minutes, or knead by hand on a lightly floured surface for 6–7 minutes, until the dough feels smooth, supple and elastic. It should still feel a little soft.",
+      tip: "Two readiness tests: poked, it springs back slowly; or stretch a golfball-sized piece thin enough to see light through it without tearing (the windowpane test).",
+      uses: [], mins: 7 },
+    { comp: "dough", text: "Oil a large bowl, turn the dough to coat, cover.",
+      detail: "Lightly grease a large bowl with nonstick spray, butter or oil. Put the dough in and turn it so all sides are coated. Cover with plastic wrap or a clean kitchen towel.",
+      uses: ["oil"], mins: 2 },
+    { comp: "dough", text: "Rise at room temperature 1½–2 hrs, until doubled.",
+      detail: "Allow the dough to rise at room temperature for 1.5–2 hours, or until doubled in size.",
+      tip: "Go by size, not the clock — stop at doubled. Over-proofed dough collapses in the oven, and that is far and away the most common complaint on this recipe. Active dry yeast may need the full 2 hours.",
+      uses: [], mins: 105, passive: true },
+
+    { comp: "shape", text: "Line two large baking sheets with parchment.",
+      detail: "Line two large baking sheets with parchment paper or silicone baking mats.",
+      uses: [], mins: 2 },
+    { comp: "shape", text: "Punch down; divide into 8 pieces (≈113 g each) and roll into balls.",
+      detail: "Punch the risen dough down to release the air. On a lightly floured surface, divide it into 8 equal pieces, about 4 oz (113 g) each, and shape each into a ball.",
+      tip: "Weigh them. Uneven pieces bake unevenly, and this is the one place a scale earns its keep.",
+      uses: [], mins: 6 },
+    { comp: "shape", text: "Push a hole through each; widen to 1½–2 in.",
+      detail: "Press your index finger through the centre of each ball to make a hole, then stretch and widen it to about 1.5–2 inches across. Arrange on the lined sheets.",
+      tip: "Make the hole bigger than looks right — it closes up in the boil and again in the oven.",
+      uses: [], mins: 4 },
+    { comp: "shape", text: "Cover loosely and rest 5–10 min while the water heats.",
+      detail: "Loosely cover the shaped bagels with a kitchen towel or plastic wrap and let them rest for 5–10 minutes while you prepare the water bath.",
+      uses: [], mins: 10, passive: true },
+    { comp: "shape", text: "Heat the oven to 425°F / 218°C.",
+      detail: "Preheat the oven to 425°F (218°C). Start this now so it is up to temperature by the time the bagels come out of the water.",
+      uses: [] },
+
+    { comp: "bath", text: "Boil 2 qt water with the malt syrup or honey; reduce to medium-high.",
+      detail: "Fill a large, wide pot with 2 quarts (1.9 L) of water and whisk in the barley malt syrup or honey. Bring to a boil over high heat, then reduce to medium-high.",
+      tip: "The sugar in the bath is what gives the crust its colour and crispness — it is not optional seasoning.",
+      uses: ["bwater","bmalt"], mins: 10 },
+    { comp: "bath", text: "Boil 2–3 at a time: 1 min, flip, 1 min more. Drain, return to the sheets.",
+      detail: "Drop in 2 or 3 bagels at a time, leaving room to float. Boil 1 minute, flip with a spatula, boil 1 minute more. Lift out with a slotted spatula, let the water drain off, and return them to the lined sheets. Repeat with the rest.",
+      tip: "This step is the whole recipe: it gelatinises the starch for the shine and sets the outside so they hold their shape. Don't crowd the pot.",
+      uses: [], mins: 10 },
+
+    { comp: "finish", text: "Brush with egg wash; dip in toppings straight away.",
+      detail: "Beat the egg white with 1 Tbsp water. Using a pastry brush, brush it over the top and around the sides of each bagel. If you are topping them, dip while the wash is still wet.",
+      uses: ["eggwhite","ewater","topping"], mins: 3 },
+    { comp: "finish", text: "Bake 20–25 min at 425°F, rotating halfway, to dark golden.",
+      detail: "Bake for 20–25 minutes, rotating the pans halfway through, until the bagels are dark golden brown.",
+      uses: [], mins: 23 },
+    { comp: "finish", text: "Cool on the sheets 20 min, then move to a rack.",
+      detail: "Let the bagels cool on the baking sheets for 20 minutes, then transfer to a cooling rack to cool completely before slicing.",
+      uses: [], mins: 20, passive: true }
+  ],
+  notes: [
+    "Another honest Sally's card: 3 hours claimed, about 3¼ counting the cooling. Sites that name their waiting tend to report it properly.",
+    "Overnight version: after the dough is kneaded and in its bowl, let it rise 1½–2 hrs at room temperature, then refrigerate 8–12 hrs. In the morning, 45 min at room temperature, then shape. Don't shape the night before — they puff too much.",
+    "Halving works: halve every dough ingredient, change nothing else, and leave the boiling water and honey alone. Don't double — make two batches instead. That's why the servings here only go down.",
+    "Flat bagels almost always mean over-proofed dough, or dough that was too slack. A firmer dough and a shorter rise fix both.",
+    "Bread flour is not a suggestion — it's what makes them chewy rather than flimsy. AP works in a pinch and you will taste the difference.",
+    "Barley malt syrup is the traditional malty flavour and is worth hunting down in a natural food shop; brown sugar in the dough and honey in the bath are the substitutes Sally herself uses.",
+    "Variations, all after the egg wash: ⅓ cup sesame or poppy seeds, or coarse salt. Cheese goes into the dough (½ cup shredded, with the flour) and on top.",
+    "Baked bagels freeze for 3 months; so does the dough, wrapped tight after punching down. Otherwise 4 days at room temperature, a week in the fridge."
+  ]
+}
 ];
 
 
@@ -2432,7 +2569,9 @@ function openRecipe(id) {
   renderDetail(); window.scrollTo(0,0);
 }
 function closeRecipe() {
-  current = null; $("detail").classList.add("hidden"); $("library").classList.remove("hidden"); renderLibrary();
+  current = null; $("detail").classList.add("hidden"); $("library").classList.remove("hidden");
+  setWake(false);   // you've stopped cooking this — let the screen sleep again
+  renderLibrary();
 }
 
 /* ---------------- add a recipe via any AI ----------------
@@ -2837,7 +2976,11 @@ const CANON = {
   'oyster sauce':'oyster_sauce','tonkatsu sauce':'tonkatsu_sauce','worcestershire sauce':'worcestershire',
   'mentsuyu concentrate':'mentsuyu','mirin':'mirin','sake':'sake','honey':'honey','cornstarch':'cornstarch',
   'potato starch':'potato_starch','wheat starch':'wheat_starch','baking powder':'baking_powder',
-  'instant yeast':'yeast','instant dry yeast':'yeast','active dry yeast':'yeast','panko':'panko',
+  'instant yeast':'yeast','instant dry yeast':'yeast','active dry yeast':'yeast',
+  'instant or active dry yeast':'yeast','panko':'panko',
+  // Barley malt syrup is its own thing, not honey — honey is the substitute, not the id.
+  'barley malt syrup':'barley_malt_syrup','barley malt syrup or honey':'barley_malt_syrup',
+  'sesame':'sesame_seeds','warm water':'water',
   'coconut milk':'coconut_milk','skim milk powder':'milk_powder','chinese white vinegar':'rice_vinegar',
   'kansui':'kansui','red date':'jujube','jujube':'jujube','plum tomatoes':'tinned_tomatoes',
   'tinned plum tomatoes':'tinned_tomatoes','porter or red wine':'porter','beef stock':'beef_stock',
@@ -2931,6 +3074,7 @@ const NEW_INGREDIENTS = {
   sweet_potato_flour:{ name:"Coarse Sweet Potato Flour", category:"General Asian", subcategory:"Rice, Noodles & Cans", side:"pantry", substitutes:["cornstarch"] },
   cake_flour:     { name:"Cake Flour", category:"Baking", subcategory:"Flours & Starches", side:"pantry", substitutes:["flour"] },
   powdered_sugar: { name:"Powdered Sugar", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry" },
+  barley_malt_syrup: { name:"Barley Malt Syrup", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry", substitutes:["honey","brown_sugar"] },
   matcha:         { name:"Matcha Powder", category:"Japanese", subcategory:"Sauces & Seasoning", side:"pantry" },
   white_chocolate:{ name:"White Chocolate Chips", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry" },
   cream_of_tartar:{ name:"Cream of Tartar", category:"Baking", subcategory:"Leaveners", side:"pantry" },
@@ -2974,7 +3118,8 @@ const MEAL_TYPE = {
   "popcornchicken-cjeats":"side",    // street-food snack / appetizer
   "grapecheong-personal":"dessert",  // a sweet preserve; no better slot in the enum
   "macaronisalad-mykoreankitchen":"side",
-  "bananabread-sallysbaking":"side"   // sweet quick bread; no breakfast slot in the enum
+  "bananabread-sallysbaking":"side", // sweet quick bread; no breakfast slot in the enum
+  "bagels-sallysbaking":"side"       // bread; the enum has no breakfast slot either
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")
@@ -3075,6 +3220,142 @@ $("export-copy").addEventListener("click", async () => {
   $("export-msg").textContent = ok ? "Copied" : "Press Ctrl/Cmd+C — the text is selected";
 });
 
+/* ---- backup & restore -------------------------------------------------------
+   The two exports above carry *recipes*. This one carries YOU: favourites, your
+   own notes, servings, crossed-off steps, removals, and recipes you imported —
+   the layer that exists nowhere but this browser's localStorage.
+   Timers are deliberately left out. A countdown restored next week would come
+   back already expired; it's session state, not data worth keeping.            */
+const BACKUP_KIND = "recipebook-backup";
+const BACKUP_FIELDS = ["units","mode","sort","favs","hidden","servings","mynotes","done","custom"];
+
+function backupPayload() {
+  const data = {};
+  BACKUP_FIELDS.forEach(k => { data[k] = store[k]; });
+  return { kind: BACKUP_KIND, version: 2, exportedAt: new Date().toISOString(), store: data };
+}
+const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
+function backupTally() {
+  const len = o => Object.keys(o || {}).length;
+  const bits = [
+    [ (store.favs||[]).length,   plural((store.favs||[]).length, "favourite", "favourites") ],
+    [ len(store.mynotes),        plural(len(store.mynotes), "note", "notes") ],
+    [ (store.hidden||[]).length, (store.hidden||[]).length + " removed" ],
+    [ (store.custom||[]).length, plural((store.custom||[]).length, "imported recipe", "imported recipes") ],
+    [ len(store.servings),       len(store.servings) + " resized" ]
+  ].filter(([c]) => c > 0).map(([, label]) => label);
+  return bits.length ? "— " + bits.join(", ") : "— nothing saved yet";
+}
+function refreshBackup() {
+  $("backup-tally").textContent = backupTally();
+  $("backup-text").value = JSON.stringify(backupPayload(), null, 2);
+  $("backup-msg").textContent = "";
+}
+function backupFilename() {
+  return "recipe-book-backup-" + new Date().toISOString().slice(0,10) + ".json";
+}
+
+/* Merge, never clobber. A restore is usually "I lost my phone", not "wipe this
+   device" — so favourites and removals union, per-recipe entries take the
+   backup's value, and imported recipes are added only when the id is new. */
+function restoreFrom(text) {
+  let data;
+  try { data = JSON.parse(text); }
+  catch (e) { return { ok:false, why:"That isn't valid JSON." }; }
+  if (!data || typeof data !== "object") return { ok:false, why:"That isn't a backup." };
+  if (data.kind !== BACKUP_KIND) return { ok:false, why:"That's not a Recipe Book backup — it needs a \"kind\" of \""+BACKUP_KIND+"\"." };
+  const src = data.store;
+  if (!src || typeof src !== "object") return { ok:false, why:"The backup has no data in it." };
+
+  const changed = { favs:0, hidden:0, notes:0, servings:0, done:0, recipes:0 };
+
+  ["favs","hidden"].forEach(k => {
+    if (!Array.isArray(src[k])) return;
+    src[k].forEach(id => {
+      if (typeof id === "string" && !store[k].includes(id)) { store[k].push(id); changed[k]++; }
+    });
+  });
+  const mergeMap = (k, tally) => {
+    if (!src[k] || typeof src[k] !== "object") return;
+    Object.keys(src[k]).forEach(id => {
+      if (JSON.stringify(store[k][id]) === JSON.stringify(src[k][id])) return;
+      store[k][id] = src[k][id]; changed[tally]++;
+    });
+  };
+  mergeMap("mynotes","notes"); mergeMap("servings","servings"); mergeMap("done","done");
+
+  if (Array.isArray(src.custom)) {
+    src.custom.forEach(raw => {
+      // Check the id BEFORE normalising: normaliseImported resolves collisions by
+      // renaming (foo -> foo-2), so a recipe we already have would come back with a
+      // fresh id and sail past a duplicate check made afterwards.
+      if (!raw || !raw.id) return;
+      if (RECIPES.some(r => r.id === raw.id) || store.custom.some(c => c.id === raw.id)) return;
+      const res = normaliseImported(raw);
+      if (!res.ok) return;                                   // skip junk, keep the rest
+      store.custom.push(res.recipe);
+      RECIPES.push(res.recipe);
+      changed.recipes++;
+    });
+  }
+  if (typeof src.units === "string") store.units = src.units;
+  if (typeof src.mode  === "string") store.mode  = src.mode;
+  if (typeof src.sort  === "string" && SORTS[src.sort]) { store.sort = src.sort; $("sort").value = src.sort; }
+
+  save(); renderLibrary(); refreshBackup();
+
+  const parts = [];
+  if (changed.recipes)  parts.push(plural(changed.recipes,  "recipe", "recipes"));
+  if (changed.favs)     parts.push(plural(changed.favs,     "favourite", "favourites"));
+  if (changed.notes)    parts.push(plural(changed.notes,    "note", "notes"));
+  if (changed.hidden)   parts.push(plural(changed.hidden,   "removal", "removals"));
+  if (changed.servings) parts.push(plural(changed.servings, "serving size", "serving sizes"));
+  if (changed.done)     parts.push(plural(changed.done,     "progress mark", "progress marks"));
+  return { ok:true, msg: parts.length ? "Restored " + parts.join(", ") + "."
+                                      : "Already up to date — nothing new in that backup." };
+}
+
+$("backup-toggle").addEventListener("click", () => {
+  const p = $("backup-panel");
+  p.classList.toggle("hidden");
+  if (!p.classList.contains("hidden")) {
+    refreshBackup();
+    if (p.scrollIntoView) p.scrollIntoView({ block:"nearest" });
+  }
+});
+$("backup-save").addEventListener("click", () => {
+  // Downloads can be blocked in a sandboxed frame, and a blocked one fails
+  // silently — so always say where the fallback is.
+  try {
+    const url = URL.createObjectURL(new Blob([$("backup-text").value], { type:"application/json" }));
+    const a = document.createElement("a");
+    a.href = url; a.download = backupFilename();
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+    $("backup-msg").textContent = "Saved as " + backupFilename() + " — if no file appeared, use Copy instead.";
+  } catch (e) {
+    console.warn("backup download failed", e);
+    $("backup-msg").textContent = "This browser blocked the download — use Copy instead.";
+  }
+});
+$("backup-copy").addEventListener("click", async () => {
+  const ta = $("backup-text");
+  ta.select();
+  let ok = false;
+  try { await navigator.clipboard.writeText(ta.value); ok = true; }
+  catch (e) { try { ok = document.execCommand("copy"); } catch (e2) { console.warn("copy failed", e2); } }
+  $("backup-msg").textContent = ok ? "Copied — paste it into a note or a file"
+                                   : "Press Ctrl/Cmd+C — the text is selected";
+});
+$("restore-go").addEventListener("click", () => {
+  const msg = $("restore-msg"), text = $("restore-text").value.trim();
+  if (!text) { msg.className = "saved err"; msg.textContent = "Paste a backup first."; return; }
+  const res = restoreFrom(text);
+  msg.className = "saved " + (res.ok ? "ok" : "err");
+  msg.textContent = res.ok ? res.msg : res.why;
+  if (res.ok) $("restore-text").value = "";
+});
+
 /* ---- add-a-recipe wiring ---- */
 $("add-toggle").addEventListener("click", () => {
   const p = $("add-panel");
@@ -3138,6 +3419,55 @@ $("minus").addEventListener("click", ()=>bump(-1));
 $("plus").addEventListener("click", ()=>bump(1));
 $("units").addEventListener("click", e => { const b=e.target.closest("button"); if(!b)return; store.units=b.dataset.u; save(); renderDetail(); });
 $("mode").addEventListener("click",  e => { const b=e.target.closest("button"); if(!b)return; store.mode =b.dataset.m; save(); renderDetail(); });
+
+/* ---- cook mode: keep the screen awake --------------------------------------
+   Deliberately NOT persisted in `store`. A wake lock is a property of this
+   cooking session, not a preference — coming back next week and finding your
+   screen pinned on is a bug, not a feature. It is also per-recipe: leaving the
+   detail view releases it.
+   The lock is dropped by the browser whenever the tab is hidden, so it has to be
+   re-taken on visibilitychange or it silently dies the first time you switch
+   apps to answer a message.                                                   */
+const WAKE_OK = typeof navigator !== "undefined" && !!navigator.wakeLock;
+let wantWake = false, wakeSentinel = null;
+
+async function acquireWake() {
+  if (!WAKE_OK || wakeSentinel || document.visibilityState !== "visible") return;
+  try {
+    wakeSentinel = await navigator.wakeLock.request("screen");
+    // Fires when the browser takes it back (tab hidden, battery saver, OS policy).
+    wakeSentinel.addEventListener("release", () => { wakeSentinel = null; syncWake(); });
+  } catch (e) {
+    // Refused — usually battery saver or a non-secure context. Don't keep pretending.
+    wantWake = false;
+    toast("Your browser wouldn't keep the screen awake.");
+    console.warn("wake lock refused", e);
+  }
+  syncWake();
+}
+function releaseWake() {
+  const s = wakeSentinel;
+  wakeSentinel = null;
+  if (s) { try { s.release(); } catch (e) { console.warn("wake release failed", e); } }
+}
+function syncWake() {
+  const b = $("wake");
+  b.setAttribute("aria-pressed", String(wantWake));
+  b.textContent = wantWake ? "☀ Screen staying awake" : "☼ Keep screen awake";
+}
+function setWake(on) {
+  wantWake = on;
+  syncWake();          // reflect the press immediately; acquireWake corrects it if refused
+  if (on) acquireWake(); else releaseWake();
+}
+if (WAKE_OK) {
+  $("wake").classList.remove("hidden");
+  $("wake").addEventListener("click", () => setWake(!wantWake));
+  document.addEventListener("visibilitychange", () => {
+    if (wantWake && document.visibilityState === "visible") acquireWake();
+  });
+  syncWake();
+}
 
 function toggleStep(e) {
   const tb = e.target.closest(".tbtn");

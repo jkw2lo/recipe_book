@@ -5,7 +5,7 @@
   "description": "A personal recipe book that normalises recipes from any site — ads stripped, ingredients bound to the step that uses them, and honest active vs waiting times.",
   "scripts": {
     "build": "node build.mjs",
-    "test": "node test/render.js && node test/timers.js && node test/import.js",
+    "test": "node test/render.js && node test/timers.js && node test/import.js && node test/backup.js",
     "check": "npm run build && npm test",
     "serve": "node --experimental-strip-types -e \"import('node:http').then(h=>import('node:fs').then(f=>h.createServer((q,s)=>{s.writeHead(200,{'Content-Type':'text/html'});s.end(f.readFileSync('index.html'))}).listen(8080,()=>console.log('http://localhost:8080'))))\""
   },

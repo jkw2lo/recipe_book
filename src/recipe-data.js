@@ -1814,4 +1814,102 @@ const RECIPES = [
     "Tastes best on day two. Room temperature 3 days, fridge a week, or freeze 3–4 months (slices thaw much faster than a whole loaf)."
   ]
 }
+,
+{
+  id: "bagels-sallysbaking",
+  title: "Homemade Bagels",
+  source: { site: "Sally's Baking Addiction", url: "https://sallysbakingaddiction.com/homemade-bagels/", author: "Sally McKenney" },
+  cuisine: "American", tags: ["bread", "yeast", "breakfast", "lean dough"],
+  servings: { base: 8, unit: "bagels", min: 4, max: 8 },
+  time: { active: 25, passive: 140, cook: 32 },
+  claimed: 180,
+  components: [
+    { id: "dough",  label: "Dough" },
+    { id: "shape",  label: "Shaping & rest" },
+    { id: "bath",   label: "Water bath" },
+    { id: "finish", label: "Egg wash & bake" }
+  ],
+  ingredients: [
+    { key: "water",   comp: "dough", name: "Warm water",        us: { qty: 1.5, unit: "cups" },  metric: { qty: 360, unit: "ml" }, note: "100–110°F / 38–43°C" },
+    { key: "yeast",   comp: "dough", name: "Instant or active dry yeast", us: { qty: 2.75, unit: "tsp" }, metric: { qty: 8, unit: "g" }, note: "a little over one standard packet" },
+    { key: "malt",    comp: "dough", name: "Barley malt syrup, granulated sugar or brown sugar", us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" }, note: "≈21 g as syrup, ≈12 g as sugar — malt is the traditional flavour" },
+    { key: "flour",   comp: "dough", name: "Bread flour",       us: { qty: 4, unit: "cups" },    metric: { qty: 520, unit: "g" }, note: "spooned and levelled, plus more as needed — not all-purpose" },
+    { key: "salt",    comp: "dough", name: "Salt",              us: { qty: 2, unit: "tsp" },     metric: { qty: 12, unit: "g" }, note: "fine salt; about 14 g if using kosher" },
+    { key: "oil",     comp: "dough", name: "Oil, butter or nonstick spray", scalable: false, us: { qty: 0, unit: "" }, metric: { qty: 0, unit: "" }, note: "for coating the rising bowl" },
+
+    { key: "bwater",  comp: "bath", name: "Water for boiling",  scalable: false, us: { qty: 2, unit: "quarts" }, metric: { qty: 1.9, unit: "L" }, note: "fixed — do not scale this with the dough" },
+    { key: "bmalt",   comp: "bath", name: "Barley malt syrup or honey", scalable: false, us: { qty: 0.25, unit: "cup" }, metric: { qty: 85, unit: "g" }, note: "fixed — sweetens the bath, not the dough" },
+
+    { key: "eggwhite",comp: "finish", name: "Egg white",        scalable: false, us: { qty: 1, unit: "" },        metric: { qty: 1, unit: "" }, note: "beaten; milk works if you avoid eggs" },
+    { key: "ewater",  comp: "finish", name: "Water for the egg wash", scalable: false, us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" } },
+    { key: "topping", comp: "finish", name: "Sesame, poppy, coarse salt or shredded cheese", optional: true, us: { qty: 0.33, unit: "cup" }, metric: { qty: 45, unit: "g" }, note: "dip while the egg wash is still wet" }
+  ],
+  steps: [
+    { comp: "dough", text: "Whisk warm water, malt syrup and yeast. Cover, rest 5 min.",
+      detail: "In the bowl of a stand mixer fitted with the dough hook, whisk the warm water, barley malt syrup or sugar, and yeast together. Cover and let sit for 5 minutes. No stand mixer? Use a large bowl and a wooden spoon or spatula for the next step.",
+      uses: ["water","malt","yeast"], mins: 5, passive: true },
+    { comp: "dough", text: "Add flour and salt; beat 2 min to a stiff, dryish dough.",
+      detail: "Add the flour and salt and beat on medium for 2 minutes, until the dough comes together and pulls away from the sides of the bowl. It should be stiff and somewhat dry.",
+      tip: "Too sticky? Add flour 1 Tbsp at a time. Crumbly and breaking apart? Add water 1 tsp at a time. Aim for firm — slack dough is the main cause of flat bagels.",
+      uses: ["flour","salt"], mins: 2 },
+    { comp: "dough", text: "Knead 6–7 min until smooth, supple and elastic.",
+      detail: "Beat on low with the dough hook for a further 6–7 minutes, or knead by hand on a lightly floured surface for 6–7 minutes, until the dough feels smooth, supple and elastic. It should still feel a little soft.",
+      tip: "Two readiness tests: poked, it springs back slowly; or stretch a golfball-sized piece thin enough to see light through it without tearing (the windowpane test).",
+      uses: [], mins: 7 },
+    { comp: "dough", text: "Oil a large bowl, turn the dough to coat, cover.",
+      detail: "Lightly grease a large bowl with nonstick spray, butter or oil. Put the dough in and turn it so all sides are coated. Cover with plastic wrap or a clean kitchen towel.",
+      uses: ["oil"], mins: 2 },
+    { comp: "dough", text: "Rise at room temperature 1½–2 hrs, until doubled.",
+      detail: "Allow the dough to rise at room temperature for 1.5–2 hours, or until doubled in size.",
+      tip: "Go by size, not the clock — stop at doubled. Over-proofed dough collapses in the oven, and that is far and away the most common complaint on this recipe. Active dry yeast may need the full 2 hours.",
+      uses: [], mins: 105, passive: true },
+
+    { comp: "shape", text: "Line two large baking sheets with parchment.",
+      detail: "Line two large baking sheets with parchment paper or silicone baking mats.",
+      uses: [], mins: 2 },
+    { comp: "shape", text: "Punch down; divide into 8 pieces (≈113 g each) and roll into balls.",
+      detail: "Punch the risen dough down to release the air. On a lightly floured surface, divide it into 8 equal pieces, about 4 oz (113 g) each, and shape each into a ball.",
+      tip: "Weigh them. Uneven pieces bake unevenly, and this is the one place a scale earns its keep.",
+      uses: [], mins: 6 },
+    { comp: "shape", text: "Push a hole through each; widen to 1½–2 in.",
+      detail: "Press your index finger through the centre of each ball to make a hole, then stretch and widen it to about 1.5–2 inches across. Arrange on the lined sheets.",
+      tip: "Make the hole bigger than looks right — it closes up in the boil and again in the oven.",
+      uses: [], mins: 4 },
+    { comp: "shape", text: "Cover loosely and rest 5–10 min while the water heats.",
+      detail: "Loosely cover the shaped bagels with a kitchen towel or plastic wrap and let them rest for 5–10 minutes while you prepare the water bath.",
+      uses: [], mins: 10, passive: true },
+    { comp: "shape", text: "Heat the oven to 425°F / 218°C.",
+      detail: "Preheat the oven to 425°F (218°C). Start this now so it is up to temperature by the time the bagels come out of the water.",
+      uses: [] },
+
+    { comp: "bath", text: "Boil 2 qt water with the malt syrup or honey; reduce to medium-high.",
+      detail: "Fill a large, wide pot with 2 quarts (1.9 L) of water and whisk in the barley malt syrup or honey. Bring to a boil over high heat, then reduce to medium-high.",
+      tip: "The sugar in the bath is what gives the crust its colour and crispness — it is not optional seasoning.",
+      uses: ["bwater","bmalt"], mins: 10 },
+    { comp: "bath", text: "Boil 2–3 at a time: 1 min, flip, 1 min more. Drain, return to the sheets.",
+      detail: "Drop in 2 or 3 bagels at a time, leaving room to float. Boil 1 minute, flip with a spatula, boil 1 minute more. Lift out with a slotted spatula, let the water drain off, and return them to the lined sheets. Repeat with the rest.",
+      tip: "This step is the whole recipe: it gelatinises the starch for the shine and sets the outside so they hold their shape. Don't crowd the pot.",
+      uses: [], mins: 10 },
+
+    { comp: "finish", text: "Brush with egg wash; dip in toppings straight away.",
+      detail: "Beat the egg white with 1 Tbsp water. Using a pastry brush, brush it over the top and around the sides of each bagel. If you are topping them, dip while the wash is still wet.",
+      uses: ["eggwhite","ewater","topping"], mins: 3 },
+    { comp: "finish", text: "Bake 20–25 min at 425°F, rotating halfway, to dark golden.",
+      detail: "Bake for 20–25 minutes, rotating the pans halfway through, until the bagels are dark golden brown.",
+      uses: [], mins: 23 },
+    { comp: "finish", text: "Cool on the sheets 20 min, then move to a rack.",
+      detail: "Let the bagels cool on the baking sheets for 20 minutes, then transfer to a cooling rack to cool completely before slicing.",
+      uses: [], mins: 20, passive: true }
+  ],
+  notes: [
+    "Another honest Sally's card: 3 hours claimed, about 3¼ counting the cooling. Sites that name their waiting tend to report it properly.",
+    "Overnight version: after the dough is kneaded and in its bowl, let it rise 1½–2 hrs at room temperature, then refrigerate 8–12 hrs. In the morning, 45 min at room temperature, then shape. Don't shape the night before — they puff too much.",
+    "Halving works: halve every dough ingredient, change nothing else, and leave the boiling water and honey alone. Don't double — make two batches instead. That's why the servings here only go down.",
+    "Flat bagels almost always mean over-proofed dough, or dough that was too slack. A firmer dough and a shorter rise fix both.",
+    "Bread flour is not a suggestion — it's what makes them chewy rather than flimsy. AP works in a pinch and you will taste the difference.",
+    "Barley malt syrup is the traditional malty flavour and is worth hunting down in a natural food shop; brown sugar in the dough and honey in the bath are the substitutes Sally herself uses.",
+    "Variations, all after the egg wash: ⅓ cup sesame or poppy seeds, or coarse salt. Cheese goes into the dough (½ cup shredded, with the flour) and on top.",
+    "Baked bagels freeze for 3 months; so does the dough, wrapped tight after punching down. Otherwise 4 days at room temperature, a week in the fridge."
+  ]
+}
 ];
