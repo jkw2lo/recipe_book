@@ -36,6 +36,7 @@ turn out to be accurate. The ones reporting a single "Total" are where the time 
 - **Components.** Recipes split into the parts you actually make (Dough / Filling / Frying), with
   ingredients and steps grouped under each.
 - **Scaling.** Change the servings and every quantity recalculates, formatted as real fractions.
+- **Pan size.** Recipes that depend on the pan (shokupan) offer a pan picker that rescales on top of servings.
 - **US / metric**, one system at a time.
 - **Step timers.** The time badge on any step starts a countdown in a floating dock. Several run at
   once, they survive a reload, and they chime when done.
@@ -94,6 +95,7 @@ to take if you want the recipe committed and shared.
   cuisine: "Japanese",
   tags: ["dessert", "baking"],
   servings: { base: 4, unit: "servings", min: 2, max: 12 },
+  sizes: [ { id: "std", label: "1.5-kin", factor: 0.91, note: "…" } ],  // optional pan picker; omit if none
   time:     { active: 25, passive: 30, cook: 20 },   // minutes, split honestly
   claimed:  45,                                      // what the source says; omit if none
   components: [ { id: "dough", label: "Dough" } ],   // omit if the recipe has no parts

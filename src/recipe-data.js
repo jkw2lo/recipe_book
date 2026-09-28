@@ -484,7 +484,15 @@ const RECIPES = [
   source: { site: "Just One Cookbook", url: "https://www.justonecookbook.com/japanese-milk-bread-shokupan/", author: "Namiko Chen" },
   cuisine: "Japanese", tags: ["bread", "yeast", "milk bread", "baking", "weighed"],
   servings: { base: 1, unit: "loaf", min: 1, max: 2 },
-  time: { active: 70, passive: 277, cook: 43 },
+  sizes: [
+    { id: "joc",   label: "JOC pan", factor: 1,
+      note: "JOC Goods' bakery-size pan — the amounts the current recipe is written for (385 g flour)." },
+    { id: "std15", label: "1.5-kin", factor: 350/385,
+      note: "A standard 1.5-kin pan, about 12×20×13 cm / 4.7×7.8×5.1 in (≈2.9 L) — e.g. Tiger Crown 2396, or a 1 lb loaf pan. JOC's older recipe for this size uses 350 g flour; everything else scales with it." },
+    { id: "sq1",   label: "1-kin square", factor: 235/385,
+      note: "A 1-kin square pan, about 12×13.5×13 cm / 4.7×5.3×5.1 in (≈1.9 L). Divide into 2 pieces instead of 3, and bake the same time or a few minutes less." }
+  ],
+  time: { active: 72, passive: 277, cook: 28 },
   claimed: 240,
   components: [
     { id: "dough",  label: "Dough" },
@@ -498,10 +506,10 @@ const RECIPES = [
     { key: "water",   comp: "dough", name: "Water",           us: { qty: 1.16, unit: "cups" }, metric: { qty: 275, unit: "g" }, note: "temperature matters — see step 1" },
     { key: "sugar",   comp: "dough", name: "Sugar",           us: { qty: 1.75, unit: "Tbsp" }, metric: { qty: 22, unit: "g" } },
     { key: "honey",   comp: "dough", name: "Honey",           us: { qty: 0.5, unit: "Tbsp" },  metric: { qty: 11, unit: "g" } },
-    { key: "yeast",   comp: "dough", name: "Instant yeast",   us: { qty: 2.5, unit: "tsp" },   metric: { qty: 8, unit: "g" }, note: "active dry: use 25% more and proof it first" },
+    { key: "yeast",   comp: "dough", name: "Instant yeast",   us: { qty: 2.5, unit: "tsp" },   metric: { qty: 8, unit: "g" }, note: "active dry: use 25% more, bloomed 10 min in 100–110°F / 38–43°C water until foamy" },
     { key: "flour",   comp: "dough", name: "Bread flour",     us: { qty: 3.1, unit: "cups" },  metric: { qty: 385, unit: "g" }, note: "12.7% protein; avoid organic — inconsistent protein" },
-    { key: "salt",    comp: "dough", name: "Kosher salt",     us: { qty: 1.75, unit: "tsp" },  metric: { qty: 8, unit: "g" } },
-    { key: "milkpow", comp: "dough", name: "Skim milk powder",us: { qty: 3, unit: "Tbsp" },    metric: { qty: 22, unit: "g" }, note: "coconut milk powder for vegan; not soy — it inhibits the rise" },
+    { key: "salt",    comp: "dough", name: "Diamond Crystal kosher salt", us: { qty: 2.75, unit: "tsp" }, metric: { qty: 8, unit: "g" }, note: "Morton or table salt is twice as dense — weigh it, or use about half the volume" },
+    { key: "milkpow", comp: "dough", name: "Skim milk powder",us: { qty: 3, unit: "Tbsp" },    metric: { qty: 22, unit: "g" }, note: "or nonfat dry milk; volume varies by brand, so weigh it. Coconut milk powder for vegan; not soy — it inhibits the rise" },
     { key: "butter",  comp: "dough", name: "Unsalted butter", us: { qty: 2, unit: "Tbsp" },    metric: { qty: 28, unit: "g" }, note: "cold in summer, room temp in winter" },
     { key: "oil",     comp: "bulk",  name: "Neutral oil, for the bowl", us: { qty: 0.5, unit: "tsp" }, metric: { qty: 2.5, unit: "ml" } },
     { key: "panbut",  comp: "shape", name: "Unsalted butter, for the pan", us: { qty: 0.75, unit: "Tbsp" }, metric: { qty: 10, unit: "g" } }
@@ -547,7 +555,7 @@ const RECIPES = [
       uses: [], mins: 2 },
 
     { comp: "bulk", text: "Slam and fold 5 times, then tension-pull into a taut ball.",
-      detail: "On a lightly dusted surface, fold the dough smooth-side up. Hold the far edge and slam the smooth side onto the counter, fold the bottom up and away, and tuck the sides under. Repeat 5 times total. Then cup both hands around it and drag it toward you, rotating, until smooth and taut.",
+      detail: "Dust the work surface lightly — no more than 2 tsp bread flour, or the loaf turns dry. Scrape the dough out and fold it smooth-side up. Hold the far edge and slam the smooth side onto the counter, fold the bottom up and away, and tuck the sides under. Repeat 5 times total. Then cup both hands around it and drag it toward you, rotating, until smooth and taut.",
       uses: [], mins: 6 },
     { comp: "bulk", text: "Into an oiled bowl, covered; rise 45–60 min until doubled.",
       detail: "Transfer to the lightly oiled bowl, cover with plastic, and rise in a warm spot until doubled — typically 45–60 minutes, up to 1.5 hours in a cool kitchen.",
@@ -585,15 +593,15 @@ const RECIPES = [
       uses: [], mins: 60, passive: true },
 
     { comp: "bake", text: "Preheat 425°F / 220°C, rack 6–7 in / 15–18 cm below the top element.",
-      detail: "Preheat to 425ºF (220ºC), reducing by 25ºF (15ºC) for convection. Position the rack so the top of the pan sits 6–7 inches (15–18 cm) from the top element.",
+      detail: "Start this during the final proof — it overlaps, so it adds no time. Preheat to 425ºF (220ºC), reducing by 25ºF (15ºC) for convection. Position the rack so the top of the pan sits 6–7 inches (15–18 cm) from the top element.",
       uses: [], mins: 15 },
     { comp: "bake", text: "Flat top: lid on, 410°F / 210°C, 25–30 min. Round top: spritz, 385°F / 195°C, 25–30 min.",
       detail: "Remove the plastic. Flat-topped: close the lid, lower the oven to 410ºF (210ºC), bake 25–30 minutes. Round-topped: spritz the surface with water, lower to 385ºF (195ºC), bake 25–30 minutes.",
       tip: "If a flat-top loaf rose past 80%, switch to round-top — the lid can jam.",
       uses: [], mins: 28 },
     { comp: "bake", text: "Slam the pan on the counter 1–2 times, then turn the loaf out onto a rack.",
-      detail: "Immediately out of the oven, slam the pan firmly on the counter once or twice, then turn it on its side over a wire rack and shake until the loaf slides out.",
-      tip: "The slam releases trapped steam so the sides don't cave in. Move quickly or the base goes soggy.",
+      detail: "Immediately out of the oven, slam the pan firmly on the counter once or twice. For a flat top, open the lid — if it's stuck, slam again, or return the pan to the oven for 2–3 minutes and the heat will free it. Turn the pan on its side over a wire rack and shake until the loaf slides out.",
+      tip: "The slam releases trapped steam so the sides don't cave in. Move quickly or the base goes soggy. A stuck lid means it over-proofed — stop at 75% next time.",
       uses: [], mins: 2 },
     { comp: "bake", text: "Cool completely, 2–3 hours, before slicing.",
       detail: "Cool the loaf completely on the rack for 2–3 hours before slicing.",
@@ -601,11 +609,14 @@ const RECIPES = [
       uses: [], mins: 150, passive: true }
   ],
   notes: [
-    "The source's 4-hour total stops at the oven. The mandatory 2–3 hour cool before slicing isn't counted — plan on about 6½ hours start to sliceable.",
+    "The source's 4-hour total stops at the oven. The mandatory 2–3 hour cool before slicing isn't counted — plan on about 6¼ hours start to sliceable. (Preheating is counted inside the final proof, where it actually happens.)",
     "This is a weighed recipe. The gram figures are authoritative; the cup conversions here are approximations for reference only.",
-    "Revised May 2026 and sized for JOC's own loaf pan — 10% more dough than the older version.",
+"Revised May 2026 and sized for JOC Goods' own pan, which is bigger than a standard 1.5-kin — 10% more dough than the older version. JOC confirms standard 1.5-kin pans should use the older, 350 g-flour quantities. Pick your pan above and every amount rescales; the method is the same for all sizes.",
+    "Baking two loaves at once: add 1–2 minutes and leave space between the pans for the heat to circulate.",
+    "Tuned for a KitchenAid Artisan 5-qt (350W). On a Classic (275W), don't double it — the motor can't handle it. On a Professional with a spiral hook, you must double it for the hook to catch, and knead about 1.5× longer at each stage.",
+    "Both rises want 86–95ºF (30–35ºC). No proof setting? Put the covered dough in the oven or microwave beside boiling water, or use an Instant Pot on Yogurt (Low).",
     "Do not wash the loaf pan. Wipe it dry; if you must rinse, dry and re-season immediately.",
-    "Store whole at room temperature 1–2 days and slice as needed. Never refrigerate. Longer than that, slice and freeze."
+    "Store whole in a bag somewhere cool for 1–2 days and slice as needed. Never refrigerate — it dries the bread. Longer than that, slice and freeze up to a month (best within 2 weeks)."
   ]
 },
 
@@ -1910,6 +1921,93 @@ const RECIPES = [
     "Barley malt syrup is the traditional malty flavour and is worth hunting down in a natural food shop; brown sugar in the dough and honey in the bath are the substitutes Sally herself uses.",
     "Variations, all after the egg wash: ⅓ cup sesame or poppy seeds, or coarse salt. Cheese goes into the dough (½ cup shredded, with the flour) and on top.",
     "Baked bagels freeze for 3 months; so does the dough, wrapped tight after punching down. Otherwise 4 days at room temperature, a week in the fridge."
+  ]
+}
+,
+{
+  id: "chocolatecake-addapinch",
+  title: "The Best Chocolate Cake",
+  source: { site: "Add a Pinch", url: "https://addapinch.com/the-best-chocolate-cake-recipe-ever/", author: "Robyn Stone" },
+  cuisine: "American", tags: ["dessert", "cake", "baking", "chocolate", "freezer-friendly"],
+  servings: { base: 2, unit: "9-in layers", min: 1, max: 4 },
+  time: { active: 42, passive: 100, cook: 33 },
+  claimed: 45,
+  components: [
+    { id: "batter",   label: "Cake batter" },
+    { id: "bake",     label: "Bake & cool" },
+    { id: "frosting", label: "Chocolate buttercream" },
+    { id: "finish",   label: "Frost" }
+  ],
+  ingredients: [
+    { key: "pan",     comp: "batter", name: "Baking spray", scalable: false, us: { qty: 0, unit: "for the pans" }, metric: { qty: 0, unit: "for the pans" }, note: "or butter and flour" },
+    { key: "flour",   comp: "batter", name: "All-purpose flour",    us: { qty: 2, unit: "cups" },    metric: { qty: 240, unit: "g" }, note: "spooned and levelled" },
+    { key: "sugar",   comp: "batter", name: "Granulated sugar",     us: { qty: 2, unit: "cups" },    metric: { qty: 396, unit: "g" } },
+    { key: "cocoa",   comp: "batter", name: "Cocoa powder",         us: { qty: 0.75, unit: "cup" },  metric: { qty: 63, unit: "g" }, note: "unsweetened" },
+    { key: "bpowder", comp: "batter", name: "Baking powder",        us: { qty: 2, unit: "tsp" },     metric: { qty: 8, unit: "g" } },
+    { key: "bsoda",   comp: "batter", name: "Baking soda",          us: { qty: 1.5, unit: "tsp" },   metric: { qty: 9, unit: "g" } },
+    { key: "salt",    comp: "batter", name: "Diamond Crystal kosher salt", us: { qty: 1, unit: "tsp" }, metric: { qty: 2.8, unit: "g" }, note: "Morton, fine sea or table salt: use half" },
+    { key: "espresso",comp: "batter", name: "Espresso powder",      us: { qty: 1, unit: "tsp" },     metric: { qty: 2.3, unit: "g" }, note: "homemade or store-bought" },
+    { key: "milk",    comp: "batter", name: "Milk",                 us: { qty: 1, unit: "cup" },     metric: { qty: 227, unit: "g" }, note: "or buttermilk, almond or coconut milk; grams are for whole milk or buttermilk" },
+    { key: "oil",     comp: "batter", name: "Vegetable oil",        us: { qty: 0.5, unit: "cup" },   metric: { qty: 99, unit: "g" }, note: "or canola, or melted coconut oil" },
+    { key: "eggs",    comp: "batter", name: "Large eggs",           us: { qty: 2, unit: "" },        metric: { qty: 2, unit: "" } },
+    { key: "vanilla", comp: "batter", name: "Vanilla extract",      us: { qty: 2, unit: "tsp" },     metric: { qty: 9.4, unit: "g" } },
+    { key: "water",   comp: "batter", name: "Boiling water",        us: { qty: 1, unit: "cup" },     metric: { qty: 227, unit: "g" } },
+
+    { key: "fbutter", comp: "frosting", name: "Butter",             us: { qty: 1.5, unit: "cups" },  metric: { qty: 339, unit: "g" }, note: "softened" },
+    { key: "fcocoa",  comp: "frosting", name: "Cocoa powder",       us: { qty: 1, unit: "cup" },     metric: { qty: 84, unit: "g" }, note: "unsweetened" },
+    { key: "fsugar",  comp: "frosting", name: "Confectioners sugar",us: { qty: 5, unit: "cups" },    metric: { qty: 568, unit: "g" }, note: "plus a little extra if the frosting is too soft" },
+    { key: "fmilk",   comp: "frosting", name: "Milk",               us: { qty: 0.5, unit: "cup" },   metric: { qty: 114, unit: "g" }, note: "whole, half-and-half or heavy cream preferred; plus extra if it's too stiff" },
+    { key: "fvanilla",comp: "frosting", name: "Vanilla extract",    us: { qty: 2, unit: "tsp" },     metric: { qty: 9, unit: "g" } },
+    { key: "fespresso",comp:"frosting", name: "Espresso powder",    us: { qty: 0.5, unit: "tsp" },   metric: { qty: 1, unit: "g" } }
+  ],
+  steps: [
+    { comp: "batter", text: "Heat oven to 350°F / 175°C. Grease and flour two 9-in / 23-cm cake pans.",
+      detail: "Preheat the oven to 350ºF (175ºC). Prepare two 9-inch cake pans by spraying with baking spray, buttering and lightly flouring, or brushing with homemade chocolate pan release.",
+      uses: ["pan"], mins: 5 },
+    { comp: "batter", text: "Whisk flour, sugar, cocoa, baking powder, soda, salt and espresso powder.",
+      detail: "Add the flour, sugar, cocoa, baking powder, baking soda, salt and espresso powder to a large bowl or the bowl of a stand mixer. Whisk to combine, or stir through with the paddle attachment until well combined.",
+      uses: ["flour","sugar","cocoa","bpowder","bsoda","salt","espresso"], mins: 4 },
+    { comp: "batter", text: "Beat in milk, oil, eggs and vanilla on medium until combined.",
+      detail: "Add the milk, vegetable oil, eggs and vanilla to the flour mixture and mix on medium speed until well combined.",
+      uses: ["milk","oil","eggs","vanilla"], mins: 3 },
+    { comp: "batter", text: "On low, carefully pour in the boiling water. The batter will be very thin.",
+      detail: "Reduce the speed and carefully add the boiling water to the batter, mixing until well combined.",
+      tip: "Thin, almost pourable batter is correct — it's what makes the cake so moist. Don't add flour to fix it.",
+      uses: ["water"], mins: 2 },
+
+    { comp: "bake", text: "Divide between the pans; bake 30–35 min until a tester comes out clean.",
+      detail: "Distribute the batter evenly between the two prepared pans. Bake for 30–35 minutes, until a toothpick or cake tester inserted in the centre comes out clean.",
+      tip: "Weigh the pans to split the batter evenly — the layers bake at the same rate and stack flat.",
+      uses: [], mins: 33 },
+    { comp: "bake", text: "Cool 10 min in the pans, then turn out onto a rack.",
+      detail: "Remove from the oven and cool in the pans for about 10 minutes, then remove from the pans.",
+      uses: [], mins: 10, passive: true },
+    { comp: "bake", text: "Cool the layers completely before frosting, about 1½ hr.",
+      detail: "Let the layers cool completely on a wire rack before frosting.",
+      tip: "Frosting a warm cake melts the buttercream and the layers slide. Make the frosting in this window.",
+      uses: [], mins: 90, passive: true },
+
+    { comp: "frosting", text: "Whisk the lumps out of the cocoa, then cream with the butter.",
+      detail: "Add the cocoa powder to a large bowl or the bowl of a stand mixer and whisk to remove any lumps. Add the softened butter and cream together until well combined.",
+      uses: ["fcocoa","fbutter"], mins: 4 },
+    { comp: "frosting", text: "Alternate 1 cup sifted sugar with ~1 Tbsp milk, beating on high 1 min after each.",
+      detail: "Whisk or sift the confectioners sugar into a separate bowl to remove lumps. Add it to the cocoa mixture 1 cup at a time, each followed by about a tablespoon of milk. Once each addition is combined, beat on high for about a minute. Repeat until all the sugar and milk are in.",
+      uses: ["fsugar","fmilk"], mins: 10 },
+    { comp: "frosting", text: "Beat in vanilla and espresso powder. Adjust with milk or sugar, 1 Tbsp at a time.",
+      detail: "Add the vanilla and espresso powder and combine well. If the frosting seems dry, add more milk a tablespoon at a time; if it's too wet to hold its shape, add more confectioners sugar a tablespoon at a time.",
+      uses: ["fvanilla","fespresso"], mins: 3 },
+
+    { comp: "finish", text: "Fill and frost the cooled layers.",
+      detail: "Frost the cooled cake with the chocolate buttercream.",
+      uses: [], mins: 15 }
+  ],
+  notes: [
+    "The card's 45 minutes is mixing plus baking. The layers still have to cool completely, and the buttercream is a separate recipe — plan on about 3 hours before you can slice it.",
+    "The frosting is Add a Pinch's Perfect Chocolate Buttercream, linked from the cake card. It makes about 4½ cups (36 × 2 Tbsp), plenty to fill and frost two 9-inch layers.",
+    "The nutrition figures on the source card cover the cake only, not the frosting.",
+    "Freeze unfrosted layers up to 2 months: cool completely, wrap in plastic, then foil, then a freezer bag. Thaw overnight in the fridge still wrapped, then fill and frost.",
+    "Frosting keeps 5 days in the fridge or 3 months frozen, airtight. Bring it back to room temperature and whisk to fluff before using.",
+    "At high altitude the source says to adjust for your area but gives no figures."
   ]
 }
 ];

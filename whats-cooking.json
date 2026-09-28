@@ -997,7 +997,7 @@
       "name": "Shokupan (JOC — straight dough)",
       "mealType": "side",
       "difficulty": "hard",
-      "time": 390,
+      "time": 377,
       "perishables": [],
       "pantry": [
         {
@@ -1222,6 +1222,81 @@
         "Heat oil to 350°F / 175°C.",
         "Fry 3–4 min; add basil for the last 30 sec and cover immediately.",
         "Sprinkle the seasoning on straight out of the oil."
+      ]
+    },
+    {
+      "name": "The Best Chocolate Cake",
+      "mealType": "dessert",
+      "difficulty": "medium",
+      "time": 175,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "cocoa_powder",
+          "mandatory": true
+        },
+        {
+          "id": "baking_powder",
+          "mandatory": true
+        },
+        {
+          "id": "baking_soda",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "espresso_powder",
+          "mandatory": true
+        },
+        {
+          "id": "milk",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "powdered_sugar",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Heat oven to 350°F / 175°C. Grease and flour two 9-in / 23-cm cake pans.",
+        "Whisk flour, sugar, cocoa, baking powder, soda, salt and espresso powder.",
+        "Beat in milk, oil, eggs and vanilla on medium until combined.",
+        "On low, carefully pour in the boiling water. The batter will be very thin.",
+        "Divide between the pans; bake 30–35 min until a tester comes out clean.",
+        "Cool 10 min in the pans, then turn out onto a rack.",
+        "Cool the layers completely before frosting, about 1½ hr.",
+        "Whisk the lumps out of the cocoa, then cream with the butter.",
+        "Alternate 1 cup sifted sugar with ~1 Tbsp milk, beating on high 1 min after each.",
+        "Beat in vanilla and espresso powder. Adjust with milk or sugar, 1 Tbsp at a time.",
+        "Fill and frost the cooled layers."
       ]
     },
     {
@@ -1607,6 +1682,13 @@
       "name": "Dried Shrimp",
       "category": "Chinese",
       "subcategory": "Dried Goods",
+      "list": "pantry"
+    },
+    {
+      "id": "espresso_powder",
+      "name": "Espresso Powder",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
       "list": "pantry"
     },
     {
