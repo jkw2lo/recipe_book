@@ -210,7 +210,7 @@ textarea:focus { outline:2px solid var(--accent-soft); border-color:var(--accent
 .tsize button[data-ts="1.15"] { font-size:.875rem; }
 .tsize button[data-ts="1.3"]  { font-size:1rem; }
 .tsize button[data-ts="1.5"]  { font-size:1.125rem; }
-html.split #detail .tsize { display:none; }   /* the library's copy is on screen */
+html.split:not(.collapsed) #detail .tsize { display:none; }   /* the library's copy is on screen */
 
 .dl { border:1px solid #d5cec3; background:var(--card); color:var(--ink-2); border-radius:.5rem;
   padding:.5rem .875rem; font:inherit; font-size:.8125rem; cursor:pointer; white-space:nowrap; }
@@ -269,53 +269,77 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
    Screen-only so print keeps its own rules. */
 #welcome { display:none; }
 .back .d-only { display:none; }
+.divider, .collapse, .expand { display:none; }
+.divider { position:relative; cursor:col-resize; touch-action:none; background:var(--bg); }
+.divider::before { content:""; position:absolute; top:0; bottom:0; left:50%; width:1px; background:var(--line); transition:background .12s, width .12s; }
+.divider:hover::before, .divider:focus-visible::before, html.resizing .divider::before { background:var(--accent); width:3px; margin-left:-1px; }
+.divider:focus-visible { outline:none; }
+html.resizing, html.resizing * { cursor:col-resize !important; user-select:none !important; }
+.collapse { border:1px solid var(--line-2); background:var(--card); color:var(--ink-2); border-radius:.5rem;
+  font:inherit; font-size:.8125rem; padding:.3125rem .5625rem; cursor:pointer; line-height:1.2; }
+.collapse:hover, .expand:hover { border-color:var(--accent); color:var(--accent); }
+/* a tab on the left edge that brings the list back */
+.expand { position:fixed; left:0; top:50%; transform:translateY(-50%); z-index:40; flex-direction:column; align-items:center; gap:.375rem;
+  border:1px solid var(--line-2); border-left:0; border-radius:0 .625rem .625rem 0; background:var(--card); color:var(--ink-2);
+  font:inherit; font-size:.8125rem; padding:.75rem .375rem; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+.expand span { writing-mode:vertical-rl; letter-spacing:.04em; }
 .card.sel { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset; }
 @media screen {
   html.split body { height:100vh; overflow:hidden; }
-  html.split .wrap { max-width:none; height:100vh; padding:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
-  html.split #library { overflow-y:auto; padding:1.25rem 1.75rem 4rem; border-right:1px solid var(--line); }
+  /* --lw is the list's share of the width, set by dragging the divider; clamp()
+     keeps both panes usable whatever was saved, at any text size. */
+  html.split .wrap { max-width:none; height:100vh; padding:0; display:grid;
+    grid-template-columns:clamp(16rem, var(--lw, 50%), calc(100% - 24rem)) .5rem minmax(0,1fr); }
+  html.split #library { grid-column:1; overflow-y:auto; padding:1.25rem 1.75rem 4rem; }
+  html.split .divider { display:block; grid-column:2; }
+  html.split .collapse { display:inline-block; }
+  html.split.collapsed .wrap { grid-template-columns:0 0 minmax(0,1fr); }
+  html.split.collapsed #library, html.split.collapsed #library.hidden, html.split.collapsed .divider { display:none !important; }
+  html.split.collapsed .expand { display:flex; }
+  html.split.collapsed .side { padding-left:3.25rem; }
   /* openRecipe hides the library for mobile; on desktop it never leaves */
   html.split #library.hidden { display:block !important; }
-  html.split .side { overflow-y:auto; padding:1.375rem 2.25rem 4rem; background:#f6f3ee; }
+  html.split .side { grid-column:3; overflow-y:auto; padding:1.375rem 2.25rem 4rem; background:#f6f3ee; }
+  /* a very wide right pane (list collapsed or dragged narrow) keeps a readable line length */
+  html.split .side > section { max-width:58.75rem; margin-inline:auto; }
   html.split #welcome { display:flex; flex-direction:column; min-height:100%; }
   html.split .back .m-only { display:none; }
   html.split .back .d-only { display:inline; }
 }
 
 .hello { flex:1 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; padding:2.25rem .75rem 1.875rem; }
-.hello-art { font-size:2.75rem; line-height:1; letter-spacing:.375rem; margin-bottom:.875rem; }
-.hello-art span { display:inline-block; animation:bob 3.2s ease-in-out infinite; }
-.hello-art span:nth-child(2) { animation-delay:.4s; }
-.hello-art span:nth-child(3) { animation-delay:.8s; }
-@keyframes bob { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-.3125rem) rotate(-4deg); } }
-@media (prefers-reduced-motion: reduce) { .hello-art span { animation:none; } }
+  text-align:center; padding:.75rem .75rem 1.25rem; }
+.h-emo { display:inline-block; font-size:.85em; animation:bob 3.2s ease-in-out infinite; }
+h2 .h-emo:last-child { animation-delay:.6s; }
+@keyframes bob { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-.25rem) rotate(-6deg); } }
+@media (prefers-reduced-motion: reduce) { .h-emo { animation:none; } }
 .hello-greet { color:var(--accent); font-size:.8125rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
-.hello h2 { font-size:1.875rem; margin:.375rem 0 .5rem; }
-.hello p { color:var(--ink-2); margin:0 0 1.25rem; max-width:25rem; }
-.ideas { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); grid-template-rows:repeat(2, 4.25rem);
+.hello h2 { font-size:1.875rem; margin:.25rem 0 .375rem; }
+.hello p { color:var(--ink-2); margin:0 0 1rem; max-width:25rem; }
+.ideas { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); grid-template-rows:repeat(2, 3.375rem);
   gap:.5rem; width:min(100%, 32rem); }
-/* Fixed 2×2 tiles: however long the titles, shuffling never moves the buttons
+/* Fixed 2×2 tiles, one-line titles: however long they are, shuffling never moves the buttons
    below — so repeated clicks on "Other ideas" can't land on a recipe. */
 .idea { display:flex; flex-direction:column; justify-content:center; gap:.125rem; min-width:0;
   border:1px solid var(--line-2); background:var(--card); border-radius:.75rem; padding:.5rem .875rem;
   font:inherit; font-size:.8438rem; line-height:1.3; color:var(--ink); text-align:left; cursor:pointer;
   transition:border-color .12s, color .12s; }
 .idea:hover { border-color:var(--accent); color:var(--accent); }
-.idea b { font-weight:550; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.idea b { font-weight:550; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
 .idea small { color:var(--ink-3); font-size:.75rem; }
 .hello-acts { display:flex; gap:.5rem; margin-top:.875rem; }
-.byo { border-top:1px dashed var(--line-2); padding-top:1.125rem; container-type:inline-size; }
-.byo h4 { margin-top:0; }
+.byo { border-top:1px dashed var(--line-2); padding-top:1rem; container-type:inline-size; }
+.byo h4 { margin:0; }
 /* The two import steps sit side by side when there's room. The prompt and the
    pasted JSON are only ever copied or pasted, never read, so their boxes can be small. */
 @container (min-width: 36em) {
   .byo #add-panel { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:.75rem; align-items:stretch; }
-  .byo #add-panel .stepbox { margin-top:.625rem; display:flex; flex-direction:column; }
-  .byo #add-panel textarea { font-size:.6875rem; line-height:1.4; flex:1 0 auto; }
+  .byo #add-panel .stepbox { margin-top:.625rem; padding:.75rem .875rem; display:flex; flex-direction:column; }
+  /* short by default; the JSON box stretches only to match step 1's height */
+  .byo #add-panel textarea { font-size:.6875rem; line-height:1.4; min-height:0; height:3.5rem; flex:1 0 auto; resize:none; }
+  .byo #add-panel #add-prompt { height:6rem; }
   .byo #add-panel .search { flex:none; }   /* it's a flex item in the toolbar; don't let it grow tall here */
 }
-.byo > p { color:var(--ink-2); font-size:.8438rem; margin:0 0 .25rem; }
 </style>
 </head>
 <body>
@@ -329,6 +353,7 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
         <button data-ts="1.3" aria-label="Larger text">A</button>
         <button data-ts="1.5" aria-label="Largest text">A</button>
       </div>
+      <button class="collapse" id="collapse" title="Hide the recipe list" aria-label="Hide the recipe list">«</button>
     </div>
     <div class="toolbar">
       <input class="search" id="q" type="search" placeholder="Search recipes, ingredients, cuisine…" autocomplete="off">
@@ -361,8 +386,8 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
     <section id="add-panel" class="hidden">
       <div class="stepbox">
         <h5>Step 1 — Build the prompt</h5>
-        <p class="hint">Paste a recipe link, or just name the dish and the site. Then copy the prompt
-          into ChatGPT, Claude, Gemini — whichever you like.</p>
+        <p class="hint">Paste a link or name the dish, then copy the prompt into any AI —
+          ChatGPT, Claude, Gemini.</p>
         <input class="search" id="add-src" type="text" autocomplete="off"
                placeholder="https://…  or  &quot;taro bun from rasa malaysia&quot;">
         <div class="dl-row">
@@ -375,8 +400,7 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
 
       <div class="stepbox">
         <h5>Step 2 — Paste the result</h5>
-        <p class="hint">Paste the JSON the AI gave you and import. It's checked before anything is
-          added, and saved in this browser.</p>
+        <p class="hint">Paste the JSON it gives back. It's checked first, then saved in this browser.</p>
         <textarea id="add-json" rows="7" placeholder='{ "title": "…", "ingredients": [ … ] }'></textarea>
         <div class="dl-row">
           <button class="dl" id="add-import">Import recipe</button>
@@ -421,13 +445,15 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
     </section>
   </section>
 
+  <div class="divider" id="divider" role="separator" aria-orientation="vertical" tabindex="0"
+       aria-label="Resize the recipe list" title="Drag to resize · double-click to reset"></div>
+
   <div class="side" id="side">
   <!-- desktop only: fills the right half when no recipe is open -->
   <section id="welcome">
     <div class="hello">
-      <div class="hello-art" aria-hidden="true"><span>🥕</span><span>🍳</span><span>🧄</span></div>
       <div class="hello-greet" id="greet">Hello</div>
-      <h2>What's cooking today?</h2>
+      <h2><span class="h-emo" aria-hidden="true">🍳</span> What's cooking today? <span class="h-emo" aria-hidden="true">🥕</span></h2>
       <p>Pick something from the book, or let one of these tempt you.</p>
       <div class="ideas" id="ideas"></div>
       <div class="hello-acts">
@@ -437,7 +463,6 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
     </div>
     <div class="byo" id="byo">
       <h4>Bring your own recipes</h4>
-      <p>Found something good? Turn any recipe into one of these pages in two steps.</p>
     </div>
   </section>
 
@@ -497,6 +522,7 @@ html.split #detail .tsize { display:none; }   /* the library's copy is on screen
 
   <section id="book"></section>
 </div>
+<button class="expand" id="expand" title="Show the recipe list" aria-label="Show the recipe list">»<span>Recipes</span></button>
 <div id="toast-slot"></div>
 <div id="timers"></div>
 
@@ -2422,7 +2448,7 @@ const RECIPES = [
 
 /* ---------------- storage ---------------- */
 const LS = "recipebook.v2";
-let store = { units:"us", mode:"full", sort:"name", textSize:1, favs:[], hidden:[], servings:{}, mynotes:{}, done:{}, timers:[], custom:[] };
+let store = { units:"us", mode:"full", sort:"name", textSize:1, split:0.5, collapsed:false, favs:[], hidden:[], servings:{}, mynotes:{}, done:{}, timers:[], custom:[] };
 try { Object.assign(store, JSON.parse(localStorage.getItem(LS) || "{}")); } catch(e) { console.warn("prefs read failed", e); }
 const save = () => {
   try { localStorage.setItem(LS, JSON.stringify(store)); } catch(e) { console.warn("prefs write failed", e); }
@@ -2737,6 +2763,50 @@ document.querySelectorAll(".tsize").forEach(g => g.addEventListener("click", e =
   store.textSize = Number(b.dataset.ts); save(); applyTextSize();
 }));
 window.addEventListener("resize", updateLayout);
+
+/* ---------------- resizable / collapsible list (split view only) ----------------
+   store.split is the list's share of the width; the CSS clamps it so neither pane
+   can be dragged unusably small. Collapsing hides the list; the edge tab restores it. */
+function applyPanes() {
+  if (!(store.split > 0 && store.split < 1)) store.split = 0.5;
+  const root = document.documentElement;
+  root.style.setProperty("--lw", (store.split * 100).toFixed(2) + "%");
+  root.classList.toggle("collapsed", !!store.collapsed);
+  $("divider").setAttribute("aria-valuenow", String(Math.round(store.split * 100)));
+}
+function setCollapsed(on) {
+  store.collapsed = on; save(); applyPanes();
+  (on ? $("expand") : $("collapse")).focus();
+}
+$("collapse").addEventListener("click", () => setCollapsed(true));
+$("expand").addEventListener("click", () => setCollapsed(false));
+
+const divider = $("divider");
+divider.addEventListener("pointerdown", e => {
+  e.preventDefault();
+  divider.setPointerCapture(e.pointerId);
+  document.documentElement.classList.add("resizing");
+  const box = document.querySelector(".wrap").getBoundingClientRect();
+  const move = ev => {
+    store.split = Math.min(0.9, Math.max(0.1, (ev.clientX - box.left) / box.width));
+    applyPanes();
+  };
+  const up = () => {
+    divider.removeEventListener("pointermove", move);
+    document.documentElement.classList.remove("resizing");
+    save();
+  };
+  divider.addEventListener("pointermove", move);
+  divider.addEventListener("pointerup", up, { once:true });
+  divider.addEventListener("pointercancel", up, { once:true });
+});
+divider.addEventListener("dblclick", () => { store.split = 0.5; save(); applyPanes(); });
+divider.addEventListener("keydown", e => {
+  const d = e.key === "ArrowLeft" ? -0.02 : e.key === "ArrowRight" ? 0.02 : 0;
+  if (!d) return;
+  e.preventDefault();
+  store.split = Math.min(0.9, Math.max(0.1, store.split + d)); save(); applyPanes();
+});
 
 /* ---------------- add a recipe via any AI ----------------
    Step 1 builds a prompt that teaches the schema. Step 2 validates and imports
@@ -3686,6 +3756,7 @@ refreshPrompt();
 renderTimers();                                              // resume timers across reloads
 renderLibrary();
 renderWelcome();
+applyPanes();
 applyTextSize();
 console.log("Recipe Book ready —", RECIPES.length, "recipes:", RECIPES.map(r=>r.id).join(", "));
 try { localStorage.removeItem("recipebook.shared.probe"); } catch (e) {}
