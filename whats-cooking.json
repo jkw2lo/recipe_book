@@ -1,6 +1,53 @@
 {
   "recipes": [
     {
+      "name": "Asian Chive Kimchi (Buchu-kimchi)",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 46,
+      "perishables": [
+        {
+          "id": "chives",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "fish_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "glutinous_rice_flour",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "gochugaru",
+          "mandatory": true
+        },
+        {
+          "id": "onion",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Cut the chives into 2½-in / 6-cm lengths; toss by hand with the fish sauce.",
+        "Let sit 30 min, turning every 5 min. Make the porridge meanwhile.",
+        "Whisk rice flour into the water; cook over medium, stirring, until it bubbles.",
+        "Add sugar and stir 1 min more. Cool completely.",
+        "Drain the chives over a bowl, keeping the salty liquid.",
+        "Mix the cooled porridge and pepper flakes into the salty liquid.",
+        "Gently fold in onion and chives; sprinkle with sesame. Serve or refrigerate."
+      ]
+    },
+    {
       "name": "Banana Bread",
       "mealType": "side",
       "difficulty": "medium",
@@ -299,6 +346,28 @@
         "Brush with egg wash; dip in toppings straight away.",
         "Bake 20–25 min at 425°F, rotating halfway, to dark golden.",
         "Cool on the sheets 20 min, then move to a rack."
+      ]
+    },
+    {
+      "name": "Homemade Dumpling Wrappers",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 80,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "flour",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Stir the water gradually into the flour, then knead into a rough dough.",
+        "Cover and rest 10–15 min.",
+        "Knead again until smooth.",
+        "Cover and rest 30–60 min, until soft as an earlobe.",
+        "Loop the dough, cut into 4; roll one into a rope and cut into 7–8 pieces.",
+        "Press each piece into a small disc with your palm.",
+        "Roll each into a thin wrapper, thicker in the middle than at the edge."
       ]
     },
     {
@@ -1181,6 +1250,117 @@
       ]
     },
     {
+      "name": "Steamed Sticky Rice",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 415,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "glutinous_rice",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Cover the rice with water by at least 3 in / 8 cm.",
+        "Soak 6–24 hours.",
+        "Drain (don't shake it dry) and spread on a lined steamer or rimmed plate.",
+        "Cover and steam 30–45 min until tender.",
+        "Keep covered until you use it."
+      ]
+    },
+    {
+      "name": "Sticky Rice with Chinese Sausage",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 90,
+      "perishables": [
+        {
+          "id": "chinese_sausage",
+          "mandatory": true
+        },
+        {
+          "id": "scallion",
+          "mandatory": true
+        },
+        {
+          "id": "cilantro",
+          "optional": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "glutinous_rice",
+          "mandatory": true
+        },
+        {
+          "id": "dried_shrimp",
+          "mandatory": true
+        },
+        {
+          "id": "dried_shiitake",
+          "mandatory": true
+        },
+        {
+          "id": "onion",
+          "mandatory": true
+        },
+        {
+          "id": "oyster_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "dark_soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_oil",
+          "mandatory": true
+        },
+        {
+          "id": "chicken_stock",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "shaoxing_wine",
+          "mandatory": true
+        },
+        {
+          "id": "white_pepper",
+          "mandatory": true,
+          "substitutes": [
+            "black_pepper"
+          ]
+        }
+      ],
+      "instructions": [
+        "Cook the sticky rice (package directions, or steamed) and let it cool.",
+        "Soak the dried shrimp 15 min, and the shiitake until soft, in warm water.",
+        "Finely dice the onion and mushrooms; slice the sausage into small coins.",
+        "Mix oyster sauce, both soy sauces, sesame oil, stock and salt.",
+        "Heat oil in a wok over medium; stir-fry the shrimp 30 sec.",
+        "Add onion, mushrooms and sausage; stir-fry 1 min.",
+        "Add Shaoxing wine; stir-fry 2 min.",
+        "Add all the rice and break up the clumps.",
+        "Spoon half the sauce over the clumps and mix, scooping from the bottom.",
+        "Add the rest of the sauce; stir-fry until evenly coloured.",
+        "Season with white pepper; mix in the scallions.",
+        "Serve loose, or pack into a wet bowl and turn out. Garnish with cilantro."
+      ]
+    },
+    {
       "name": "Taiwanese Popcorn Chicken",
       "mealType": "side",
       "difficulty": "easy",
@@ -1657,6 +1837,13 @@
       "substitutes": [
         "flour"
       ]
+    },
+    {
+      "id": "chicken_stock",
+      "name": "Chicken Stock",
+      "category": "Essentials",
+      "subcategory": "Broths",
+      "list": "pantry"
     },
     {
       "id": "chicken_thigh",

@@ -1360,7 +1360,10 @@ const CANON = {
   'dark chocolate':'dark_chocolate','flaky sea salt':'salt','yogurt':'yogurt',
   'mashed bananas':'banana','bananas':'banana','banana':'banana','ground cinnamon':'cinnamon',
   'plain greek yogurt':'yogurt','chopped pecans or walnuts':'walnuts',
-  'semi sweet chocolate chips':'dark_chocolate'   // cleanName strips the hyphen before lookup
+  'semi sweet chocolate chips':'dark_chocolate',  // cleanName strips the hyphen before lookup
+  'glutinous rice':'glutinous_rice','sweet rice flour':'glutinous_rice_flour','dark soy sauce':'dark_soy_sauce',
+  'chicken stock':'chicken_stock','scallions':'scallion','cilantro':'cilantro','fish sauce':'fish_sauce',
+  'asian chives':'chives','korean hot pepper flakes':'gochugaru','toasted sesame seeds':'sesame_seeds'
 };
 /* What's Cooking? vocabulary. An id it doesn't know rejects the ENTIRE recipe on
    import, so anything unmapped is dropped rather than guessed. These lists also
@@ -1438,6 +1441,7 @@ const NEW_INGREDIENTS = {
   ground_ginger:  { name:"Ground Ginger", category:"Essentials", subcategory:"Seasonings", side:"pantry" },
   cloves:         { name:"Cloves", category:"Essentials", subcategory:"Seasonings", side:"pantry" },
   worcestershire: { name:"Worcestershire Sauce", category:"Essentials", subcategory:"Seasonings", side:"pantry" },
+  chicken_stock:  { name:"Chicken Stock", category:"Essentials", subcategory:"Broths", side:"pantry" },
   beef_stock:     { name:"Beef Stock", category:"Essentials", subcategory:"Broths", side:"pantry" },
   porter:         { name:"Porter (Dark Beer)", category:"Italian & Mediterranean", subcategory:"Canned & Jarred", side:"pantry", substitutes:["red_wine"] },
   dried_shrimp:   { name:"Dried Shrimp", category:"Chinese", subcategory:"Dried Goods", side:"pantry" },
@@ -1459,7 +1463,11 @@ const MEAL_TYPE = {
   "macaronisalad-mykoreankitchen":"side",
   "bananabread-sallysbaking":"side", // sweet quick bread; no breakfast slot in the enum
   "bagels-sallysbaking":"side",      // bread; the enum has no breakfast slot either
-  "paratha-thekitchn":"side"         // flatbread
+  "paratha-thekitchn":"side",        // flatbread
+  "how-to-make-sticky-rice-foolproof-method":"side",
+  "sticky-rice-with-chinese-sausage":"side",   // dim sum
+  "homemade-dumpling-wrappers":"side",         // a component; no better slot in the enum
+  "asian-chive-kimchi-buchu-kimchi":"side"     // banchan
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")

@@ -2079,4 +2079,233 @@ const RECIPES = [
     "Cooked paratha is best eaten straight away."
   ]
 }
+,
+{
+  id: "how-to-make-sticky-rice-foolproof-method",
+  title: "Steamed Sticky Rice",
+  source: { site: "The Woks of Life", url: "https://thewoksoflife.com/how-to-make-sticky-rice/", author: "Judy" },
+  cuisine: "Chinese", tags: ["rice", "sticky rice", "glutinous rice", "steamed", "staple", "overnight"],
+  servings: { base: 4, unit: "servings", min: 2, max: 12 },
+  time: { active: 10, passive: 360, cook: 45 },
+  claimed: 45,
+  components: [
+    { id: "soak",  label: "Soak — start here" },
+    { id: "steam", label: "Steam" }
+  ],
+  ingredients: [
+    { key: "rice",  comp: "soak", name: "Glutinous rice", us: { qty: 2, unit: "cups" }, metric: { qty: 400, unit: "g" }, note: "also sold as sweet rice or sticky rice" },
+    { key: "water", comp: "soak", name: "Water, for soaking", scalable: false, us: { qty: 0, unit: "as needed" }, metric: { qty: 0, unit: "as needed" }, note: "enough to cover the rice by 3 in / 8 cm" }
+  ],
+  steps: [
+    { comp: "soak", text: "Cover the rice with water by at least 3 in / 8 cm.",
+      detail: "Put the sticky rice in a mixing bowl or other deep container and fill it with water so the level is at least 3 inches (8 cm) above the rice.",
+      tip: "Use a deep container — the rice swells as it soaks.",
+      uses: ["rice","water"], mins: 5 },
+    { comp: "soak", text: "Soak 6–24 hours.",
+      detail: "Soak for 6 to 24 hours. The longer it soaks, the softer the finished rice.",
+      uses: [], mins: 360, passive: true },
+    { comp: "steam", text: "Drain (don't shake it dry) and spread on a lined steamer or rimmed plate.",
+      detail: "Drain the water — no need to shake off the excess — and spread the soaked rice evenly on a heatproof rimmed plate, or in a bamboo steamer lined with steamer liners or parchment.",
+      uses: [], mins: 5 },
+    { comp: "steam", text: "Cover and steam 30–45 min until tender.",
+      detail: "Cover and steam for 30 to 45 minutes. For a larger batch, steam in two batches or steam longer. Taste and add time if needed.",
+      uses: [], mins: 45 },
+    { comp: "steam", text: "Keep covered until you use it.",
+      detail: "Leave the rice in the steamer or covered so it doesn't dry out until you serve it or use it in another recipe.",
+      uses: [] }
+  ],
+  notes: [
+    "The source's 45 minutes is the steaming only. The 6-hour minimum soak comes first — start the night before or in the morning.",
+    "Steamed rather than simmered because sticky rice needs much less water than regular rice. The grains stay fairly separate instead of melding into one block.",
+    "This is the pre-cooked rice for Sticky Rice with Chinese Sausage."
+  ]
+}
+,
+{
+  id: "sticky-rice-with-chinese-sausage",
+  title: "Sticky Rice with Chinese Sausage",
+  source: { site: "The Woks of Life", url: "https://thewoksoflife.com/sticky-rice-with-chinese-sausage/", author: "Bill" },
+  cuisine: "Chinese", tags: ["dim sum", "sticky rice", "glutinous rice", "chinese sausage", "stir-fry"],
+  servings: { base: 6, unit: "servings", min: 2, max: 12 },
+  time: { active: 30, passive: 15, cook: 45 },
+  claimed: 75,
+  components: [
+    { id: "rice",  label: "Sticky rice" },
+    { id: "prep",  label: "Soak & chop" },
+    { id: "sauce", label: "Sauce" },
+    { id: "fry",   label: "Stir-fry" }
+  ],
+  ingredients: [
+    { key: "rice",     comp: "rice",  name: "Glutinous rice", us: { qty: 2, unit: "cups" }, metric: { qty: 400, unit: "g" }, note: "uncooked; also sold as sweet rice or sticky rice" },
+    { key: "shrimp",   comp: "prep",  name: "Dried shrimp", us: { qty: 0.25, unit: "cup" }, metric: { qty: 25, unit: "g" } },
+    { key: "mushroom", comp: "prep",  name: "Dried shiitake mushrooms", us: { qty: 5, unit: "" }, metric: { qty: 5, unit: "" } },
+    { key: "onion",    comp: "prep",  name: "Onion", us: { qty: 1, unit: "" }, metric: { qty: 1, unit: "" }, note: "medium" },
+    { key: "sausage",  comp: "prep",  name: "Chinese sausage", us: { qty: 3, unit: "links" }, metric: { qty: 3, unit: "links" } },
+    { key: "oyster",   comp: "sauce", name: "Oyster sauce", us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" } },
+    { key: "soy",      comp: "sauce", name: "Soy sauce", us: { qty: 1.5, unit: "Tbsp" }, metric: { qty: 22, unit: "ml" } },
+    { key: "darksoy",  comp: "sauce", name: "Dark soy sauce", us: { qty: 2, unit: "tsp" }, metric: { qty: 10, unit: "ml" } },
+    { key: "sesame",   comp: "sauce", name: "Sesame oil", us: { qty: 0.25, unit: "tsp" }, metric: { qty: 1.25, unit: "ml" } },
+    { key: "stock",    comp: "sauce", name: "Chicken stock", us: { qty: 0.25, unit: "cup" }, metric: { qty: 60, unit: "ml" } },
+    { key: "salt",     comp: "sauce", name: "Salt", us: { qty: 0.5, unit: "tsp" }, metric: { qty: 3, unit: "g" } },
+    { key: "oil",      comp: "fry",   name: "Oil", us: { qty: 2, unit: "Tbsp" }, metric: { qty: 30, unit: "ml" } },
+    { key: "shaoxing", comp: "fry",   name: "Shaoxing wine", us: { qty: 1, unit: "tsp" }, metric: { qty: 5, unit: "ml" } },
+    { key: "pepper",   comp: "fry",   name: "White pepper", scalable: false, us: { qty: 0, unit: "to taste" }, metric: { qty: 0, unit: "to taste" } },
+    { key: "scallion", comp: "fry",   name: "Scallions", us: { qty: 2, unit: "" }, metric: { qty: 2, unit: "" }, note: "chopped" },
+    { key: "cilantro", comp: "fry",   name: "Cilantro", optional: true, scalable: false, us: { qty: 0, unit: "to garnish" }, metric: { qty: 0, unit: "to garnish" } }
+  ],
+  steps: [
+    { comp: "rice", text: "Cook the sticky rice (package directions, or steamed) and let it cool.",
+      detail: "Cook the sticky rice according to the package directions and set it aside to cool. You can also pre-cook it by the soak-and-steam method.",
+      tip: "When in doubt, use less water — it cooks again in the wok, so slightly underdone is better than mushy.",
+      uses: ["rice"], mins: 30 },
+
+    { comp: "prep", text: "Soak the dried shrimp 15 min, and the shiitake until soft, in warm water.",
+      detail: "Soak the dried shrimp in warm water for 15 minutes. Soak the dried shiitake in warm water until softened.",
+      uses: ["shrimp","mushroom"], mins: 15, passive: true },
+    { comp: "prep", text: "Finely dice the onion and mushrooms; slice the sausage into small coins.",
+      detail: "Drain the shrimp and mushrooms. Finely dice the onion and the softened mushrooms, and cut the Chinese sausage into small discs.",
+      uses: ["onion","sausage"], mins: 8 },
+
+    { comp: "sauce", text: "Mix oyster sauce, both soy sauces, sesame oil, stock and salt.",
+      detail: "Combine the oyster sauce, soy sauce, dark soy sauce, sesame oil, chicken stock and salt in a small bowl and set aside.",
+      uses: ["oyster","soy","darksoy","sesame","stock","salt"], mins: 2 },
+
+    { comp: "fry", text: "Heat oil in a wok over medium; stir-fry the shrimp 30 sec.",
+      detail: "Heat the oil in a wok over medium heat. Add the dried shrimp and stir-fry for 30 seconds to bring out the flavour.",
+      uses: ["oil"], mins: 1 },
+    { comp: "fry", text: "Add onion, mushrooms and sausage; stir-fry 1 min.",
+      detail: "Add the onion, mushrooms and Chinese sausage and stir-fry for another minute, taking care not to burn the onion.",
+      uses: [], mins: 1 },
+    { comp: "fry", text: "Add Shaoxing wine; stir-fry 2 min.",
+      detail: "Add the Shaoxing wine and stir-fry for another 2 minutes.",
+      uses: ["shaoxing"], mins: 2 },
+    { comp: "fry", text: "Add all the rice and break up the clumps.",
+      detail: "Add all of the cooked sticky rice to the wok and break it up as much as possible with a spatula.",
+      uses: [], mins: 3 },
+    { comp: "fry", text: "Spoon half the sauce over the clumps and mix, scooping from the bottom.",
+      detail: "Spoon half the sauce over the rice, aiming for any clumps to help break them up. Mix well with a scooping motion of your wok spatula so the rice doesn't stick to the bottom.",
+      uses: [], mins: 2 },
+    { comp: "fry", text: "Add the rest of the sauce; stir-fry until evenly coloured.",
+      detail: "Add the rest of the sauce and stir-fry until the rice is uniform in colour.",
+      tip: "Keep the rice moving — sticky rice welds itself to the wok if it sits.",
+      uses: [], mins: 5 },
+    { comp: "fry", text: "Season with white pepper; mix in the scallions.",
+      detail: "Season with white pepper to taste and mix in the scallions.",
+      uses: ["pepper","scallion"], mins: 1 },
+    { comp: "fry", text: "Serve loose, or pack into a wet bowl and turn out. Garnish with cilantro.",
+      detail: "Serve as is, or pack the rice into a round bowl rinsed in warm water and turn it out onto a plate. Garnish with cilantro.",
+      uses: ["cilantro"], mins: 2 }
+  ],
+  notes: [
+    "Pre-cooked sticky rice is what makes this quick. If you use Steamed Sticky Rice instead of the package method, the soak adds at least 6 hours — start the night before.",
+    "The classic combination is sticky rice, Chinese sausage, dried shiitake and dried shrimp."
+  ]
+}
+,
+{
+  id: "homemade-dumpling-wrappers",
+  title: "Homemade Dumpling Wrappers",
+  source: { site: "Red House Spice", url: "https://redhousespice.com/homemade-dumpling-wrappers/", author: "Wei Guo" },
+  cuisine: "Chinese", tags: ["dumplings", "jiaozi", "wrappers", "dough", "freezer-friendly"],
+  servings: { base: 30, unit: "wrappers", min: 10, max: 60 },
+  time: { active: 35, passive: 45, cook: 0 },
+  claimed: 80,
+  components: [
+    { id: "dough",    label: "Dough" },
+    { id: "wrappers", label: "Wrappers" }
+  ],
+  ingredients: [
+    { key: "flour",   comp: "dough",    name: "All-purpose flour", us: { qty: 2, unit: "cups" }, metric: { qty: 250, unit: "g" }, note: "about 10–11% protein; weigh it — cups are unreliable here" },
+    { key: "water",   comp: "dough",    name: "Water", us: { qty: 0.54, unit: "cup" }, metric: { qty: 130, unit: "ml" }, note: "room temperature; ½ cup + 2 tsp" },
+    { key: "dusting", comp: "wrappers", name: "All-purpose flour, for dusting", scalable: false, us: { qty: 0, unit: "as needed" }, metric: { qty: 0, unit: "as needed" } }
+  ],
+  steps: [
+    { comp: "dough", text: "Stir the water gradually into the flour, then knead into a rough dough.",
+      detail: "Add the water to the flour gradually, mixing gently with chopsticks or a spatula until no loose flour is left. Then bring it together and knead by hand.",
+      tip: "Flours absorb water differently — adjust by a little if needed. It should be medium-firm and rough at this stage.",
+      uses: ["flour","water"], mins: 10 },
+    { comp: "dough", text: "Cover and rest 10–15 min.",
+      detail: "Leave the dough to rest, covered, for 10 to 15 minutes.",
+      uses: [], mins: 10, passive: true },
+    { comp: "dough", text: "Knead again until smooth.",
+      detail: "Knead the dough again until it becomes a smooth ball.",
+      tip: "Don't worry that it was rough before — the rest is what lets it knead smooth.",
+      uses: [], mins: 5 },
+    { comp: "dough", text: "Cover and rest 30–60 min, until soft as an earlobe.",
+      detail: "Cover and rest the dough again for 30 to 60 minutes until it becomes soft — Chinese cooks say as soft as an earlobe.",
+      tip: "Rest toward the longer end with a higher-gluten flour.",
+      uses: [], mins: 35, passive: true },
+
+    { comp: "wrappers", text: "Loop the dough, cut into 4; roll one into a rope and cut into 7–8 pieces.",
+      detail: "Shape the dough into a loop and divide it into four parts. Roll one part into a rope, keeping the rest covered, and cut it into 7 to 8 equal pieces.",
+      tip: "Keep every piece you aren't working with covered, or it skins over.",
+      uses: [], mins: 10 },
+    { comp: "wrappers", text: "Press each piece into a small disc with your palm.",
+      detail: "Press each piece into a small disc with the palm of your hand.",
+      uses: [], mins: 5 },
+    { comp: "wrappers", text: "Roll each into a thin wrapper, thicker in the middle than at the edge.",
+      detail: "Use a rolling pin to flatten each piece into a thin disc — roll, turn, roll, turn — so it's thicker in the middle and thinner round the edge. Dust with flour if it sticks.",
+      uses: ["dusting"], mins: 5 }
+  ],
+  notes: [
+    "Use fresh wrappers straight away — they dry out and stop sealing. Working alone, roll fewer than 10 at a time and fill them before rolling more.",
+    "To freeze: dust with flour, or better cornstarch, between wrappers, stack, seal in an airtight bag, and thaw in the fridge before using.",
+    "For a softer wrapper, use a hot-water dough, or replace about a quarter of the flour with cornstarch."
+  ]
+}
+,
+{
+  id: "asian-chive-kimchi-buchu-kimchi",
+  title: "Asian Chive Kimchi (Buchu-kimchi)",
+  source: { site: "Maangchi", url: "https://www.maangchi.com/recipe/buchu-kimchi", author: "Maangchi" },
+  cuisine: "Korean", tags: ["kimchi", "banchan", "side dish", "spicy", "quick"],
+  servings: { base: 4, unit: "servings", min: 2, max: 12 },
+  time: { active: 12, passive: 30, cook: 4 },
+  components: [
+    { id: "chives",   label: "Salt the chives" },
+    { id: "porridge", label: "Rice porridge" },
+    { id: "kimchi",   label: "Mix" }
+  ],
+  ingredients: [
+    { key: "buchu",      comp: "chives",   name: "Asian chives (buchu)", us: { qty: 1, unit: "lb" }, metric: { qty: 454, unit: "g" }, note: "washed and drained" },
+    { key: "fish_sauce", comp: "chives",   name: "Fish sauce", us: { qty: 0.5, unit: "cup" }, metric: { qty: 120, unit: "ml" }, note: "soy sauce for a vegetarian version" },
+    { key: "rice_flour", comp: "porridge", name: "Sweet rice flour", us: { qty: 1, unit: "Tbsp" }, metric: { qty: 8, unit: "g" }, note: "glutinous rice flour; all-purpose flour works" },
+    { key: "water",      comp: "porridge", name: "Water", us: { qty: 1, unit: "cup" }, metric: { qty: 240, unit: "ml" } },
+    { key: "sugar",      comp: "porridge", name: "Sugar", us: { qty: 1, unit: "Tbsp" }, metric: { qty: 12.5, unit: "g" } },
+    { key: "gochugaru",  comp: "kimchi",   name: "Korean hot pepper flakes (gochugaru)", us: { qty: 0.5, unit: "cup" }, metric: { qty: 42, unit: "g" } },
+    { key: "onion",      comp: "kimchi",   name: "Onion", us: { qty: 0.5, unit: "" }, metric: { qty: 0.5, unit: "" }, note: "medium, thinly sliced — about ½ cup" },
+    { key: "sesame",     comp: "kimchi",   name: "Toasted sesame seeds", us: { qty: 2, unit: "Tbsp" }, metric: { qty: 18, unit: "g" } }
+  ],
+  steps: [
+    { comp: "chives", text: "Cut the chives into 2½-in / 6-cm lengths; toss by hand with the fish sauce.",
+      detail: "Cut the buchu into 2½-inch (6 cm) pieces and put them in a large bowl. Add the fish sauce and mix by hand to spread it evenly through the pieces.",
+      uses: ["buchu","fish_sauce"], mins: 5 },
+    { comp: "chives", text: "Let sit 30 min, turning every 5 min. Make the porridge meanwhile.",
+      detail: "Let it sit for 30 minutes, turning it over every 5 minutes.",
+      uses: [], mins: 30, passive: true },
+
+    { comp: "porridge", text: "Whisk rice flour into the water; cook over medium, stirring, until it bubbles.",
+      detail: "Mix the sweet rice flour with the water in a small pan. Cook over medium heat, stirring with a wooden spoon, until it starts bubbling.",
+      uses: ["rice_flour","water"], mins: 3 },
+    { comp: "porridge", text: "Add sugar and stir 1 min more. Cool completely.",
+      detail: "Add the sugar and stir for another minute. Remove from the heat and let it cool thoroughly.",
+      tip: "It cools inside the 30-minute salting — no extra wait.",
+      uses: ["sugar"], mins: 1 },
+
+    { comp: "kimchi", text: "Drain the chives over a bowl, keeping the salty liquid.",
+      detail: "Move the salted buchu into a strainer set over a bowl to catch the salty liquid.",
+      uses: [], mins: 2 },
+    { comp: "kimchi", text: "Mix the cooled porridge and pepper flakes into the salty liquid.",
+      detail: "Add the cooled porridge and the hot pepper flakes to the salty liquid left in the bowl and mix well with a wooden spoon.",
+      uses: ["gochugaru"], mins: 2 },
+    { comp: "kimchi", text: "Gently fold in onion and chives; sprinkle with sesame. Serve or refrigerate.",
+      detail: "Add the onion, the buchu and any liquid that dripped through, and mix it all together gently. Sprinkle with the sesame seeds. Serve right away with rice, or pack into an airtight container.",
+      uses: ["onion","sesame"], mins: 3 }
+  ],
+  notes: [
+    "Maangchi eats this fresh, almost like a kimchi salad — fermenting is optional.",
+    "To ferment: leave the container at room temperature for a couple of days until it tastes a little sour, then refrigerate.",
+    "The source gives no yield or total time, so there's no claimed time to compare."
+  ]
+}
 ];
