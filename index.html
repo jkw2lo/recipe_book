@@ -2546,6 +2546,75 @@ const RECIPES = [
     "At high altitude the source says to adjust for your area but gives no figures."
   ]
 }
+,
+{
+  id: "paratha-thekitchn",
+  title: "Paratha",
+  source: { site: "The Kitchn", url: "https://www.thekitchn.com/parathas-recipe-23280232", author: "Kayla Hoang" },
+  cuisine: "Bangladeshi", tags: ["bread", "flatbread", "pan-fried", "laminated", "make-ahead", "freezer-friendly"],
+  servings: { base: 8, unit: "parathas", min: 2, max: 16 },
+  time: { active: 54, passive: 45, cook: 80 },
+  claimed: 148,
+  components: [
+    { id: "dough", label: "Dough" },
+    { id: "shape", label: "Layer & coil" },
+    { id: "cook",  label: "Cook" }
+  ],
+  ingredients: [
+    { key: "flour",  comp: "dough", name: "All-purpose flour", us: { qty: 3, unit: "cups" },     metric: { qty: 375, unit: "g" }, note: "spooned and levelled" },
+    { key: "salt",   comp: "dough", name: "Kosher salt",       us: { qty: 1.75, unit: "tsp" },   metric: { qty: 5, unit: "g" }, note: "Diamond Crystal; Morton or table salt: use about half" },
+    { key: "oil",    comp: "dough", name: "Neutral oil, such as canola", us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" }, note: "plus a little more to coat the dough" },
+    { key: "water",  comp: "dough", name: "Warm water",        us: { qty: 1, unit: "cup" },      metric: { qty: 240, unit: "ml" } },
+    { key: "ghee",   comp: "shape", name: "Ghee, for layering", us: { qty: 0.5, unit: "cup" },  metric: { qty: 110, unit: "g" }, note: "soft and spreadable, not melted; softened unsalted butter works too" },
+    { key: "dust",   comp: "shape", name: "All-purpose flour, for dusting", scalable: false, us: { qty: 0, unit: "as needed" }, metric: { qty: 0, unit: "as needed" }, note: "very lightly, plus a pinch or two per paratha between the layers" },
+    { key: "fghee",  comp: "cook",  name: "Ghee, for frying",  us: { qty: 0.25, unit: "cup" },  metric: { qty: 55, unit: "g" } }
+  ],
+  steps: [
+    { comp: "dough", text: "Whisk flour and salt; rub in the oil until only tiny lumps remain.",
+      detail: "Place the flour and salt in a large bowl and whisk to combine. Drizzle with the oil and use your hands to rub it into the flour until only tiny lumps remain.",
+      uses: ["flour","salt","oil"], mins: 3 },
+    { comp: "dough", text: "Pour warm water into a well; mix and knead in the bowl just until no dry flour is left.",
+      detail: "Make a well in the centre of the flour mixture and pour in the warm water. Mix with your hands until it forms one mass, then knead in the bowl until all the flour is incorporated.",
+      tip: "It will look lumpy, not smooth — that's right. Don't overwork it; the rest does the smoothing.",
+      uses: ["water"], mins: 5 },
+    { comp: "dough", text: "Oil the surface, press plastic onto it; rest 30 min. Soften the ghee meanwhile.",
+      detail: "Leaving the dough in the bowl, rub a light coating of oil over its surface and press a sheet of plastic wrap directly onto it. Rest until hydrated and supple and it holds an indentation when poked, about 30 minutes. Meanwhile, soften the ghee if needed: room-temperature ghee should already spread easily; if it's chilled, microwave in 5-second bursts until spreadable but not melted.",
+      uses: [], mins: 30, passive: true },
+
+    { comp: "shape", text: "Divide into 8 pieces; keep them covered.",
+      detail: "Turn the dough out onto a work surface and divide it into 8 pieces. Keep the portions you aren't working with covered with plastic wrap.",
+      uses: [], mins: 2, countsServings: true },
+    { comp: "shape", text: "One at a time: roll paper-thin, ~14 in / 35 cm across.",
+      detail: "Dust the work surface and rolling pin very lightly with flour. Roll one portion into a super-thin round about 14 inches (35 cm) wide — it doesn't have to be perfectly round. It should be thin enough that you can just faintly see the work surface through it.",
+      tip: "Go easy on the dusting flour here — too much and the dough slides instead of stretching.",
+      uses: ["dust"], mins: 2 },
+    { comp: "shape", text: "Spread 1 Tbsp ghee, sprinkle a pinch of flour, roll into a tight log, coil like a cinnamon roll.",
+      detail: "Use your fingers to spread 1 tablespoon of ghee evenly over the dough. Sprinkle with 1 to 2 pinches of flour to keep the layers distinct. Starting at the bottom, roll the dough up tightly into a log, then, starting at one end, coil the log into a round like a cinnamon roll. Cover with plastic wrap, then repeat the last two steps with the remaining portions.",
+      tip: "The pinch of flour over the ghee is what gives you separate flaky layers instead of one dense one.",
+      uses: ["ghee"], mins: 2 },
+    { comp: "shape", text: "Rest the coils, covered, 15 min.",
+      detail: "Let the coils rest under plastic wrap for 15 minutes after the last one is made.",
+      uses: [], mins: 15, passive: true },
+    { comp: "shape", text: "Roll each coil to a round ⅛ in / 3 mm thick, 6–7 in / 15–18 cm wide.",
+      detail: "Working with one piece at a time and keeping the rest covered, roll each coil into a round about 1/8 inch (3 mm) thick and 6 to 7 inches (15–18 cm) wide. Transfer to a plate and repeat with the rest. If stacking, put parchment or wax paper between them so they don't stick.",
+      uses: [], mins: 12 },
+
+    { comp: "cook", text: "Dry pan, medium heat: 2–3 min, flip, 2–3 min, flip, 1 min — opaque, not browned.",
+      detail: "Heat a medium nonstick frying pan over medium heat. Add one paratha and cook until the surface begins to turn opaque, with no browning, 2 to 3 minutes — it's okay if it isn't fully opaque. Flip and cook until the second side is totally opaque but not brown, 2 to 3 minutes. Flip once more and cook about 1 minute more.",
+      tip: "This dry stage cooks the centre through before any fat goes in; skip it and the outside browns while the middle stays raw.",
+      uses: [], mins: 6 },
+    { comp: "cook", text: "Add 1½ tsp ghee, coat, and fry ~2 min per side until golden. Repeat with the rest.",
+      detail: "Add 1 1/2 teaspoons (1/2 tablespoon) ghee to the pan and move the paratha around, flipping as needed, until it's coated. Cook until golden brown, about 2 minutes per side. Transfer to a plate and repeat with the remaining parathas, lowering the heat if they brown too quickly for the centres to cook.",
+      uses: ["fghee"], mins: 4 }
+  ],
+  notes: [
+    "The source's 2 hr 28 min is prep plus cook and leaves out both rests — 30 minutes for the dough and 15 for the coils. Cooking is one paratha at a time, about 10 minutes each; two pans going at once cuts that 80 minutes roughly in half.",
+    "Make ahead: roll to the final shape, stack between parchment or wax paper in a bag or airtight container, and refrigerate up to 3 days or freeze up to 2 weeks. Cook refrigerated ones as written; frozen ones go straight into the pan but need 1–2 minutes more per side — make sure they turn opaque.",
+    "Square paratha: roll a portion thin as in step 5, spread with 2 tsp ghee and a pinch or two of flour. Fold the top third down, spread with a scant ½ tsp ghee and a pinch of flour; fold the bottom third up, same again; fold the left third over, same again; fold the right side over to make a square. Rest covered 15 minutes, then roll ⅛ in / 3 mm thick, keeping the square shape.",
+    "The ghee here is unsalted. If yours is salted, cut the salt in the dough a little.",
+    "Cooked paratha is best eaten straight away."
+  ]
+}
 ];
 
 
@@ -3471,7 +3540,8 @@ const MEAL_TYPE = {
   "grapecheong-personal":"dessert",  // a sweet preserve; no better slot in the enum
   "macaronisalad-mykoreankitchen":"side",
   "bananabread-sallysbaking":"side", // sweet quick bread; no breakfast slot in the enum
-  "bagels-sallysbaking":"side"       // bread; the enum has no breakfast slot either
+  "bagels-sallysbaking":"side",      // bread; the enum has no breakfast slot either
+  "paratha-thekitchn":"side"         // flatbread
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")

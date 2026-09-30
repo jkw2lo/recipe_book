@@ -792,6 +792,43 @@
       ]
     },
     {
+      "name": "Paratha",
+      "mealType": "side",
+      "difficulty": "medium",
+      "time": 179,
+      "perishables": [],
+      "pantry": [
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "ghee",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Whisk flour and salt; rub in the oil until only tiny lumps remain.",
+        "Pour warm water into a well; mix and knead in the bowl just until no dry flour is left.",
+        "Oil the surface, press plastic onto it; rest 30 min. Soften the ghee meanwhile.",
+        "Divide into 8 pieces; keep them covered.",
+        "One at a time: roll paper-thin, ~14 in / 35 cm across.",
+        "Spread 1 Tbsp ghee, sprinkle a pinch of flour, roll into a tight log, coil like a cinnamon roll.",
+        "Rest the coils, covered, 15 min.",
+        "Roll each coil to a round ⅛ in / 3 mm thick, 6–7 in / 15–18 cm wide.",
+        "Dry pan, medium heat: 2–3 min, flip, 2–3 min, flip, 1 min — opaque, not browned.",
+        "Add 1½ tsp ghee, coat, and fry ~2 min per side until golden. Repeat with the rest."
+      ]
+    },
+    {
       "name": "Petite Vanilla Bean Scones",
       "mealType": "dessert",
       "difficulty": "medium",
