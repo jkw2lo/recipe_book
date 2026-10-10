@@ -2960,6 +2960,127 @@ const RECIPES = [
     "Serve with a bowl of rice and other banchan for a complete meal; it's also a standard topping for bibimbap and filling for kimbap."
   ]
 }
+,
+{
+  id: "tteokbokki-mykoreankitchen",
+  title: "Tteokbokki (Spicy Rice Cakes)",
+  source: { site: "My Korean Kitchen", url: "https://mykoreankitchen.com/tteokbokki-spicy-rice-cakes/", author: "Sue Pressey" },
+  cuisine: "Korean", tags: ["street food", "rice cakes", "spicy", "quick"],
+  servings: { base: 2, unit: "servings", min: 1, max: 8 },
+  time: { active: 8, passive: 2, cook: 11 },
+  claimed: 20,
+  components: [
+    { id: "soak",  label: "Soak the rice cakes" },
+    { id: "prep",  label: "Sauce & prep" },
+    { id: "cook",  label: "Cook" }
+  ],
+  ingredients: [
+    { key: "tteok",    comp: "soak", name: "Korean rice cakes (tteok)",  us: { qty: 12, unit: "oz" },  metric: { qty: 350, unit: "g" }, note: "separated" },
+
+    { key: "gochujang",comp: "prep", name: "Gochujang",                  us: { qty: 3, unit: "Tbsp" },  metric: { qty: 45, unit: "ml" } },
+    { key: "sugar",    comp: "prep", name: "Raw sugar",                  us: { qty: 1.5, unit: "Tbsp" },metric: { qty: 18, unit: "g" } },
+    { key: "soy",      comp: "prep", name: "Soy sauce",                  us: { qty: 1, unit: "Tbsp" },  metric: { qty: 15, unit: "ml" } },
+    { key: "garlic",   comp: "prep", name: "Minced garlic",              us: { qty: 1, unit: "tsp" },   metric: { qty: 5, unit: "ml" } },
+    { key: "gochugaru",comp: "prep", name: "Gochugaru",                  us: { qty: 1, unit: "tsp" },   metric: { qty: 2, unit: "g" }, note: "Korean chili flakes" },
+    { key: "fishcake", comp: "prep", name: "Korean fish cakes",          us: { qty: 5.3, unit: "oz" },  metric: { qty: 150, unit: "g" } },
+    { key: "onion",    comp: "prep", name: "Onion",                      us: { qty: 2, unit: "oz" },    metric: { qty: 60, unit: "g" }, note: "thinly sliced" },
+    { key: "scallion", comp: "prep", name: "Green onion",                us: { qty: 1, unit: "stalk" }, metric: { qty: 1, unit: "stalk" } },
+
+    { key: "stock",    comp: "cook", name: "Korean soup stock (anchovy-kelp)", us: { qty: 2, unit: "cups" }, metric: { qty: 500, unit: "ml" }, note: "the site's cups are 250 ml" },
+    { key: "sesoil",   comp: "cook", name: "Sesame oil",                 us: { qty: 1, unit: "tsp" },   metric: { qty: 5, unit: "ml" } },
+    { key: "sesame",   comp: "cook", name: "Toasted sesame seeds",       us: { qty: 1, unit: "tsp" },   metric: { qty: 3, unit: "g" } }
+  ],
+  steps: [
+    { comp: "soak", text: "Soak the separated rice cakes in warm water 10 min. Do the sauce and prep meanwhile.",
+      detail: "Soak the rice cakes in warm water for 10 minutes. Packaged rice cakes from the fridge need this to take on moisture; fresh ones that are already tender can skip it.",
+      tip: "Skip the soak and fridge-hard rice cakes stay chalky in the middle by the time the sauce has reduced.",
+      uses: ["tteok"], mins: 10, passive: true },
+
+    { comp: "prep", text: "Mix gochujang, sugar, soy, garlic and gochugaru in a bowl.",
+      detail: "Mix the tteokbokki sauce in a bowl: gochujang, raw sugar, soy sauce, minced garlic, and gochugaru.",
+      uses: ["gochujang","sugar","soy","garlic","gochugaru"], mins: 2 },
+    { comp: "prep", text: "Rinse the fish cakes under hot water and cut bite-size; slice the onion; chop the green onion.",
+      detail: "Rinse the fish cakes over hot water and cut them into bite-size pieces. Thinly slice the onion and finely chop the green onion.",
+      uses: ["fishcake","onion","scallion"], mins: 5 },
+
+    { comp: "cook", text: "Bring the stock to a boil in a shallow pot over medium-high; stir in the sauce to dissolve.",
+      detail: "Bring the soup stock to a boil in a shallow pot over medium-high heat and dissolve the sauce in it, stirring with a spatula.",
+      uses: ["stock"], mins: 4 },
+    { comp: "cook", text: "Add rice cakes, fish cakes and onion; boil 3–5 min until the rice cakes are cooked through.",
+      detail: "Once the seasoned stock is boiling, add the drained rice cakes, fish cakes, and onion. Boil for a further 3 to 5 minutes, until the rice cakes are fully cooked.",
+      uses: [], mins: 4 },
+    { comp: "cook", text: "Turn to low and simmer 2–4 min to thicken.",
+      detail: "Turn the heat to low and simmer for a further 2 to 4 minutes to thicken the sauce and deepen the flavour.",
+      uses: [], mins: 3 },
+    { comp: "cook", text: "Stir in sesame oil, sesame seeds and green onion. Serve warm.",
+      detail: "Add the sesame oil, sesame seeds, and green onion and stir quickly. Serve warm.",
+      uses: ["sesoil","sesame"], mins: 1 }
+  ],
+  notes: [
+    "The source's 20 minutes is close. Mixing the sauce and cutting the fish cakes and onion fill most of the 10-minute soak, so about 2 minutes is pure waiting before 11 minutes at the stove.",
+    "Korean soup stock is anchovy-and-kelp stock. The source has its own recipe for it, which can be made ahead and frozen; pre-packaged stock packs just boiled in water work too. Its quicker sister recipe uses plain water — easier, with less depth.",
+    "Leftovers keep in the fridge for a day or two. Reheat with a splash of stock or water; it won't be as saucy as the first time."
+  ]
+}
+,
+{
+  id: "oimuchim-pupswithchopsticks",
+  title: "Oi Muchim (Korean Cucumber Salad)",
+  source: { site: "Pups with Chopsticks", url: "https://pupswithchopsticks.com/easy-korean-cucumber-salad-oi-muchim/", author: "Joyce Lee" },
+  cuisine: "Korean", tags: ["side", "banchan", "salad", "cucumber", "spicy", "vegan", "no-cook", "quick"],
+  servings: { base: 2, unit: "servings", min: 1, max: 8 },
+  time: { active: 10, passive: 0, cook: 0 },
+  claimed: 10,
+  components: [
+    { id: "prep",     label: "Prep" },
+    { id: "dressing", label: "Dressing" },
+    { id: "toss",     label: "Toss" }
+  ],
+  ingredients: [
+    { key: "cucumber", comp: "prep", name: "English cucumber",       us: { qty: 1, unit: "" },       metric: { qty: 1, unit: "" }, note: "or 4–5 mini cucumbers" },
+    { key: "garlic",   comp: "prep", name: "Garlic clove",           us: { qty: 1, unit: "" },       metric: { qty: 1, unit: "" }, note: "grated or finely minced" },
+    { key: "scallion", comp: "prep", name: "Green onions",           us: { qty: 2, unit: "stalks" }, metric: { qty: 2, unit: "stalks" }, note: "finely sliced" },
+    { key: "sesame",   comp: "prep", name: "Toasted sesame seeds",   us: { qty: 1.5, unit: "Tbsp" }, metric: { qty: 13, unit: "g" } },
+
+    { key: "gochugaru",comp: "dressing", name: "Gochugaru",          us: { qty: 1, unit: "Tbsp" },   metric: { qty: 5, unit: "g" }, note: "Korean red chili flakes" },
+    { key: "soy",      comp: "dressing", name: "Soy sauce",          us: { qty: 1, unit: "Tbsp" },   metric: { qty: 15, unit: "ml" } },
+    { key: "vinegar",  comp: "dressing", name: "Rice vinegar",       us: { qty: 1, unit: "Tbsp" },   metric: { qty: 15, unit: "ml" }, note: "or white vinegar" },
+    { key: "sugar",    comp: "dressing", name: "Sugar",              us: { qty: 1, unit: "Tbsp" },   metric: { qty: 12.5, unit: "g" } },
+    { key: "sesoil",   comp: "dressing", name: "Toasted sesame oil", us: { qty: 2.5, unit: "tsp" },  metric: { qty: 12.5, unit: "ml" }, note: "2 to 3 tsp, to taste" }
+  ],
+  steps: [
+    { comp: "prep", text: "Trim the ends; halve lengthwise and slice ⅛ in / 3 mm into half-moons (mini cucumbers: rounds).",
+      detail: "Cut both tips off the cucumber and discard them. For an English cucumber, halve it lengthwise and cut into ⅛-inch (3 mm) slices — thin half-moons. Mini cucumbers just get sliced ⅛ inch (3 mm) into rounds.",
+      tip: "Seedy garden cucumbers: scrape the seeds out with a spoon first, or the salad goes watery.",
+      uses: ["cucumber"], mins: 4 },
+    { comp: "prep", text: "Grate or finely mince the garlic.",
+      detail: "Grate or finely mince the garlic clove and set it aside.",
+      uses: ["garlic"], mins: 1 },
+    { comp: "prep", text: "Finely slice the green onions, whites included.",
+      detail: "Finely slice the green onions, including the whites, discarding the root ends.",
+      uses: ["scallion"], mins: 2 },
+    { comp: "prep", text: "Toast the sesame seeds golden, unless bought toasted; let cool.",
+      detail: "Toast the sesame seeds until golden brown — unless you bought them pre-toasted — and set aside to cool.",
+      uses: ["sesame"], mins: 3 },
+
+    { comp: "dressing", text: "Mix gochugaru, soy, vinegar, sugar, sesame oil and the garlic.",
+      detail: "In a small bowl, mix together the gochugaru, soy sauce, rice vinegar, sugar, toasted sesame oil, and the minced garlic.",
+      uses: ["gochugaru","soy","vinegar","sugar","sesoil"], mins: 2 },
+
+    { comp: "toss", text: "Toss cucumber, green onions, sesame seeds and dressing until every slice is coated.",
+      detail: "In a large bowl, toss together the cucumber, green onions, toasted sesame seeds, and the dressing until every slice of cucumber is coated.",
+      uses: [], mins: 1 },
+    { comp: "toss", text: "Serve now, or let it sit 5–10 min first.",
+      detail: "Serve immediately, or let it sit and marinate for 5 to 10 minutes first.",
+      uses: [], mins: 5, passive: true }
+  ],
+  notes: [
+    "The source's 10 minutes holds if your sesame seeds are already toasted. Toasting raw ones adds a few minutes, and the optional 5–10 minute sit comes on top.",
+    "If the cucumber skins are very tough you can peel them, but low-seed cucumbers stay crunchier with the skin on.",
+    "To make ahead: seed the cucumbers, salt the slices for 15 minutes to draw out water, then rinse and dry with a tea towel. Premix the dressing with the green onions and sesame seeds, and combine when you're ready. In a sealed container it lasts the day, though some water will still come out.",
+    "Once the dressing pulls water from the cucumber, the leftover sauce is good spooned over plain rice."
+  ]
+}
 ];
 
 
@@ -3791,7 +3912,9 @@ const CANON = {
   'glutinous rice':'glutinous_rice','sweet rice flour':'glutinous_rice_flour','dark soy sauce':'dark_soy_sauce',
   'chicken stock':'chicken_stock','scallions':'scallion','cilantro':'cilantro','fish sauce':'fish_sauce',
   'asian chives':'chives','korean hot pepper flakes':'gochugaru','toasted sesame seeds':'sesame_seeds',
-  'potatoes':'potato','minced garlic':'garlic','green chili peppers':'green_chili','corn syrup':'corn_syrup'
+  'potatoes':'potato','minced garlic':'garlic','green chili peppers':'green_chili','corn syrup':'corn_syrup',
+  'korean rice cakes':'rice_cake','korean fish cakes':'eomuk','korean soup stock':'dashi','raw sugar':'sugar',
+  'english cucumber':'cucumber'
 };
 /* What's Cooking? vocabulary. An id it doesn't know rejects the ENTIRE recipe on
    import, so anything unmapped is dropped rather than guessed. These lists also
@@ -3838,6 +3961,8 @@ const NEW_INGREDIENTS = {
   grapes:         { name:"Grapes", category:"Produce", subcategory:"Fruit", side:"fresh" },
   cream_cheese:   { name:"Cream Cheese", category:"Dairy & Eggs", subcategory:"Cheese", side:"fresh" },
   banana:         { name:"Banana", category:"Produce", subcategory:"Fruit", side:"fresh" },
+  rice_cake:      { name:"Korean Rice Cakes (Tteok)", category:"General Asian", subcategory:"Refrigerated", side:"fresh" },
+  eomuk:          { name:"Korean Fish Cake (Eomuk)", category:"Protein", subcategory:"Seafood", side:"fresh", substitutes:["fish_balls"] },
   green_chili:    { name:"Green Chili Pepper (Korean)", category:"Produce", subcategory:"Peppers & Aromatics", side:"fresh", substitutes:["bell_pepper"] },
   // pantry
   glutinous_rice_flour:{ name:"Glutinous Rice Flour", category:"Baking", subcategory:"Flours & Starches", side:"pantry" },
@@ -3899,7 +4024,8 @@ const MEAL_TYPE = {
   "homemade-dumpling-wrappers":"side",         // a component; no better slot in the enum
   "asian-chive-kimchi-buchu-kimchi":"side",    // banchan
   "gamjajorim-koreanbapsang":"side",           // banchan
-  "sigeumchinamul-mykoreankitchen":"side"      // banchan
+  "sigeumchinamul-mykoreankitchen":"side",     // banchan
+  "oimuchim-pupswithchopsticks":"side"         // banchan
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")

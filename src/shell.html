@@ -1364,7 +1364,9 @@ const CANON = {
   'glutinous rice':'glutinous_rice','sweet rice flour':'glutinous_rice_flour','dark soy sauce':'dark_soy_sauce',
   'chicken stock':'chicken_stock','scallions':'scallion','cilantro':'cilantro','fish sauce':'fish_sauce',
   'asian chives':'chives','korean hot pepper flakes':'gochugaru','toasted sesame seeds':'sesame_seeds',
-  'potatoes':'potato','minced garlic':'garlic','green chili peppers':'green_chili','corn syrup':'corn_syrup'
+  'potatoes':'potato','minced garlic':'garlic','green chili peppers':'green_chili','corn syrup':'corn_syrup',
+  'korean rice cakes':'rice_cake','korean fish cakes':'eomuk','korean soup stock':'dashi','raw sugar':'sugar',
+  'english cucumber':'cucumber'
 };
 /* What's Cooking? vocabulary. An id it doesn't know rejects the ENTIRE recipe on
    import, so anything unmapped is dropped rather than guessed. These lists also
@@ -1411,6 +1413,8 @@ const NEW_INGREDIENTS = {
   grapes:         { name:"Grapes", category:"Produce", subcategory:"Fruit", side:"fresh" },
   cream_cheese:   { name:"Cream Cheese", category:"Dairy & Eggs", subcategory:"Cheese", side:"fresh" },
   banana:         { name:"Banana", category:"Produce", subcategory:"Fruit", side:"fresh" },
+  rice_cake:      { name:"Korean Rice Cakes (Tteok)", category:"General Asian", subcategory:"Refrigerated", side:"fresh" },
+  eomuk:          { name:"Korean Fish Cake (Eomuk)", category:"Protein", subcategory:"Seafood", side:"fresh", substitutes:["fish_balls"] },
   green_chili:    { name:"Green Chili Pepper (Korean)", category:"Produce", subcategory:"Peppers & Aromatics", side:"fresh", substitutes:["bell_pepper"] },
   // pantry
   glutinous_rice_flour:{ name:"Glutinous Rice Flour", category:"Baking", subcategory:"Flours & Starches", side:"pantry" },
@@ -1472,7 +1476,8 @@ const MEAL_TYPE = {
   "homemade-dumpling-wrappers":"side",         // a component; no better slot in the enum
   "asian-chive-kimchi-buchu-kimchi":"side",    // banchan
   "gamjajorim-koreanbapsang":"side",           // banchan
-  "sigeumchinamul-mykoreankitchen":"side"      // banchan
+  "sigeumchinamul-mykoreankitchen":"side",     // banchan
+  "oimuchim-pupswithchopsticks":"side"         // banchan
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")

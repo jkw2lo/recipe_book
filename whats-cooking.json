@@ -937,6 +937,61 @@
       ]
     },
     {
+      "name": "Oi Muchim (Korean Cucumber Salad)",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 10,
+      "perishables": [
+        {
+          "id": "cucumber",
+          "mandatory": true
+        },
+        {
+          "id": "scallion",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "garlic",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "mandatory": true
+        },
+        {
+          "id": "gochugaru",
+          "mandatory": true
+        },
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "rice_vinegar",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_oil",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Trim the ends; halve lengthwise and slice ⅛ in / 3 mm into half-moons (mini cucumbers: rounds).",
+        "Grate or finely mince the garlic.",
+        "Finely slice the green onions, whites included.",
+        "Toast the sesame seeds golden, unless bought toasted; let cool.",
+        "Mix gochugaru, soy, vinegar, sugar, sesame oil and the garlic.",
+        "Toss cucumber, green onions, sesame seeds and dressing until every slice is coated.",
+        "Serve now, or let it sit 5–10 min first."
+      ]
+    },
+    {
       "name": "Paratha",
       "mealType": "side",
       "difficulty": "medium",
@@ -1711,6 +1766,76 @@
       ]
     },
     {
+      "name": "Tteokbokki (Spicy Rice Cakes)",
+      "mealType": "meal",
+      "difficulty": "easy",
+      "time": 21,
+      "perishables": [
+        {
+          "id": "rice_cake",
+          "mandatory": true
+        },
+        {
+          "id": "eomuk",
+          "mandatory": true,
+          "substitutes": [
+            "fish_balls"
+          ]
+        },
+        {
+          "id": "scallion",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "gochujang",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "garlic",
+          "mandatory": true
+        },
+        {
+          "id": "gochugaru",
+          "mandatory": true
+        },
+        {
+          "id": "onion",
+          "mandatory": true
+        },
+        {
+          "id": "dashi",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_oil",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Soak the separated rice cakes in warm water 10 min. Do the sauce and prep meanwhile.",
+        "Mix gochujang, sugar, soy, garlic and gochugaru in a bowl.",
+        "Rinse the fish cakes under hot water and cut bite-size; slice the onion; chop the green onion.",
+        "Bring the stock to a boil in a shallow pot over medium-high; stir in the sauce to dissolve.",
+        "Add rice cakes, fish cakes and onion; boil 3–5 min until the rice cakes are cooked through.",
+        "Turn to low and simmer 2–4 min to thicken.",
+        "Stir in sesame oil, sesame seeds and green onion. Serve warm."
+      ]
+    },
+    {
       "name": "Turnip Cake (Lo Bak Go)",
       "mealType": "side",
       "difficulty": "medium",
@@ -2037,6 +2162,16 @@
       "list": "pantry"
     },
     {
+      "id": "eomuk",
+      "name": "Korean Fish Cake (Eomuk)",
+      "category": "Protein",
+      "subcategory": "Seafood",
+      "list": "fresh",
+      "substitutes": [
+        "fish_balls"
+      ]
+    },
+    {
       "id": "espresso_powder",
       "name": "Espresso Powder",
       "category": "Baking",
@@ -2203,6 +2338,13 @@
       "category": "Baking",
       "subcategory": "Sweeteners & Flavor",
       "list": "pantry"
+    },
+    {
+      "id": "rice_cake",
+      "name": "Korean Rice Cakes (Tteok)",
+      "category": "General Asian",
+      "subcategory": "Refrigerated",
+      "list": "fresh"
     },
     {
       "id": "sesame_dressing",
