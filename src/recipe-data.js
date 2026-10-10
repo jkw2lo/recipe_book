@@ -2308,4 +2308,120 @@ const RECIPES = [
     "The source gives no yield or total time, so there's no claimed time to compare."
   ]
 }
+,
+{
+  id: "gamjajorim-koreanbapsang",
+  title: "Gamja Jorim (Braised Potatoes)",
+  source: { site: "Korean Bapsang", url: "https://www.koreanbapsang.com/gamja-jorim-braised-potatoes/", author: "Hyosun" },
+  cuisine: "Korean", tags: ["side", "banchan", "braised", "potato", "vegan", "quick"],
+  servings: { base: 4, unit: "servings", min: 2, max: 12 },
+  time: { active: 12, passive: 0, cook: 16 },
+  claimed: 30,
+  components: [
+    { id: "prep",   label: "Vegetables" },
+    { id: "sauce",  label: "Braising liquid" },
+    { id: "braise", label: "Braise" }
+  ],
+  ingredients: [
+    { key: "potato",  comp: "prep",  name: "Potatoes",              us: { qty: 1.5, unit: "lb" },  metric: { qty: 680, unit: "g" }, note: "about 3 medium" },
+    { key: "carrot",  comp: "prep",  name: "Carrot",                us: { qty: 1, unit: "" },      metric: { qty: 1, unit: "" }, note: "about 3 oz / 85 g" },
+    { key: "chili",   comp: "prep",  name: "Green chili peppers",   us: { qty: 2, unit: "" },      metric: { qty: 2, unit: "" }, note: "2 to 3, to taste; or ½ green bell pepper" },
+    { key: "onion",   comp: "prep",  name: "Onion",                 us: { qty: 0.25, unit: "" },   metric: { qty: 0.25, unit: "" }, note: "medium" },
+
+    { key: "soy",     comp: "sauce", name: "Soy sauce",             us: { qty: 3, unit: "Tbsp" },  metric: { qty: 45, unit: "ml" }, note: "or 2 Tbsp soy sauce + 1 Tbsp gochujang for heat" },
+    { key: "sugar",   comp: "sauce", name: "Sugar",                 us: { qty: 1, unit: "Tbsp" },  metric: { qty: 12.5, unit: "g" } },
+    { key: "wine",    comp: "sauce", name: "Rice wine",             optional: true, us: { qty: 1, unit: "Tbsp" }, metric: { qty: 15, unit: "ml" }, note: "or mirin; leave out if you have neither" },
+    { key: "syrup",   comp: "sauce", name: "Corn syrup",            us: { qty: 1, unit: "Tbsp" },  metric: { qty: 15, unit: "ml" }, note: "or oligodang, or 1 Tbsp more sugar" },
+    { key: "garlic",  comp: "sauce", name: "Minced garlic",         us: { qty: 1, unit: "tsp" },   metric: { qty: 5, unit: "ml" } },
+    { key: "bpepper", comp: "sauce", name: "Black pepper",          scalable: false, us: { qty: 0, unit: "a pinch" }, metric: { qty: 0, unit: "a pinch" } },
+    { key: "water",   comp: "sauce", name: "Water",                 us: { qty: 0.75, unit: "cup" }, metric: { qty: 180, unit: "ml" } },
+
+    { key: "oil",     comp: "braise", name: "Cooking oil",          us: { qty: 1, unit: "Tbsp" },  metric: { qty: 15, unit: "ml" } },
+    { key: "sesoil",  comp: "braise", name: "Sesame oil",           us: { qty: 1, unit: "tsp" },   metric: { qty: 5, unit: "ml" } },
+    { key: "sesame",  comp: "braise", name: "Toasted sesame seeds", us: { qty: 0.5, unit: "tsp" }, metric: { qty: 1.5, unit: "g" } }
+  ],
+  steps: [
+    { comp: "prep", text: "Peel the potatoes and cut into 1-in / 2.5-cm cubes; cut carrot, peppers and onion into big chunks.",
+      detail: "Peel the potatoes and cut them into roughly 1-inch (2.5 cm) cubes. Cut the carrot, green chili peppers, and onion into big chunks.",
+      uses: ["potato","carrot","chili","onion"], mins: 10 },
+
+    { comp: "sauce", text: "Stir together soy, sugar, rice wine, corn syrup, garlic, pepper and water.",
+      detail: "In a small bowl, combine all the braising liquid ingredients — soy sauce, sugar, rice wine, corn syrup, minced garlic, black pepper, and water — and stir well. The sesame oil and seeds go in at the end, not here.",
+      uses: ["soy","sugar","wine","syrup","garlic","bpepper","water"], mins: 2 },
+
+    { comp: "braise", text: "Sauté the potatoes in the oil over medium heat, 4–5 min, stirring now and then.",
+      detail: "In a nonstick pan or a small pot, sauté the potatoes in the cooking oil over medium heat for 4 to 5 minutes, stirring occasionally so they don't stick.",
+      uses: ["oil"], mins: 5 },
+    { comp: "braise", text: "Add the sauce and boil on high; add the carrot, cover, and cook on medium 5–6 min.",
+      detail: "Add the sauce mix and bring it to a boil over high heat. Drop in the carrot pieces, cover, reduce the heat to medium, and cook until the potatoes are almost cooked through, about 5 to 6 minutes depending on the type and size of potato.",
+      tip: "Stop while the potatoes are still firm — they keep softening in the reduction and soak up sauce after they come off the heat.",
+      uses: [], mins: 7 },
+    { comp: "braise", text: "Add the peppers and onion; boil uncovered ~3 min until the sauce reduces and thickens slightly.",
+      detail: "Stir in the green peppers and onion and keep boiling, uncovered this time, until the sauce is reduced and slightly thickened, about 3 minutes.",
+      uses: [], mins: 3 },
+    { comp: "braise", text: "Stir in the sesame oil; sprinkle with sesame seeds.",
+      detail: "Stir in the sesame oil and sprinkle with the toasted sesame seeds.",
+      uses: ["sesoil","sesame"], mins: 1 }
+  ],
+  notes: [
+    "The source's 30 minutes holds up: about 12 minutes of cutting and mixing, then 16 on the stove.",
+    "The vegetables other than the potatoes are only guidelines — it can be made with potatoes alone, or with red or orange bell pepper, scallions, whole garlic cloves or mushrooms instead.",
+    "For heat, swap 1 Tbsp of the soy sauce for gochujang, or add 1–3 tsp gochugaru to taste without changing anything else.",
+    "Served as banchan alongside rice and other side dishes."
+  ]
+}
+,
+{
+  id: "sigeumchinamul-mykoreankitchen",
+  title: "Sigeumchi Namul (Korean Spinach Salad)",
+  source: { site: "My Korean Kitchen", url: "https://mykoreankitchen.com/simply-seasoned-korean-spinach-salad-sigeumchi-namul-version-1/", author: "Sue Pressey" },
+  cuisine: "Korean", tags: ["side", "banchan", "namul", "spinach", "vegan", "quick"],
+  servings: { base: 4, unit: "servings", min: 2, max: 12 },
+  time: { active: 9, passive: 0, cook: 7 },
+  claimed: 15,
+  components: [
+    { id: "blanch", label: "Blanch" },
+    { id: "season", label: "Season" }
+  ],
+  ingredients: [
+    { key: "spinach", comp: "blanch", name: "Spinach",                    us: { qty: 9, unit: "oz" },   metric: { qty: 250, unit: "g" }, note: "English (mature) spinach or baby spinach" },
+    { key: "water",   comp: "blanch", name: "Water, for boiling",         us: { qty: 6, unit: "cups" }, metric: { qty: 1.5, unit: "L" } },
+    { key: "bsalt",   comp: "blanch", name: "Fine sea salt, for the water", us: { qty: 1, unit: "tsp" }, metric: { qty: 6, unit: "g" } },
+
+    { key: "scallion",comp: "season", name: "Green onion, finely chopped", us: { qty: 1, unit: "tsp" },  metric: { qty: 5, unit: "ml" } },
+    { key: "garlic",  comp: "season", name: "Minced garlic",              us: { qty: 0.5, unit: "tsp" }, metric: { qty: 2.5, unit: "ml" } },
+    { key: "ssalt",   comp: "season", name: "Fine sea salt",              us: { qty: 0.25, unit: "tsp" },metric: { qty: 1.5, unit: "g" }, note: "or to taste" },
+    { key: "sesame",  comp: "season", name: "Toasted sesame seeds",       us: { qty: 1, unit: "tsp" },   metric: { qty: 3, unit: "g" } },
+    { key: "sesoil",  comp: "season", name: "Sesame oil",                 us: { qty: 1, unit: "Tbsp" },  metric: { qty: 15, unit: "ml" } }
+  ],
+  steps: [
+    { comp: "blanch", text: "Trim any roots; wash the spinach thoroughly in cold water.",
+      detail: "Trim off the spinach roots, if there are any, and wash the spinach thoroughly in cold water.",
+      tip: "Grit hides where the stems meet on English spinach — change the water if the first wash is sandy.",
+      uses: ["spinach"], mins: 3 },
+    { comp: "blanch", text: "Bring the water to a boil with 1 tsp salt.",
+      detail: "Bring the water to a boil in a pot or saucepan, 5 to 7 minutes, and add 1 teaspoon of salt.",
+      uses: ["water","bsalt"], mins: 6 },
+    { comp: "blanch", text: "Plunge in the spinach; blanch 30 seconds.",
+      detail: "Once the water is boiling, plunge the spinach into the pot and let it cook for 30 seconds.",
+      tip: "Thirty seconds is all it needs — any longer and it turns limp and dull.",
+      uses: [], mins: 1 },
+    { comp: "blanch", text: "Drain; rinse under cold water 1–2 min, then gently squeeze out the water.",
+      detail: "Drain, then rinse the spinach under cold running water for 1 to 2 minutes. Gently squeeze it to remove the excess water.",
+      tip: "Water left in the spinach dilutes the seasoning and pools on the plate.",
+      uses: [], mins: 3 },
+    { comp: "blanch", text: "Cut into 2–3 pieces (skip for baby spinach).",
+      detail: "Cut the squeezed spinach into 2 or 3 pieces with a knife. With baby spinach you can skip this.",
+      uses: [], mins: 1 },
+
+    { comp: "season", text: "Add green onion, garlic, salt, sesame seeds and sesame oil; mix well by hand.",
+      detail: "Add the chopped green onion, minced garlic, salt, toasted sesame seeds, and sesame oil, and mix well with your hands so the seasoning gets between the leaves.",
+      uses: ["scallion","garlic","ssalt","sesame","sesoil"], mins: 2 }
+  ],
+  notes: [
+    "The source's 15 minutes is about right — most of it is waiting for the water to boil.",
+    "Australian measures: this site uses 1 cup = 250 ml and 1 Tbsp = 15 ml, so the 6 cups of water is 1.5 L. The amount only needs to be enough to cover the spinach.",
+    "Serve with a bowl of rice and other banchan for a complete meal; it's also a standard topping for bibimbap and filling for kimbap."
+  ]
+}
 ];

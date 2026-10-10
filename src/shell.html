@@ -1363,7 +1363,8 @@ const CANON = {
   'semi sweet chocolate chips':'dark_chocolate',  // cleanName strips the hyphen before lookup
   'glutinous rice':'glutinous_rice','sweet rice flour':'glutinous_rice_flour','dark soy sauce':'dark_soy_sauce',
   'chicken stock':'chicken_stock','scallions':'scallion','cilantro':'cilantro','fish sauce':'fish_sauce',
-  'asian chives':'chives','korean hot pepper flakes':'gochugaru','toasted sesame seeds':'sesame_seeds'
+  'asian chives':'chives','korean hot pepper flakes':'gochugaru','toasted sesame seeds':'sesame_seeds',
+  'potatoes':'potato','minced garlic':'garlic','green chili peppers':'green_chili','corn syrup':'corn_syrup'
 };
 /* What's Cooking? vocabulary. An id it doesn't know rejects the ENTIRE recipe on
    import, so anything unmapped is dropped rather than guessed. These lists also
@@ -1410,6 +1411,7 @@ const NEW_INGREDIENTS = {
   grapes:         { name:"Grapes", category:"Produce", subcategory:"Fruit", side:"fresh" },
   cream_cheese:   { name:"Cream Cheese", category:"Dairy & Eggs", subcategory:"Cheese", side:"fresh" },
   banana:         { name:"Banana", category:"Produce", subcategory:"Fruit", side:"fresh" },
+  green_chili:    { name:"Green Chili Pepper (Korean)", category:"Produce", subcategory:"Peppers & Aromatics", side:"fresh", substitutes:["bell_pepper"] },
   // pantry
   glutinous_rice_flour:{ name:"Glutinous Rice Flour", category:"Baking", subcategory:"Flours & Starches", side:"pantry" },
   sweet_potato_flour:{ name:"Coarse Sweet Potato Flour", category:"General Asian", subcategory:"Rice, Noodles & Cans", side:"pantry", substitutes:["cornstarch"] },
@@ -1428,6 +1430,7 @@ const NEW_INGREDIENTS = {
   graham_crackers:{ name:"Graham Crackers / Biscuits", category:"Baking", subcategory:"Bakery", side:"pantry" },
   yuzu_juice:     { name:"Yuzu Juice", category:"Japanese", subcategory:"Sauces & Seasoning", side:"pantry" },
   cinnamon:       { name:"Ground Cinnamon", category:"Essentials", subcategory:"Seasonings", side:"pantry" },
+  corn_syrup:     { name:"Corn Syrup / Oligodang", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry", substitutes:["sugar"] },
   walnuts:        { name:"Walnuts or Pecans", category:"Baking", subcategory:"Sweeteners & Flavor", side:"pantry" },
   potato_starch:  { name:"Potato Starch", category:"Baking", subcategory:"Flours & Starches", side:"pantry", substitutes:["cornstarch"] },
   usukuchi_soy_sauce:{ name:"Usukuchi (Light-Colored) Soy Sauce", category:"Japanese", subcategory:"Sauces & Seasoning", side:"pantry", substitutes:["soy_sauce"] },
@@ -1467,7 +1470,9 @@ const MEAL_TYPE = {
   "how-to-make-sticky-rice-foolproof-method":"side",
   "sticky-rice-with-chinese-sausage":"side",   // dim sum
   "homemade-dumpling-wrappers":"side",         // a component; no better slot in the enum
-  "asian-chive-kimchi-buchu-kimchi":"side"     // banchan
+  "asian-chive-kimchi-buchu-kimchi":"side",    // banchan
+  "gamjajorim-koreanbapsang":"side",           // banchan
+  "sigeumchinamul-mykoreankitchen":"side"      // banchan
 };
 
 const cleanName = s => s.toLowerCase().replace(/[éè]/g,'e').replace(/\([^)]*\)/g," ")

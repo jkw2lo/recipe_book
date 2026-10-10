@@ -252,6 +252,82 @@
       ]
     },
     {
+      "name": "Gamja Jorim (Braised Potatoes)",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 28,
+      "perishables": [
+        {
+          "id": "potato",
+          "mandatory": true
+        },
+        {
+          "id": "carrot",
+          "mandatory": true
+        },
+        {
+          "id": "green_chili",
+          "mandatory": true,
+          "substitutes": [
+            "bell_pepper"
+          ]
+        }
+      ],
+      "pantry": [
+        {
+          "id": "onion",
+          "mandatory": true
+        },
+        {
+          "id": "soy_sauce",
+          "mandatory": true
+        },
+        {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "rice_wine",
+          "optional": true
+        },
+        {
+          "id": "corn_syrup",
+          "mandatory": true,
+          "substitutes": [
+            "sugar"
+          ]
+        },
+        {
+          "id": "garlic",
+          "mandatory": true
+        },
+        {
+          "id": "black_pepper",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_oil",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Peel the potatoes and cut into 1-in / 2.5-cm cubes; cut carrot, peppers and onion into big chunks.",
+        "Stir together soy, sugar, rice wine, corn syrup, garlic, pepper and water.",
+        "Sauté the potatoes in the oil over medium heat, 4–5 min, stirring now and then.",
+        "Add the sauce and boil on high; add the carrot, cover, and cook on medium 5–6 min.",
+        "Add the peppers and onion; boil uncovered ~3 min until the sauce reduces and thickens slightly.",
+        "Stir in the sesame oil; sprinkle with sesame seeds."
+      ]
+    },
+    {
       "name": "Green Grape Cheong (포도청)",
       "mealType": "dessert",
       "difficulty": "medium",
@@ -1209,6 +1285,48 @@
       ]
     },
     {
+      "name": "Sigeumchi Namul (Korean Spinach Salad)",
+      "mealType": "side",
+      "difficulty": "easy",
+      "time": 16,
+      "perishables": [
+        {
+          "id": "spinach",
+          "mandatory": true
+        },
+        {
+          "id": "scallion",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "garlic",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_seeds",
+          "mandatory": true
+        },
+        {
+          "id": "sesame_oil",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Trim any roots; wash the spinach thoroughly in cold water.",
+        "Bring the water to a boil with 1 tsp salt.",
+        "Plunge in the spinach; blanch 30 seconds.",
+        "Drain; rinse under cold water 1–2 min, then gently squeeze out the water.",
+        "Cut into 2–3 pieces (skip for baby spinach).",
+        "Add green onion, garlic, salt, sesame seeds and sesame oil; mix well by hand."
+      ]
+    },
+    {
       "name": "Steamed Buns (Mantou)",
       "mealType": "side",
       "difficulty": "medium",
@@ -1870,6 +1988,16 @@
       "list": "pantry"
     },
     {
+      "id": "corn_syrup",
+      "name": "Corn Syrup / Oligodang",
+      "category": "Baking",
+      "subcategory": "Sweeteners & Flavor",
+      "list": "pantry",
+      "substitutes": [
+        "sugar"
+      ]
+    },
+    {
       "id": "cream_cheese",
       "name": "Cream Cheese",
       "category": "Dairy & Eggs",
@@ -1935,6 +2063,16 @@
       "category": "Produce",
       "subcategory": "Fruit",
       "list": "fresh"
+    },
+    {
+      "id": "green_chili",
+      "name": "Green Chili Pepper (Korean)",
+      "category": "Produce",
+      "subcategory": "Peppers & Aromatics",
+      "list": "fresh",
+      "substitutes": [
+        "bell_pepper"
+      ]
     },
     {
       "id": "ground_ginger",
