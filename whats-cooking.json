@@ -122,6 +122,47 @@
       ]
     },
     {
+      "name": "Basic Crêpes",
+      "mealType": "meal",
+      "difficulty": "easy",
+      "time": 29,
+      "perishables": [
+        {
+          "id": "eggs",
+          "mandatory": true
+        }
+      ],
+      "pantry": [
+        {
+          "id": "milk",
+          "mandatory": true
+        },
+        {
+          "id": "salt",
+          "mandatory": true
+        },
+        {
+          "id": "flour",
+          "mandatory": true
+        },
+        {
+          "id": "butter",
+          "mandatory": true
+        },
+        {
+          "id": "cooking_oil",
+          "mandatory": true
+        }
+      ],
+      "instructions": [
+        "Melt the butter. Whisk eggs, milk, water and salt in a large bowl.",
+        "Add flour and melted butter; whisk hard until smooth and pourable.",
+        "Heat a lightly oiled pan or griddle over medium-high.",
+        "Pour in ¼ cup / 60 ml batter and swirl to coat; cook 1–2 min until the top is dry and the base light brown.",
+        "Loosen the edge, flip, and cook ~1 min more. Repeat with the rest."
+      ]
+    },
+    {
       "name": "Chewy Chocolate Chip Cookies",
       "mealType": "dessert",
       "difficulty": "easy",

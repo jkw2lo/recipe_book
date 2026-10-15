@@ -2545,4 +2545,54 @@ const RECIPES = [
     "Once the dressing pulls water from the cucumber, the leftover sauce is good spooned over plain rice."
   ]
 }
+,
+{
+  id: "crepes-allrecipes",
+  title: "Basic Crêpes",
+  source: { site: "Allrecipes", url: "https://www.allrecipes.com/recipe/16383/basic-crepes/", author: "JENNYC819" },
+  cuisine: "French", tags: ["breakfast", "brunch", "pan-fried", "make-ahead", "freezer-friendly"],
+  servings: { base: 8, unit: "crêpes", min: 4, max: 24 },
+  time: { active: 5, passive: 0, cook: 24 },
+  claimed: 30,
+  components: [
+    { id: "batter", label: "Batter" },
+    { id: "cook",   label: "Cook" }
+  ],
+  ingredients: [
+    { key: "eggs",   comp: "batter", name: "Large eggs",        us: { qty: 2, unit: "" },      metric: { qty: 2, unit: "" } },
+    { key: "milk",   comp: "batter", name: "Milk",              us: { qty: 0.5, unit: "cup" }, metric: { qty: 120, unit: "ml" } },
+    { key: "water",  comp: "batter", name: "Water",             us: { qty: 0.5, unit: "cup" }, metric: { qty: 120, unit: "ml" } },
+    { key: "salt",   comp: "batter", name: "Salt",              us: { qty: 0.25, unit: "tsp" },metric: { qty: 1.5, unit: "g" } },
+    { key: "flour",  comp: "batter", name: "All-purpose flour", us: { qty: 1, unit: "cup" },   metric: { qty: 125, unit: "g" } },
+    { key: "butter", comp: "batter", name: "Butter, melted",    us: { qty: 2, unit: "Tbsp" },  metric: { qty: 28, unit: "g" } },
+
+    { key: "oil",    comp: "cook",   name: "Oil, for the pan",  scalable: false, us: { qty: 0, unit: "as needed" }, metric: { qty: 0, unit: "as needed" } }
+  ],
+  steps: [
+    { comp: "batter", text: "Melt the butter. Whisk eggs, milk, water and salt in a large bowl.",
+      detail: "Melt the butter and let it cool a little. Whisk the eggs, milk, water, and salt together in a large mixing bowl.",
+      uses: ["eggs","milk","water","salt"], mins: 2 },
+    { comp: "batter", text: "Add flour and melted butter; whisk hard until smooth and pourable.",
+      detail: "Add the flour and melted butter and whisk vigorously until the batter is smooth and pourable.",
+      tip: "Lumps won't cook out of a batter this thin — keep whisking until they're gone.",
+      uses: ["flour","butter"], mins: 3 },
+
+    { comp: "cook", text: "Heat a lightly oiled pan or griddle over medium-high.",
+      detail: "Heat a lightly oiled griddle or frying pan over medium-high heat.",
+      uses: ["oil"], mins: 2 },
+    { comp: "cook", text: "Pour in ¼ cup / 60 ml batter and swirl to coat; cook 1–2 min until the top is dry and the base light brown.",
+      detail: "Pour or scoop about ¼ cup (60 ml) of batter into the pan and tilt it in a circular motion so the batter coats the surface evenly. Cook until the top is no longer wet and the bottom is light brown, 1 to 2 minutes.",
+      tip: "Use just enough batter to coat the pan thinly — you're making crêpes, not pancakes.",
+      uses: [], mins: 2 },
+    { comp: "cook", text: "Loosen the edge, flip, and cook ~1 min more. Repeat with the rest.",
+      detail: "Run a spatula around the edge of the pan to loosen the crêpe, flip it, and cook until the other side is light brown, about 1 minute more. Repeat with the remaining batter and serve hot.",
+      uses: [], mins: 1 }
+  ],
+  notes: [
+    "The source's 30 minutes holds up: 5 minutes of batter, then about 3 minutes per crêpe, eight of them, one pan at a time.",
+    "To store: stack with wax paper between the crêpes in an airtight container or zip-top bag. They keep in the fridge up to 2 days or the freezer up to 2 months.",
+    "Fillings: whipped cream and fresh fruit or strawberry sauce, chocolate-hazelnut spread, or a drizzle of chocolate syrup; or go savoury with ham and cheese, creamy chicken, or vegetables. Set out a few and let everyone build their own.",
+    "Commenters' tweaks: a little sugar and vanilla in the batter for sweet crêpes; Greek yogurt, honey and blueberries to serve."
+  ]
+}
 ];
