@@ -1,0 +1,38 @@
+{
+  "url": "https://jkw2lo.github.io/recipe_book/",
+  "shots": [
+    {
+      "file": "desktop.png"
+    },
+    {
+      "file": "timing.png",
+      "size": [
+        1100,
+        800
+      ],
+      "scale": 2,
+      "steps": [
+        "click:.card[data-id=tonkatsu-justonecookbook]",
+        "eval:document.getElementById('back').style.display='none'; document.getElementById('d-star').style.visibility='hidden'"
+      ],
+      "clip": "#detail",
+      "pad": 8,
+      "maxHeight": 226
+    },
+    {
+      "file": "steps.png",
+      "size": [
+        1100,
+        800
+      ],
+      "scale": 2,
+      "steps": [
+        "click:.card[data-id=tonkatsu-justonecookbook]",
+        "click:#mode [data-m=eff]"
+      ],
+      "clip": "#view-eff",
+      "pad": 12,
+      "maxHeight": 450
+    }
+  ]
+}

@@ -1,29 +1,77 @@
 {
-  "version": 2,
+  "version": 3,
   "name": "Recipe Book",
   "tagline": "Recipes without the fluff",
   "pitch": "Recipes from any site, without the ads and life stories, and with cooking times that count the waiting.",
   "accent": "#b9532c",
   "status": "Live",
-
   "problem": "Recipe sites bury the recipe, then get the time wrong.",
   "stats": [
-    { "value": "34", "label": "recipes, from 20+ sites" },
-    { "value": "30 → 68", "label": "minutes for tonkatsu: claimed vs. real" },
-    { "value": "3", "label": "times per recipe: hands-on, waiting, cooking" }
+    {
+      "value": "34",
+      "label": "recipes, from 20+ sites"
+    },
+    {
+      "value": "30 → 68",
+      "label": "minutes for tonkatsu: claimed vs. real"
+    },
+    {
+      "value": "3",
+      "label": "times per recipe: hands-on, waiting, cooking"
+    }
   ],
-
   "features": [
-    { "title": "Honest timing", "text": "Hands-on, waiting and cooking time, listed separately." },
-    { "title": "Ingredients at each step", "text": "No scrolling back up to check how much flour." },
-    { "title": "Fits your kitchen", "text": "Any servings, any pan size, US or metric." },
-    { "title": "Step timers", "text": "Tap a step's time to start one. Run several at once." }
+    {
+      "title": "Honest timing",
+      "text": "Every recipe splits its time into hands-on, waiting and cooking.",
+      "details": [
+        "A note flags when the source's total leaves time out",
+        "Sort the book by real total time",
+        "Waiting steps are marked, so you know when you're free"
+      ],
+      "screen": {
+        "src": "timing.png",
+        "alt": "Tonkatsu's time chips: 25 min hands-on, 23 min waiting, 20 min cooking, and a note that the source's 30 minutes is really 1 hr 8 min"
+      }
+    },
+    {
+      "title": "Ingredients at each step",
+      "text": "Efficient view gives one short line per step, with its amounts right beside it.",
+      "details": [
+        "No scrolling back up to check how much flour",
+        "Split into parts (sauce, breading, frying), in the order you make them",
+        "Full view keeps the source's complete instructions"
+      ],
+      "screen": {
+        "src": "steps.png",
+        "alt": "Tonkatsu in Efficient view: numbered steps grouped by part, each with its ingredient amounts and a timer badge"
+      }
+    },
+    {
+      "title": "Fits your kitchen",
+      "text": "Change the servings or pan size and every amount recalculates.",
+      "details": [
+        "Amounts shown as kitchen fractions, like 1/2 cup, not 0.5",
+        "US or metric, one at a time"
+      ]
+    },
+    {
+      "title": "Step timers",
+      "text": "Tap a step's time to start a countdown.",
+      "details": [
+        "Run several at once",
+        "They survive a reload and chime when done",
+        "Cook mode keeps the screen awake"
+      ]
+    }
   ],
-
   "screens": [
-    { "src": "desktop.png", "alt": "Recipe Book's recipe list next to the What's cooking today? picker", "caption": "The book, with today's suggestions" }
+    {
+      "src": "desktop.png",
+      "alt": "Recipe Book's recipe list next to the What's cooking today? picker",
+      "caption": "The book, with today's suggestions"
+    }
   ],
-
   "facts": {
     "worksOn": "Phone and desktop, offline too",
     "data": "Saved in your browser",
