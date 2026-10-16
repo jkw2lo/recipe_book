@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "name": "Recipe Book",
+  "tagline": "Recipes without the fluff",
+  "pitch": "Recipes from any site, cleaned up the same way: no ads or life stories, each ingredient shown at the step that uses it, and cooking times that count the waiting.",
+  "accent": "#b9532c",
+  "status": "Live",
+
+  "problem": {
+    "headline": "Recipe sites bury the recipe, then get the time wrong.",
+    "text": "You scroll past a life story to find the ingredients, scroll back up mid-step to check how much flour, and find out an hour in that \"30 minutes\" left out the chilling. Recipe Book rewrites every recipe so none of that happens."
+  },
+
+  "stats": [
+    { "value": "34", "label": "recipes in the book, from 20+ sites" },
+    { "value": "3", "label": "times per recipe: hands-on, waiting and cooking" },
+    { "value": "30 → 68", "label": "minutes for tonkatsu: what the source says vs. how long it really takes" }
+  ],
+
+  "stepsHeadline": "From \"what should I make?\" to dinner",
+  "steps": [
+    { "title": "Pick a recipe", "text": "Search by name, ingredient or cuisine, or let \"What's cooking today?\" suggest a few." },
+    { "title": "Fit it to your kitchen", "text": "Change the servings or pan size and every amount recalculates. Switch between US and metric." },
+    { "title": "Cook from the steps", "text": "Each step lists the ingredients that go in at that point. Tap its time to start a timer." }
+  ],
+
+  "featuresHeadline": "Built for cooking, not scrolling",
+  "features": [
+    { "title": "Honest timing", "text": "Hands-on, waiting and cooking time listed separately, with a note when the source's total comes up short." },
+    { "title": "Two views", "text": "Full has the complete instructions. Efficient has one short line per step, for recipes you already know." },
+    { "title": "Scaling and pan sizes", "text": "Quantities rescale as real fractions, for any number of servings and the pan you own." },
+    { "title": "Step timers", "text": "Run several at once. They survive a reload and chime when they're done." },
+    { "title": "Cook mode", "text": "Keeps the screen awake while your hands are covered in flour." },
+    { "title": "Add any recipe with AI", "text": "Paste a link, copy the prompt into any AI tool, and paste the result back." }
+  ],
+
+  "screens": [
+    { "src": "desktop.png", "alt": "Recipe Book's recipe list next to the What's cooking today? picker", "caption": "The book, with today's suggestions" }
+  ],
+
+  "facts": {
+    "worksOn": "Phone and desktop, even offline",
+    "data": "Stays in your browser; back it up to a file",
+    "builtWith": "One HTML file, no framework",
+    "started": "September 2026"
+  },
+
+  "ctaHeadline": "Cook something tonight",
+  "ctaText": "Free, in your browser. Nothing to install."
+}
