@@ -2563,15 +2563,17 @@ const RECIPES = [
     { key: "milk",   comp: "batter", name: "Milk",              us: { qty: 0.5, unit: "cup" }, metric: { qty: 120, unit: "ml" } },
     { key: "water",  comp: "batter", name: "Water",             us: { qty: 0.5, unit: "cup" }, metric: { qty: 120, unit: "ml" } },
     { key: "salt",   comp: "batter", name: "Salt",              us: { qty: 0.25, unit: "tsp" },metric: { qty: 1.5, unit: "g" } },
+    { key: "sugar",  comp: "batter", name: "Sugar",             us: { qty: 2, unit: "Tbsp" },  metric: { qty: 25, unit: "g" } },
+    { key: "vanilla",comp: "batter", name: "Vanilla extract",   us: { qty: 1, unit: "tsp" },   metric: { qty: 5, unit: "ml" } },
     { key: "flour",  comp: "batter", name: "All-purpose flour", us: { qty: 1, unit: "cup" },   metric: { qty: 125, unit: "g" } },
     { key: "butter", comp: "batter", name: "Butter, melted",    us: { qty: 2, unit: "Tbsp" },  metric: { qty: 28, unit: "g" } },
 
     { key: "oil",    comp: "cook",   name: "Oil, for the pan",  scalable: false, us: { qty: 0, unit: "as needed" }, metric: { qty: 0, unit: "as needed" } }
   ],
   steps: [
-    { comp: "batter", text: "Melt the butter. Whisk eggs, milk, water and salt in a large bowl.",
-      detail: "Melt the butter and let it cool a little. Whisk the eggs, milk, water, and salt together in a large mixing bowl.",
-      uses: ["eggs","milk","water","salt"], mins: 2 },
+    { comp: "batter", text: "Melt the butter. Whisk eggs, milk, water, salt, sugar and vanilla in a large bowl.",
+      detail: "Melt the butter and let it cool a little. Whisk the eggs, milk, water, salt, sugar, and vanilla together in a large mixing bowl.",
+      uses: ["eggs","milk","water","salt","sugar","vanilla"], mins: 2 },
     { comp: "batter", text: "Add flour and melted butter; whisk hard until smooth and pourable.",
       detail: "Add the flour and melted butter and whisk vigorously until the batter is smooth and pourable.",
       tip: "Lumps won't cook out of a batter this thin — keep whisking until they're gone.",
@@ -2592,7 +2594,7 @@ const RECIPES = [
     "The source's 30 minutes holds up: 5 minutes of batter, then about 3 minutes per crêpe, eight of them, one pan at a time.",
     "To store: stack with wax paper between the crêpes in an airtight container or zip-top bag. They keep in the fridge up to 2 days or the freezer up to 2 months.",
     "Fillings: whipped cream and fresh fruit or strawberry sauce, chocolate-hazelnut spread, or a drizzle of chocolate syrup; or go savoury with ham and cheese, creamy chicken, or vegetables. Set out a few and let everyone build their own.",
-    "Commenters' tweaks: a little sugar and vanilla in the batter for sweet crêpes; Greek yogurt, honey and blueberries to serve."
+    "Sweet crêpes: the 2 Tbsp sugar and 1 tsp vanilla in the batter are a commenters' tweak, not in the original. Leave them out for savoury fillings. Commenters also like Greek yogurt, honey and blueberries to serve."
   ]
 }
 ];

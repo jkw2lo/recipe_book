@@ -142,6 +142,14 @@
           "mandatory": true
         },
         {
+          "id": "sugar",
+          "mandatory": true
+        },
+        {
+          "id": "vanilla_extract",
+          "mandatory": true
+        },
+        {
           "id": "flour",
           "mandatory": true
         },
@@ -155,7 +163,7 @@
         }
       ],
       "instructions": [
-        "Melt the butter. Whisk eggs, milk, water and salt in a large bowl.",
+        "Melt the butter. Whisk eggs, milk, water, salt, sugar and vanilla in a large bowl.",
         "Add flour and melted butter; whisk hard until smooth and pourable.",
         "Heat a lightly oiled pan or griddle over medium-high.",
         "Pour in ¼ cup / 60 ml batter and swirl to coat; cook 1–2 min until the top is dry and the base light brown.",
