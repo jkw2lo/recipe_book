@@ -3218,8 +3218,11 @@ const SORTS = {
   time:    (a, b) => totalOf(a) - totalOf(b) || byName(a, b)
 };
 
+// Search ignores case and accents, so "crepes" finds "Crêpes".
+const fold = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
 function renderLibrary() {
-  const q = $("q").value.trim().toLowerCase();
+  const q = fold($("q").value.trim());
   const goneCount = RECIPES.filter(r => isGone(r.id)).length;
   const showingGone = filter === "gone";
 
@@ -3228,8 +3231,8 @@ function renderLibrary() {
     else if (isGone(r.id)) return false;
     if (filter === "fav" && !store.favs.includes(r.id)) return false;
     if (!q) return true;
-    return [r.title, r.cuisine, r.source.site, ...(r.tags||[]), ...r.ingredients.map(i=>i.name)]
-      .join(" ").toLowerCase().includes(q);
+    return fold([r.title, r.cuisine, r.source.site, ...(r.tags||[]), ...r.ingredients.map(i=>i.name)]
+      .join(" ")).includes(q);
   }).sort(SORTS[store.sort] || byName);
 
   const live = RECIPES.length - goneCount;

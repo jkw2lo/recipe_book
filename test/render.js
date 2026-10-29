@@ -2,7 +2,7 @@
 const fs = require("node:fs"), path = require("node:path");
 const { open, runner, VOCAB, ROOT } = require("./helper");
 const t = runner("render + export");
-const { $, $$, click, w } = open();
+const { $, $$, click, type, w } = open();
 
 t.section("library");
 const cards = $$(".card");
@@ -11,6 +11,15 @@ t.eq(cards.every(c => c.querySelector(".meta") && c.querySelector(".src")), true
      "every card keeps its meta and source inside");
 t.eq($$("button button, button a, [role=button] [role=button]").length, 0,
      "no interactive element nested in another");
+
+t.section("search");
+const titles = () => $$(".card").map(c => c.textContent);
+type($("#q"), "crepes");
+t.eq(titles().some(x => x.includes("Basic Crêpes")), true, "unaccented query finds Crêpes");
+type($("#q"), "CRÊPES");
+t.eq(titles().some(x => x.includes("Basic Crêpes")), true, "accented, upper-case query too");
+type($("#q"), "");
+t.eq($$(".card").length, cards.length, "clearing the search shows everything again");
 
 t.section("meal-picker export");
 click($("#dl-picker"));
