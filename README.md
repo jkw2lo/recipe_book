@@ -133,4 +133,4 @@ requested on press and released on leaving the recipe.
 
 ## Licence
 
-MIT.
+[MIT](LICENSE) © 2026 Jennifer Lo.
